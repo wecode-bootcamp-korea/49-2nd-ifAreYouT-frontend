@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# 49-3rd-ifAreYouT-Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_프로젝트 소개는 아래를 참고해서 자유롭게 작성해주세요._ <br>
+_그대로 따라서 작성하면, 다른 프로젝트와 획일화 되어서 특별해보이지 않습니다. 나만의 언어로 나의 소중한 프로젝트를 특별하게 설명해주세요_
 
-## Available Scripts
+## ifAreYouT 프로젝트 Front-end/Back-end 소개
 
-In the project directory, you can run:
+- 티켓팅 서비스 프로젝트
+- 추후 작성 예정
 
-### `npm start`
+### 개발 인원 및 기간
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 개발기간 : 2023/10/09 ~ 2023/10/27
+- 개발 인원 : 프론트엔드 3명, 백엔드 5명
+- [백엔드 github 링크](추후 작성 예정)
+- [프론트엔드 github 링크](추후 작성 예정)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 프로젝트 선정이유
 
-### `npm test`
+- 추후 작성 예정
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 데모 영상(이미지 클릭)
 
-### `npm run build`
+[데모영상](추후 작성 예정)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 적용 기술 및 구현 기능
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 적용 기술
 
-### `npm run eject`
+(추후 수정 예정)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> - Front-End : React.js, sass
+> - Back-End : Node.js, express.js, typeORM, bcrypt, JWT, MySQL
+> - Common : RESTful API
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### convention
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+파일명은 PascalCase를 따릅니다.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+import 순서
+1.Hook
+2.components
+3.variable
+4.scss
+순으로 import합니다.
 
-## Learn More
+변수명에 따른 네이밍 규칙
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#기본적으로는 camelCase를 따르지만 .env등 부득이하게 대문자로 export 해야할 경우에는 명사 사이에 \_ 를 사용하여 SNAKE_CASE를 사용합니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### scss ,css
 
-### Code Splitting
+className은 camelCase를 따릅니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+css 속성 선언 순서는 Daum Site css 속성 선언 순서를 따릅니다.
+<https://uxkm.io/publishing/css/03-cssMiddleclass/10-css_attr_rule#gsc.tab=0>
 
-### Analyzing the Bundle Size
+### branch
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+브랜치 이름은 기능 및 컴포넌트로 명합니다.
 
-### Making a Progressive Web App
+feature/기능요약
+ex) feature/Login, feature/Main
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+깃 PR시 commit mesaage
 
-### Advanced Configuration
+// commit 메시지는 아래와 같이 나눠 작성합니다.
+[feat] 제목 // 기능 추가
+[fix] 제목 // 버그 수정
+[refact] 제목 // 리팩토링
+[style] 제목 // UI 수정
+[etc] 제목 // 기타 수정 사항
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br/>
+- 실무수준의 프로젝트이지만 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.
+- 이 프로젝트에서 사용하고 있는 사진 대부분은 위코드에서 구매한 것이므로 해당 프로젝트 외부인이 사용할 수 없습니다.
