@@ -6,7 +6,6 @@ const Order = () => {
   const [seatData, setSeatData] = useState([]);
   const [concertHall, setConcertHall] = useState({});
   const [isSelected, setIsSelected] = useState(Array(600).fill(false));
-  const [selectedSeat, setSelectedSeat] = useState([]);
 
   useEffect(() => {
     setSeatData(seatMockData.seats);
@@ -17,15 +16,18 @@ const Order = () => {
     const buttonState = [...isSelected];
     buttonState[idx] = !buttonState[idx];
     setIsSelected(buttonState);
+  };
 
+  const selectedSeat = (() => {
     const chooseSeat = [];
-    buttonState.forEach((val, idx) => {
+    isSelected.forEach((val, idx) => {
       if (val) {
         chooseSeat.push(idx);
       }
     });
-    setSelectedSeat(chooseSeat);
-  };
+    return chooseSeat;
+  })(isSelected);
+
   if (seatData.length === 0) {
     return null;
   }
