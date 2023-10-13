@@ -70,17 +70,15 @@ const Order = () => {
               {seatData.map((seatInfo, idx) => {
                 const { seatId, status, seatGrade } = seatInfo;
                 const { grade } = seatGrade;
-                const selectColor = isSelected[idx] ? '#e50815' : '';
+                const selectColor = isSelected[idx] ? 'red' : grade;
+                const buttonColor = status ? selectColor : 'black';
 
                 return (
                   <input
-                    className={`seat ${grade}`}
+                    className={`seat ${buttonColor}`}
                     key={seatId}
                     type="Button"
                     onClick={() => handleClick(idx)}
-                    style={{
-                      backgroundColor: `${status ? selectColor : 'black'}`,
-                    }}
                     disabled={!status}
                   />
                 );
