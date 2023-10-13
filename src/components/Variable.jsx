@@ -1,4 +1,5 @@
 export const seatMockData = (() => {
+  const concertHall = { row: 20, column: 30 };
   const details = [
     {
       grade: 'A',
@@ -31,5 +32,5 @@ export const seatMockData = (() => {
     }
     return seat;
   })();
-  return { details, seats };
+  return { concertHall, seats };
 })();

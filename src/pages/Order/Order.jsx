@@ -4,11 +4,13 @@ import './Order.scss';
 
 const Order = () => {
   const [seatData, setSeatData] = useState([]);
+  const [concertHall, setConcertHall] = useState({});
   const [isSelected, setIsSelected] = useState(Array(600).fill(false));
   const [selectedSeat, setSelectedSeat] = useState([]);
 
   useEffect(() => {
     setSeatData(seatMockData.seats);
+    setConcertHall(seatMockData.concertHall);
   }, []);
 
   const handleClick = idx => {
@@ -41,7 +43,7 @@ const Order = () => {
           <div className="seatTable">
             <div />
             <div className="seatColumn">
-              {Array(30)
+              {Array(concertHall.column)
                 .fill(1)
                 .map((val, idx) => {
                   return (
@@ -52,7 +54,7 @@ const Order = () => {
                 })}
             </div>
             <div className="seatRow">
-              {Array(20)
+              {Array(concertHall.row)
                 .fill(1)
                 .map((val, idx) => {
                   return (
