@@ -40,7 +40,7 @@ const Order = () => {
         <div className="gradeInfo" />
         <div className="concertHall">
           <div className="stage">
-            <div>STAGE</div>
+            <div className="text">STAGE</div>
           </div>
           <div className="seatTable">
             <div />

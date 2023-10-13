@@ -41,17 +41,18 @@
 
       .stage {
         @include flexCenter;
-      }
-      .stage div {
-        @include flexCenter;
-        width: 90%;
-        height: 80%;
-        margin-left: 2%;
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
-        font-weight: 700;
-        font-size: 1.4rem;
-        background-color: beige;
+
+        .text {
+          @include flexCenter;
+          width: 90%;
+          height: 80%;
+          margin-left: 2%;
+          border-bottom-left-radius: 50px;
+          border-bottom-right-radius: 50px;
+          font-weight: 700;
+          font-size: 1.4rem;
+          background-color: beige;
+        }
       }
 
       .seatTable {
@@ -93,30 +94,33 @@
             width: 19px;
             height: 19px;
             border: 1px solid black;
-          }
 
-          .A {
-            background-color: rgb(242, 159, 6);
-            &:hover {
-              background-color: rgb(242, 159, 6, 0.7);
+            &.A {
+              background-color: rgb(242, 159, 6);
+              &:hover {
+                background-color: rgb(242, 159, 6, 0.7);
+              }
             }
-          }
-          .B {
-            background-color: rgba(102, 51, 153);
-            &:hover {
-              background-color: rgba(102, 51, 153, 0.7);
+
+            &.B {
+              background-color: rgba(102, 51, 153);
+              &:hover {
+                background-color: rgba(102, 51, 153, 0.7);
+              }
             }
-          }
-          .C {
-            background-color: #4682b4;
-            &:hover {
-              background-color: rgba(70, 130, 180, 0.7);
+
+            &.C {
+              background-color: rgba(70, 130, 180);
+              &:hover {
+                background-color: rgba(70, 130, 180, 0.7);
+              }
             }
-          }
-          .D {
-            background-color: #999999;
-            &:hover {
-              background-color: rgba(153, 153, 153, 0.7);
+
+            &.D {
+              background-color: rgba(153, 153, 153);
+              &:hover {
+                background-color: rgba(153, 153, 153, 0.7);
+              }
             }
           }
         }
