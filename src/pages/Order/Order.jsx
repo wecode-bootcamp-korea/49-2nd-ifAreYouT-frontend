@@ -4,17 +4,26 @@ import './Order.scss';
 
 const Order = () => {
   const [seatData, setSeatData] = useState([]);
-  const [selected, setSelected] = useState(Array(600).fill(false));
+  const [isSelected, setIsSelected] = useState(Array(600).fill(false));
+  const [selectedSeat, setSelectedSeat] = useState([]);
+
   useEffect(() => {
     setSeatData(seatMockData.seats);
   }, []);
 
   const handleClick = idx => {
-    const buttonState = [...selected];
+    const buttonState = [...isSelected];
     buttonState[idx] = !buttonState[idx];
-    setSelected(buttonState);
-  };
+    setIsSelected(buttonState);
 
+    const chooseSeat = [];
+    buttonState.forEach((val, idx) => {
+      if (val) {
+        chooseSeat.push(idx);
+      }
+    });
+    setSelectedSeat(chooseSeat);
+  };
   if (seatData.length === 0) {
     return null;
   }
@@ -57,7 +66,7 @@ const Order = () => {
               {seatData.map((seatInfo, idx) => {
                 const { seatId, status, seatGrade } = seatInfo;
                 const { grade } = seatGrade;
-                const selectColor = selected[idx] ? '#e50815' : '';
+                const selectColor = isSelected[idx] ? '#e50815' : '';
 
                 return (
                   <input
@@ -75,7 +84,31 @@ const Order = () => {
             </div>
           </div>
         </div>
-        <div className="paymentInfo" />
+        <div className="selectSeatInfo">
+          <div className="selectSeatList">
+            {selectedSeat.map(val => {
+              return (
+                <div className="selectSeat" key={val}>
+                  {seatData[val].name} :{' '}
+                  {seatData[val].seatGrade.price.toLocaleString()}원
+                </div>
+              );
+            })}
+          </div>
+          <div className="totalPrice">
+            총금액 :{' '}
+            {selectedSeat
+              .reduce(
+                (acc, cur) => acc + Number(seatData[cur].seatGrade.price),
+                0,
+              )
+              .toLocaleString()}
+            원
+          </div>
+          <div className="goToPayment">
+            <button className="goToPaymentButton">결제하러가기</button>
+          </div>
+        </div>
         <div className="orderFooter">주문 / 좌석 선택</div>
         <div className="orderFooter">결제 단계</div>
       </div>
