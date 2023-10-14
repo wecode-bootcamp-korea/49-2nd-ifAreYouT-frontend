@@ -31,7 +31,6 @@ const Order = () => {
   }
 
   const grade = [...new Set(seatData.map(val => val.seatGrade))];
-
   const column = new Set(seatData.map(val => val.name.split('-')[1])).size;
   const row = new Set(seatData.map(val => val.name[0])).size;
   const totalPrice = selectedSeat
@@ -80,7 +79,7 @@ const Order = () => {
                   );
                 })}
             </div>
-            <div className="seatList">
+            <div className={`seatList column${column} row${row}`}>
               {seatData.map((seatInfo, idx) => {
                 const { seatId, status, seatGrade } = seatInfo;
                 const { grade } = seatGrade;
