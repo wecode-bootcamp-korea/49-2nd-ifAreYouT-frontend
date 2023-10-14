@@ -20,7 +20,7 @@
       border-top-right-radius: 20px;
       font-weight: 500;
       font-size: 1.2rem;
-      background-color: $Brown;
+      background-color: $Red;
       color: white;
     }
 
@@ -30,7 +30,13 @@
       color: white;
     }
 
-    .gradeInfo {
+    .gradeInfoBox {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+      padding: 7px;
+      background-color: $Gray33;
     }
 
     .concertHall {
@@ -107,28 +113,28 @@
               background-color: $Black;
             }
 
-            &.gradeA {
+            &.gradeSR {
               background-color: rgb(242, 159, 6);
               &:hover {
                 background-color: rgb(242, 159, 6, 0.7);
               }
             }
 
-            &.gradeB {
+            &.gradeR {
               background-color: rgba(102, 51, 153);
               &:hover {
                 background-color: rgba(102, 51, 153, 0.7);
               }
             }
 
-            &.gradeC {
+            &.gradeS {
               background-color: rgba(70, 130, 180);
               &:hover {
                 background-color: rgba(70, 130, 180, 0.7);
               }
             }
 
-            &.gradeD {
+            &.gradeA {
               background-color: rgba(153, 153, 153);
               &:hover {
                 background-color: rgba(153, 153, 153, 0.7);
@@ -141,9 +147,14 @@
 
     .selectSeatInfo {
       display: grid;
-      grid-template-rows: 3fr 1fr 1fr;
-      margin-top: 70px;
+      grid-template-rows: 1fr 3fr 1fr 1fr;
       background-color: $Gray33;
+
+      .text {
+        @include flexCenter;
+        font-size: 2rem;
+        color: white;
+      }
 
       .selectSeatList {
         padding: 20px;

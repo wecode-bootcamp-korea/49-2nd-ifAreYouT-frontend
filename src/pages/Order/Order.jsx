@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import GradeInfo from '../../components/Order/GradeInfo/GradeInfo';
 import { seatMockData } from '../../components/Variable';
 import './Order.scss';
 
@@ -42,13 +43,9 @@ const Order = () => {
       <div className="orderContainer">
         <div className="orderHeader">주문/좌석 선택</div>
         <div className="productInfo">장소 : 테헤란로</div>
-        <div className="gradeInfo">
+        <div className="gradeInfoBox">
           {grade.map((val, idx) => {
-            return (
-              <div key={idx}>
-                {val.grade} : {val.price}
-              </div>
-            );
+            return <GradeInfo key={idx} value={val} />;
           })}
         </div>
         <div className="concertHall">
@@ -102,6 +99,7 @@ const Order = () => {
           </div>
         </div>
         <div className="selectSeatInfo">
+          <div className="text">선택 좌석</div>
           <div className="selectSeatList">
             {selectedSeat.map(val => {
               return (
