@@ -4,44 +4,54 @@ import './Order.scss';
 
 const Order = () => {
   const [seatData, setSeatData] = useState([]);
-  const [concertHall, setConcertHall] = useState({});
-  const [isSelected, setIsSelected] = useState(Array(600).fill(false));
+  const [selected, setSelected] = useState(Array(600).fill(false));
 
   useEffect(() => {
     setSeatData(seatMockData.seats);
-    setConcertHall(seatMockData.concertHall);
   }, []);
 
   const handleClick = idx => {
-    const buttonState = [...isSelected];
+    const buttonState = [...selected];
     buttonState[idx] = !buttonState[idx];
-    setIsSelected(buttonState);
+    setSelected(buttonState);
   };
 
   const selectedSeat = (() => {
     const chooseSeat = [];
-    isSelected.forEach((val, idx) => {
+    selected.forEach((val, idx) => {
       if (val) {
         chooseSeat.push(idx);
       }
     });
     return chooseSeat;
-  })(isSelected);
-
-  const totalPrice = selectedSeat
-    .reduce((acc, cur) => acc + Number(seatData[cur].seatGrade.price), 0)
-    .toLocaleString();
+  })(selected);
 
   if (seatData.length === 0) {
     return null;
   }
+
+  const grade = [...new Set(seatData.map(val => val.seatGrade))];
+
+  const column = new Set(seatData.map(val => val.name.split('-')[1])).size;
+  const row = new Set(seatData.map(val => val.name[0])).size;
+  const totalPrice = selectedSeat
+    .reduce((acc, cur) => acc + Number(seatData[cur].seatGrade.price), 0)
+    .toLocaleString();
 
   return (
     <div className="order">
       <div className="orderContainer">
         <div className="orderHeader">주문/좌석 선택</div>
         <div className="productInfo">장소 : 테헤란로</div>
-        <div className="gradeInfo" />
+        <div className="gradeInfo">
+          {grade.map((val, idx) => {
+            return (
+              <div key={idx}>
+                {val.grade} : {val.price}
+              </div>
+            );
+          })}
+        </div>
         <div className="concertHall">
           <div className="stage">
             <div className="text">STAGE</div>
@@ -49,7 +59,7 @@ const Order = () => {
           <div className="seatTable">
             <div />
             <div className="seatColumn">
-              {Array(concertHall.column)
+              {Array(column)
                 .fill(1)
                 .map((val, idx) => {
                   return (
@@ -60,7 +70,7 @@ const Order = () => {
                 })}
             </div>
             <div className="seatRow">
-              {Array(concertHall.row)
+              {Array(row)
                 .fill(1)
                 .map((val, idx) => {
                   return (
@@ -74,7 +84,7 @@ const Order = () => {
               {seatData.map((seatInfo, idx) => {
                 const { seatId, status, seatGrade } = seatInfo;
                 const { grade } = seatGrade;
-                const selectColor = isSelected[idx]
+                const selectColor = selected[idx]
                   ? 'selected'
                   : `grade${grade}`;
                 const buttonColor = status ? selectColor : 'reserved';
