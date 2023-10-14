@@ -28,6 +28,10 @@ const Order = () => {
     return chooseSeat;
   })(isSelected);
 
+  const totalPrice = selectedSeat
+    .reduce((acc, cur) => acc + Number(seatData[cur].seatGrade.price), 0)
+    .toLocaleString();
+
   if (seatData.length === 0) {
     return null;
   }
@@ -70,8 +74,10 @@ const Order = () => {
               {seatData.map((seatInfo, idx) => {
                 const { seatId, status, seatGrade } = seatInfo;
                 const { grade } = seatGrade;
-                const selectColor = isSelected[idx] ? 'red' : grade;
-                const buttonColor = status ? selectColor : 'black';
+                const selectColor = isSelected[idx]
+                  ? 'selected'
+                  : `grade${grade}`;
+                const buttonColor = status ? selectColor : 'reserved';
 
                 return (
                   <input
@@ -97,16 +103,7 @@ const Order = () => {
               );
             })}
           </div>
-          <div className="totalPrice">
-            총금액 :{' '}
-            {selectedSeat
-              .reduce(
-                (acc, cur) => acc + Number(seatData[cur].seatGrade.price),
-                0,
-              )
-              .toLocaleString()}
-            원
-          </div>
+          <div className="totalPrice">총금액 : {totalPrice}원</div>
           <div className="goToPayment">
             <button className="goToPaymentButton">결제하러가기</button>
           </div>

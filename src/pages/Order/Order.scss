@@ -95,36 +95,36 @@
             height: 19px;
             border: 1px solid black;
 
-            &.red {
+            &.selected {
               background-color: $Red;
             }
 
-            &.black {
+            &.reserved {
               background-color: $Black;
             }
 
-            &.A {
+            &.gradeA {
               background-color: rgb(242, 159, 6);
               &:hover {
                 background-color: rgb(242, 159, 6, 0.7);
               }
             }
 
-            &.B {
+            &.gradeB {
               background-color: rgba(102, 51, 153);
               &:hover {
                 background-color: rgba(102, 51, 153, 0.7);
               }
             }
 
-            &.C {
+            &.gradeC {
               background-color: rgba(70, 130, 180);
               &:hover {
                 background-color: rgba(70, 130, 180, 0.7);
               }
             }
 
-            &.D {
+            &.gradeD {
               background-color: rgba(153, 153, 153);
               &:hover {
                 background-color: rgba(153, 153, 153, 0.7);
