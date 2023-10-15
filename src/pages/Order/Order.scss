@@ -9,35 +9,9 @@
   .orderContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 3fr 12fr 4fr;
+    grid-template-rows: 1fr 3fr 1fr;
     width: 1000px;
     height: 800px;
-
-    .orderHeader {
-      @include flexCenter;
-      grid-column: span 4;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      font-weight: 500;
-      font-size: 1.2rem;
-      background-color: $Red;
-      color: white;
-    }
-
-    .productInfo {
-      grid-column: span 3;
-      background-color: $Gray33;
-      color: white;
-    }
-
-    .gradeInfoBox {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 3px;
-      padding: 7px;
-      background-color: $Gray33;
-    }
 
     .concertHall {
       display: grid;
@@ -107,6 +81,10 @@
 
             &.selected {
               background-color: $Red;
+              &:hover {
+                background-color: rgba(229, 8, 21, 0.7);
+                cursor: pointer;
+              }
             }
 
             &.reserved {
@@ -117,6 +95,7 @@
               background-color: rgb(242, 159, 6);
               &:hover {
                 background-color: rgb(242, 159, 6, 0.7);
+                cursor: pointer;
               }
             }
 
@@ -124,6 +103,7 @@
               background-color: rgba(102, 51, 153);
               &:hover {
                 background-color: rgba(102, 51, 153, 0.7);
+                cursor: pointer;
               }
             }
 
@@ -131,6 +111,7 @@
               background-color: rgba(70, 130, 180);
               &:hover {
                 background-color: rgba(70, 130, 180, 0.7);
+                cursor: pointer;
               }
             }
 
@@ -138,6 +119,7 @@
               background-color: rgba(153, 153, 153);
               &:hover {
                 background-color: rgba(153, 153, 153, 0.7);
+                cursor: pointer;
               }
             }
           }
@@ -157,7 +139,9 @@
       }
 
       .selectSeatList {
+        margin: 10px;
         padding: 20px;
+        border: 2px solid white;
         font-size: 1.1rem;
 
         .selectSeat {
@@ -185,6 +169,7 @@
           color: white;
           &:hover {
             background-color: rgba(229, 8, 21, 0.7);
+            cursor: pointer;
           }
         }
       }

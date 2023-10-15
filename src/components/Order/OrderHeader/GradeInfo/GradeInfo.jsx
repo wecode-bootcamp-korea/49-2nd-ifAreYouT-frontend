@@ -5,7 +5,7 @@ const GradeInfo = ({ value }) => {
   return (
     <div className="gradeInfo">
       <div className={`gradeBox grade${grade}`} />
-      {grade} : {price.toLocaleString()}원
+      {grade}석 {price.toLocaleString()}원
     </div>
   );
 };

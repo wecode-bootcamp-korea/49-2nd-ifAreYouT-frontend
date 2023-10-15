@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import GradeInfo from '../../components/Order/GradeInfo/GradeInfo';
+import OrderHeader from '../../components/Order/OrderHeader/OrderHeader';
 import { seatMockData } from '../../components/Variable';
 import './Order.scss';
 
@@ -41,13 +41,7 @@ const Order = () => {
   return (
     <div className="order">
       <div className="orderContainer">
-        <div className="orderHeader">주문/좌석 선택</div>
-        <div className="productInfo">장소 : 테헤란로</div>
-        <div className="gradeInfoBox">
-          {grade.map((val, idx) => {
-            return <GradeInfo key={idx} value={val} />;
-          })}
-        </div>
+        <OrderHeader grade={grade} />
         <div className="concertHall">
           <div className="stage">
             <div className="text">STAGE</div>

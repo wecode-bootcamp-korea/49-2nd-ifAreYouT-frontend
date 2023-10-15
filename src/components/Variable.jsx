@@ -21,11 +21,12 @@ export const seatMockData = (() => {
     const seat = [];
     for (let i = 0; i < 20; i++) {
       for (let j = 1; j <= 30; j++) {
+        const seatId = i * 30 + j;
         seat.push({
-          seatId: j + i * 30,
+          seatId,
           name: `${String.fromCharCode(i + 65)}-${j}`,
           status: true,
-          seatGrade: details[Math.ceil((i * 30 + j) / 150) - 1],
+          seatGrade: details[Math.ceil(seatId / 150) - 1],
         });
       }
     }

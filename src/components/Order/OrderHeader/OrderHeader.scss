@@ -1,0 +1,33 @@
+@import '/src/styles/mixin.scss';
+
+.orderHeader {
+  display: grid;
+  grid-column: span 4;
+  grid-row: span 1;
+
+  .orderStep {
+    @include flexCenter;
+    grid-column: span 4;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    background-color: $Red;
+    color: white;
+  }
+
+  .productInfo {
+    grid-column: span 3;
+    background-color: $Gray33;
+    color: white;
+  }
+
+  .gradeInfoBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    padding: 7px;
+    background-color: $Gray33;
+  }
+}
