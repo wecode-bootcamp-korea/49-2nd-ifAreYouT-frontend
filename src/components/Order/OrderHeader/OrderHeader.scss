@@ -2,12 +2,14 @@
 
 .orderHeader {
   display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 3fr;
   grid-column: span 4;
   grid-row: span 1;
 
   .orderStep {
     @include flexCenter;
-    grid-column: span 4;
+    grid-column: span 2;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     font-weight: 500;
@@ -17,7 +19,7 @@
   }
 
   .productInfo {
-    grid-column: span 3;
+    grid-column: span 1;
     background-color: $Gray33;
     color: white;
   }
@@ -25,7 +27,6 @@
   .gradeInfoBox {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 3px;
     padding: 7px;
     background-color: $Gray33;
