@@ -16,12 +16,10 @@ const Order = () => {
     return null;
   }
 
-  const grade = [...new Set(seatData.map(val => val.seatGrade))];
-
   return (
     <div className="order">
       <div className="orderContainer">
-        <OrderHeader grade={grade} />
+        <OrderHeader seatData={seatData} />
         <OrderMain
           seatData={seatData}
           selected={selected}

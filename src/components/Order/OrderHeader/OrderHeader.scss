@@ -19,7 +19,6 @@
 
   .productInfo {
     grid-column: span 1;
-    background-color: $Gray33;
     color: white;
   }
 
@@ -28,6 +27,5 @@
     flex-direction: column;
     gap: 3px;
     padding: 7px;
-    background-color: $Gray33;
   }
 }

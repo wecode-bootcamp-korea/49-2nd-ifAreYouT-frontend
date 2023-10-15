@@ -1,7 +1,8 @@
 import GradeInfo from './GradeInfo/GradeInfo';
 import './OrderHeader.scss';
 
-const OrderHeader = ({ grade }) => {
+const OrderHeader = ({ seatData }) => {
+  const grade = [...new Set(seatData.map(val => val.seatGrade))];
   return (
     <header className="orderHeader">
       <div className="orderStep">주문/좌석 선택</div>
