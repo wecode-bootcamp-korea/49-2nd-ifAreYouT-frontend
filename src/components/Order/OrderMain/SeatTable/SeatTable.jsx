@@ -11,7 +11,7 @@ const SeatTable = ({ seatData, selected, setSelected }) => {
   return (
     <div className="seatTable">
       <div />
-      <div className="seatColumn">
+      <div className={`seatColumn${column}`}>
         {Array(column)
           .fill(1)
           .map((val, idx) => {
@@ -22,7 +22,7 @@ const SeatTable = ({ seatData, selected, setSelected }) => {
             );
           })}
       </div>
-      <div className="seatRow">
+      <div className={`seatRow${row}`}>
         {Array(row)
           .fill(1)
           .map((val, idx) => {
