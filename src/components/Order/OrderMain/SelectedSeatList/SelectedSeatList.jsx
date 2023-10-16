@@ -1,15 +1,16 @@
 import './SelectedSeatList.scss';
 
-const SelectedSeatList = ({ seatData, selected }) => {
+const SelectedSeatList = ({ seatData }) => {
   const selectedSeat = (() => {
     const chooseSeat = [];
-    selected.forEach((val, idx) => {
-      if (val) {
+    seatData.forEach((val, idx) => {
+      const { status } = val;
+      if (status === 'selected') {
         chooseSeat.push(idx);
       }
     });
     return chooseSeat;
-  })(selected);
+  })(seatData);
   return (
     <div className="selectedSeatList">
       {selectedSeat.map(val => {

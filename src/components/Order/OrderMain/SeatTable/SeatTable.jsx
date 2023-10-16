@@ -1,10 +1,14 @@
 import './SeatTable.scss';
 
-const SeatTable = ({ seatData, selected, setSelected }) => {
+const SeatTable = ({ seatData, setSeatData }) => {
   const handleClick = idx => {
-    const buttonState = [...selected];
-    buttonState[idx] = !buttonState[idx];
-    setSelected(buttonState);
+    const buttonState = [...seatData];
+    if (buttonState[idx].status === 'available') {
+      buttonState[idx].status = 'selected';
+    } else if (buttonState[idx].status === 'selected') {
+      buttonState[idx].status = 'available';
+    }
+    setSeatData(buttonState);
   };
   const column = new Set(seatData.map(val => val.name.split('-')[1])).size;
   const row = new Set(seatData.map(val => val.name[0])).size;
@@ -37,8 +41,12 @@ const SeatTable = ({ seatData, selected, setSelected }) => {
         {seatData.map((seatInfo, idx) => {
           const { seatId, status, seatGrade } = seatInfo;
           const { grade } = seatGrade;
-          const selectColor = selected[idx] ? 'selected' : `grade${grade}`;
-          const buttonColor = status ? selectColor : 'reserved';
+          const selectColor =
+            status === 'selected' ? 'selected' : `grade${grade}`;
+          const buttonColor =
+            status === 'reserved' || status === 'booking'
+              ? 'reserved'
+              : selectColor;
 
           return (
             <input

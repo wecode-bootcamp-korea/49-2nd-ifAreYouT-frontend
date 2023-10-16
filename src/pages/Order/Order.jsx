@@ -7,7 +7,6 @@ import './Order.scss';
 
 const Order = () => {
   const [seatData, setSeatData] = useState([]);
-  const [selected, setSelected] = useState(Array(600).fill(false));
 
   useEffect(() => {
     setSeatData(seatMockData.seats);
@@ -21,11 +20,7 @@ const Order = () => {
     <div className="order">
       <div className="orderContainer">
         <OrderHeader seatData={seatData} />
-        <OrderMain
-          seatData={seatData}
-          selected={selected}
-          setSelected={setSelected}
-        />
+        <OrderMain seatData={seatData} setSeatData={setSeatData} />
         <OrderFooter />
       </div>
     </div>

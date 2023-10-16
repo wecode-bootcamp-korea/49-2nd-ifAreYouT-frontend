@@ -24,7 +24,7 @@ const seats = (() => {
       seat.push({
         seatId,
         name: `${String.fromCharCode(i + 65)}-${j}`,
-        status: true,
+        status: 'available',
         seatGrade: details[Math.ceil(seatId / 150) - 1],
       });
     }

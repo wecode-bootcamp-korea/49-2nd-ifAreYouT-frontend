@@ -3,22 +3,23 @@ import SeatTable from './SeatTable/SeatTable';
 import SelectedSeatList from './SelectedSeatList/SelectedSeatList';
 import './OrderMain.scss';
 
-const OrderMain = ({ seatData, selected, setSelected }) => {
+const OrderMain = ({ seatData, setSeatData }) => {
   const navigate = useNavigate();
-  const selectedSeat = (() => {
+  const selectedSeats = (() => {
     const chooseSeat = [];
-    selected.forEach((val, idx) => {
-      if (val) {
+    seatData.forEach((val, idx) => {
+      const { status } = val;
+      if (status === 'selected') {
         chooseSeat.push(idx);
       }
     });
     return chooseSeat;
-  })(selected);
+  })();
   const goToPaymentSelection = () => {
     navigate('/payment');
   };
 
-  const totalPrice = selectedSeat
+  const totalPrice = selectedSeats
     .reduce((acc, cur) => acc + Number(seatData[cur].seatGrade.price), 0)
     .toLocaleString();
 
@@ -28,15 +29,11 @@ const OrderMain = ({ seatData, selected, setSelected }) => {
         <div className="stage">
           <div className="text">STAGE</div>
         </div>
-        <SeatTable
-          seatData={seatData}
-          selected={selected}
-          setSelected={setSelected}
-        />
+        <SeatTable seatData={seatData} setSeatData={setSeatData} />
       </div>
       <div className="selectSeatInfo">
         <div className="text">선택 좌석</div>
-        <SelectedSeatList seatData={seatData} selected={selected} />
+        <SelectedSeatList seatData={seatData} />
         <div className="totalPrice">총금액 : {totalPrice}원</div>
         <div className="goToPayment">
           <button className="goToPaymentButton" onClick={goToPaymentSelection}>
