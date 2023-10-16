@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import OrderHeader from '../../components/Order/OrderHeader/OrderHeader';
 import OrderMain from '../../components/Order/OrderMain/OrderMain';
 import OrderFooter from '../../components/Order/OrderFooter/OrderFooter';
-import { seatMockData } from '../../components/Variable';
+import { seatMockData } from '../../components/variable';
 import './Order.scss';
 
 const Order = () => {
