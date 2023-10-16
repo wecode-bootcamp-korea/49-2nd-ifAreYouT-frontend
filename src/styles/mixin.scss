@@ -5,3 +5,11 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin seatButton($color) {
+  background-color: $color;
+  &:hover {
+    background-color: rgba($color, 0.7);
+    cursor: pointer;
+  }
+}

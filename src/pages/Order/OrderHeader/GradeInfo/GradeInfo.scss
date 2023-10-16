@@ -1,3 +1,5 @@
+@import '/src/styles/variables.scss';
+
 .gradeInfo {
   display: flex;
   gap: 5px;
@@ -10,19 +12,19 @@
     border-radius: 4px;
 
     &.gradeR {
-      background-color: rgb(242, 159, 6);
+      background-color: $Orange;
     }
 
     &.gradeS {
-      background-color: rgba(102, 51, 153);
+      background-color: $Violet;
     }
 
     &.gradeA {
-      background-color: rgba(70, 130, 180);
+      background-color: $Blue;
     }
 
     &.gradeC {
-      background-color: rgba(153, 153, 153);
+      background-color: $Gray;
     }
   }
 }

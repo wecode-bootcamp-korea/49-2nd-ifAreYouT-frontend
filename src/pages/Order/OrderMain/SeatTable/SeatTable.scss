@@ -43,11 +43,7 @@
       border: 1px solid $Gray33;
 
       &.selected {
-        background-color: $Red;
-        &:hover {
-          background-color: rgba(229, 8, 21, 0.7);
-          cursor: pointer;
-        }
+        @include seatButton($selected);
       }
 
       &.reserved {
@@ -55,35 +51,19 @@
       }
 
       &.gradeR {
-        background-color: rgb(242, 159, 6);
-        &:hover {
-          background-color: rgb(242, 159, 6, 0.7);
-          cursor: pointer;
-        }
+        @include seatButton($Orange);
       }
 
       &.gradeS {
-        background-color: rgba(102, 51, 153);
-        &:hover {
-          background-color: rgba(102, 51, 153, 0.7);
-          cursor: pointer;
-        }
+        @include seatButton($Violet);
       }
 
       &.gradeA {
-        background-color: rgba(70, 130, 180);
-        &:hover {
-          background-color: rgba(70, 130, 180, 0.7);
-          cursor: pointer;
-        }
+        @include seatButton($Blue);
       }
 
       &.gradeC {
-        background-color: rgba(153, 153, 153);
-        &:hover {
-          background-color: rgba(153, 153, 153, 0.7);
-          cursor: pointer;
-        }
+        @include seatButton($Gray);
       }
     }
   }
