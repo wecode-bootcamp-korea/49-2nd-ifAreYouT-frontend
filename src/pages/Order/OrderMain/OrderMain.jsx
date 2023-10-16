@@ -5,16 +5,9 @@ import './OrderMain.scss';
 
 const OrderMain = ({ seatData, setSeatData }) => {
   const navigate = useNavigate();
-  const selectedSeats = (() => {
-    const chooseSeat = [];
-    seatData.forEach((val, idx) => {
-      const { status } = val;
-      if (status === 'selected') {
-        chooseSeat.push(idx);
-      }
-    });
-    return chooseSeat;
-  })();
+  const selectedSeats = seatData
+    .map((el, idx) => (el.status === 'selected' ? idx : null))
+    .filter(el => el !== null);
   const goToPaymentSelection = () => {
     navigate('/payment');
   };
