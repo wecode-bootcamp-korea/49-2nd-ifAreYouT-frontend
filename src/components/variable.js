@@ -32,3 +32,8 @@ const seats = (() => {
   return seat;
 })();
 export const seatMockData = { details, seats };
+
+export const AVAILABLE = 'available';
+export const RESERVED = 'reserved';
+export const BOOKING = 'booking';
+export const SELECTED = 'selected';

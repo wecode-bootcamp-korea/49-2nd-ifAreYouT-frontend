@@ -8,13 +8,15 @@ const OrderMain = ({ seatData, setSeatData }) => {
   const selectedSeats = seatData
     .map((el, idx) => (el.status === 'selected' ? idx : null))
     .filter(el => el !== null);
-  const goToPaymentSelection = () => {
-    navigate('/payment');
-  };
 
+  const selectedName = selectedSeats.map(el => seatData[el].name);
   const totalPrice = selectedSeats
     .reduce((acc, cur) => acc + Number(seatData[cur].seatGrade.price), 0)
     .toLocaleString();
+
+  const goToPaymentSelection = () => {
+    navigate('/payment', { state: { selectedName, totalPrice } });
+  };
 
   return (
     <main className="OrderMain">
