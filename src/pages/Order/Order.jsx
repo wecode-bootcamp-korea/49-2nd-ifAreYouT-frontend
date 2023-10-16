@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import OrderHeader from '../../components/Order/OrderHeader/OrderHeader';
-import OrderMain from '../../components/Order/OrderMain/OrderMain';
-import OrderFooter from '../../components/Order/OrderFooter/OrderFooter';
+import OrderHeader from './OrderHeader/OrderHeader';
+import OrderMain from './OrderMain/OrderMain';
+import OrderFooter from './OrderFooter/OrderFooter';
 import { seatMockData } from '../../components/variable';
 import './Order.scss';
 
