@@ -57,9 +57,9 @@
         font-size: 1.5rem;
         background-color: $Red;
         color: white;
+        cursor: pointer;
         &:hover {
           background-color: rgba(229, 8, 21, 0.7);
-          cursor: pointer;
         }
       }
     }
