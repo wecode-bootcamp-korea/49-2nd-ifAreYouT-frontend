@@ -1,19 +1,19 @@
 export const seatMockData = (() => {
   const details = [
     {
-      grade: 'SR',
+      grade: 'R',
       price: 180000,
     },
     {
-      grade: 'R',
+      grade: 'S',
       price: 160000,
     },
     {
-      grade: 'S',
+      grade: 'A',
       price: 140000,
     },
     {
-      grade: 'A',
+      grade: 'C',
       price: 120000,
     },
   ];

@@ -9,19 +9,19 @@
     height: 20px;
     border-radius: 4px;
 
-    &.gradeSR {
+    &.gradeR {
       background-color: rgb(242, 159, 6);
     }
 
-    &.gradeR {
+    &.gradeS {
       background-color: rgba(102, 51, 153);
     }
 
-    &.gradeS {
+    &.gradeA {
       background-color: rgba(70, 130, 180);
     }
 
-    &.gradeA {
+    &.gradeC {
       background-color: rgba(153, 153, 153);
     }
   }

@@ -8,13 +8,12 @@
 
   .orderContainer {
     display: grid;
-    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 2.5fr 0.4fr;
     min-width: 1000px;
     height: 800px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
     background-color: $Gray33;
-
-    .orderFooter {
-      grid-column: span 2;
-    }
   }
 }

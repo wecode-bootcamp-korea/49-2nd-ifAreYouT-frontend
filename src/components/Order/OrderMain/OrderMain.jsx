@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import SeatTable from './SeatTable/SeatTable';
 import SelectedSeatList from './SelectedSeatList/SelectedSeatList';
 import './OrderMain.scss';
 
 const OrderMain = ({ seatData, selected, setSelected }) => {
+  const navigate = useNavigate();
   const selectedSeat = (() => {
     const chooseSeat = [];
     selected.forEach((val, idx) => {
@@ -12,6 +14,9 @@ const OrderMain = ({ seatData, selected, setSelected }) => {
     });
     return chooseSeat;
   })(selected);
+  const goToPaymentSelection = () => {
+    navigate('/payment');
+  };
 
   const totalPrice = selectedSeat
     .reduce((acc, cur) => acc + Number(seatData[cur].seatGrade.price), 0)
@@ -34,7 +39,9 @@ const OrderMain = ({ seatData, selected, setSelected }) => {
         <SelectedSeatList seatData={seatData} selected={selected} />
         <div className="totalPrice">총금액 : {totalPrice}원</div>
         <div className="goToPayment">
-          <button className="goToPaymentButton">결제하러가기</button>
+          <button className="goToPaymentButton" onClick={goToPaymentSelection}>
+            결제방식 선택
+          </button>
         </div>
       </div>
     </main>

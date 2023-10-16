@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import OrderHeader from '../../components/Order/OrderHeader/OrderHeader';
 import OrderMain from '../../components/Order/OrderMain/OrderMain';
+import OrderFooter from '../../components/Order/OrderFooter/OrderFooter';
 import { seatMockData } from '../../components/Variable';
 import './Order.scss';
 
@@ -25,8 +26,7 @@ const Order = () => {
           selected={selected}
           setSelected={setSelected}
         />
-        <div className="orderFooter">주문 / 좌석 선택</div>
-        <div className="orderFooter">결제 단계</div>
+        <OrderFooter />
       </div>
     </div>
   );

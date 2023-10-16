@@ -54,7 +54,7 @@
         background-color: $Black;
       }
 
-      &.gradeSR {
+      &.gradeR {
         background-color: rgb(242, 159, 6);
         &:hover {
           background-color: rgb(242, 159, 6, 0.7);
@@ -62,7 +62,7 @@
         }
       }
 
-      &.gradeR {
+      &.gradeS {
         background-color: rgba(102, 51, 153);
         &:hover {
           background-color: rgba(102, 51, 153, 0.7);
@@ -70,7 +70,7 @@
         }
       }
 
-      &.gradeS {
+      &.gradeA {
         background-color: rgba(70, 130, 180);
         &:hover {
           background-color: rgba(70, 130, 180, 0.7);
@@ -78,7 +78,7 @@
         }
       }
 
-      &.gradeA {
+      &.gradeC {
         background-color: rgba(153, 153, 153);
         &:hover {
           background-color: rgba(153, 153, 153, 0.7);
