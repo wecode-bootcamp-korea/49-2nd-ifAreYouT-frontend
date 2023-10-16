@@ -1,0 +1,17 @@
+@import '/src/styles/mixin.scss';
+
+.payment {
+  @include flexCenter;
+  width: 100vw;
+  height: 100vh;
+  background-color: $Black;
+
+  .paymentContainer {
+    display: grid;
+    min-width: 1000px;
+    height: 800px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-color: $Gray33;
+  }
+}
