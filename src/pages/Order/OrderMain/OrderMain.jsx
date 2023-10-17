@@ -3,7 +3,7 @@ import SeatTable from './SeatTable/SeatTable';
 import SelectedSeatList from './SelectedSeatList/SelectedSeatList';
 import './OrderMain.scss';
 
-const OrderMain = ({ seatData, setSeatData }) => {
+const OrderMain = ({ seatData, setSeatData, mockLocation }) => {
   const navigate = useNavigate();
   const selectedSeats = seatData
     .map((el, idx) => (el.status === 'selected' ? idx : null))
@@ -15,7 +15,7 @@ const OrderMain = ({ seatData, setSeatData }) => {
     .toLocaleString();
 
   const goToPaymentSelection = () => {
-    navigate('/payment', { state: { selectedName, totalPrice } });
+    navigate('/payment', { state: { mockLocation, selectedName, totalPrice } });
   };
 
   return (
