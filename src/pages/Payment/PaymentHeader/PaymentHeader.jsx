@@ -1,7 +1,7 @@
 import './PaymentHeader.scss';
 
 const PaymentHeader = () => {
-  return <div>PaymentHeader</div>;
+  return <header className="paymentHeader">PaymentHeader</header>;
 };
 
 export default PaymentHeader;

@@ -1,7 +1,7 @@
 import './PaymentMain.scss';
 
 const PaymentMain = () => {
-  return <div>PaymentMain</div>;
+  return <main className="paymentMain">PaymentMain</main>;
 };
 
 export default PaymentMain;
