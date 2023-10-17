@@ -1,0 +1,9 @@
+@import '/src/styles/mixin.scss';
+
+.paymentHeader {
+  @include flexCenter;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: $Red;
+  color: white;
+}

@@ -1,0 +1,11 @@
+@import '/src/styles/mixin.scss';
+
+.paymentMain {
+  display: grid;
+  grid-template-columns: 3fr 1.2fr;
+
+  .paymentMethod {
+    display: grid;
+    background-color: yellow;
+  }
+}
