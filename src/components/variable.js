@@ -40,7 +40,8 @@ export const SELECTED = 'selected';
 
 export const productInfo = {
   productId: 1,
-  concertImg: 'https://i.postimg.cc/0jYkJNB6/2023-10-17-12-57-26.png',
+  productName: '영화 속의 모차르트',
+  productImg: 'https://i.postimg.cc/0jYkJNB6/2023-10-17-12-57-26.png',
   location: '서울시 강남구 테헤란로 427, 10층',
   date: '2023-10-28-19:00',
 };
