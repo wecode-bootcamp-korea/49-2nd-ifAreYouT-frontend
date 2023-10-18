@@ -6,13 +6,12 @@ import './Payment.scss';
 
 const Payment = () => {
   const { state } = useLocation();
-  const { mockLocation, selectedName, totalPrice } = state;
 
   return (
     <div className="payment">
       <div className="paymentContainer">
         <PaymentHeader />
-        <PaymentMain />
+        <PaymentMain state={state} />
         <PaymentFooter />
       </div>
     </div>
