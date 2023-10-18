@@ -1,5 +1,12 @@
+import React from 'react';
+import './ProductList.scss';
+
 const ProductList = () => {
-  return <div>ProductList</div>;
+  return (
+    <div className="productList">
+      <div className="productListContainer">안녕</div>
+    </div>
+  );
 };
 
 export default ProductList;

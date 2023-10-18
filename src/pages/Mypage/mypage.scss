@@ -1,0 +1,176 @@
+.mypageContainer{
+    width: 100%;
+    height: 1200px;
+    background-color: black;
+    padding: 65px;
+    display: flex;
+    flex-direction: column;
+    .userDivContainer{
+        width: 100%;
+        height: 120px;
+        border: 1px solid white;
+        border-radius: 14px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .imgContainer{
+            width: 115px;
+            height: 115px;
+            border: 2px solid black;
+            border-radius: 50%;
+            float: left;
+            overflow: hidden;
+            margin: 10px 45px 10px 65px;
+            .userInfoPhoto{
+                width: 100%;
+                display: block;
+            }
+        }
+        .userInfoNameDiv{
+            margin-left: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .userInfo{
+                font-size: 20px;
+                font-weight: 800;
+                color: white;
+                padding-top: 10px;
+            }
+        }
+        .btnContainer{
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 130px 15px 30px; 
+            .ManagementBtn{
+                font-size: 12px;
+                margin: 5px 5px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            .dropOutBtn{
+                font-size: 12px;
+                background-color: black;
+                color: white;
+                margin: 5px 5px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        .CheckedReservationHistoryBtn1{
+            width: 150px;
+            height: 100%;
+            padding: 10px;
+            margin: 0px 0px 0px 560px;
+            text-align: center;
+            text-decoration: none;
+            .CheckedReservationHistoryAtag{
+                display: block;
+                margin-top: 30px;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                .CheckedReservationHistoryText{
+                    font-size: 18px;
+                    color: bisque;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+        .CheckedReservationHistoryBtn2{
+            width: 150px;
+            height: 100%;
+            padding: 10px;
+            margin: 0px 50px 0px 10px;
+            text-align: center;
+            text-decoration: none;
+            .CheckedReservationHistoryAtag{
+                display: block;
+                margin-top: 30px;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                .CheckedReservationHistoryText{
+                    font-size: 18px;
+                    color: bisque;
+                    letter-spacing: 1px;
+                }
+            }
+
+        }
+    }
+    .userCheckedReservationContainer{
+        margin-top: 70px;
+        .userCheckedReservationTitle{
+            // padding-left: 5px;
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+        }
+        .userCheckedReservationMain{
+            width: 100%;
+            height: 350px;
+            border: 1px solid white;
+            border-radius: 14px;
+            margin-top: 10px;
+            padding: 20px;
+            .comment{
+                padding-left: 12px;
+                color: aliceblue;
+                .reservationList{
+                    font-size: 18px;
+                    color: white;
+                }
+            }
+            .noReservationMessage{
+                display: block;
+                margin: 130px 0px 0px 650px;
+                font-size: 34px;
+                color: #a9a9a9
+            }
+        }
+    }
+    .otherThingsContainer{
+        margin-top: 105px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .userThingsContainer{
+            width: 820px;
+            height: 320px;
+            .userThingsTitle{
+                .titleName{
+                    color: white;
+                    font-size: 20px;
+                    font-weight: 800;
+                }
+            }
+            .userThingsMain{
+                width: 100%;
+                height: 350px;
+                border: 1px solid white;
+                border-radius: 14px;
+                margin-top: 10px;
+                padding: 20px;
+                .comment{
+                        .reservationList{
+                            font-size: 18px;
+                            color: white;
+                        }
+                    }
+                }
+                .noReservationMessage{
+                    display: block;
+                    margin: 150px 0px 0px 210px;
+                    font-size: 22px;
+                    color: #a9a9a9
+                }
+            }
+        }
+    }
