@@ -1,7 +1,7 @@
 import {
   AVAILABLE,
   RESERVED,
-  BOOKING,
+  DISABLED,
   SELECTED,
 } from '../../../../components/variable';
 import './SeatTable.scss';
@@ -48,8 +48,8 @@ const SeatTable = ({ seatData, setSeatData }) => {
           const { seatId, status, seatGrade } = seatInfo;
           const { grade } = seatGrade;
           const selectColor = status === SELECTED ? SELECTED : `grade${grade}`;
-          const buttonColor =
-            status === RESERVED || status === BOOKING ? RESERVED : selectColor;
+          const evaluationStatus = status === RESERVED || status === DISABLED;
+          const buttonColor = evaluationStatus ? RESERVED : selectColor;
 
           return (
             <input
@@ -57,7 +57,7 @@ const SeatTable = ({ seatData, setSeatData }) => {
               key={seatId}
               type="Button"
               onClick={() => handleClick(idx)}
-              disabled={!status}
+              disabled={evaluationStatus}
             />
           );
         })}
