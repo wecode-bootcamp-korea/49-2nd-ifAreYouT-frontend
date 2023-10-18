@@ -4,7 +4,7 @@ import './ProductDetail.scss';
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const [productDetailData, setProductDetailData] = useState([]);
+  const [productDetailData, setProductDetailData] = useState({}); //구조분해할당
 
   useEffect(() => {
     fetch('/data/detailData.json')

@@ -13,7 +13,8 @@ const BestProduct = () => {
       .catch(error => console.error('데이터를 불러오는 중 오류 발생:', error));
   }, []);
 
-  const clickBestProduct = id => {
+  const goToBestProduct = id => {
+    //함수명 수정
     navigate(`/product-detail/${id}`);
   };
 
@@ -24,15 +25,12 @@ const BestProduct = () => {
           <div className="imgBox">
             <img
               src={item.thumbnail}
-              alt="이미지 썸네일"
+              alt="공연 포스터" //alt값 수정
               className="productImg"
-              onClick={() => clickBestProduct(item.id)}
+              onClick={() => goToBestProduct(item.id)}
             />
           </div>
-          <div
-            className="productInfo"
-            onClick={() => clickBestProduct(item.id)}
-          >
+          <div className="productInfo" onClick={() => goToBestProduct(item.id)}>
             <div className="productTitle">{item.title}</div>
             <div className="productDate">{item.date}</div>
           </div>
