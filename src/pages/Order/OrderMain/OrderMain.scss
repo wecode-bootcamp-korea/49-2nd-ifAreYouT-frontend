@@ -1,0 +1,67 @@
+@import '/src/styles/mixin.scss';
+
+.OrderMain {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-column: span 4;
+
+  .concertHall {
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+
+    .stage {
+      @include flexCenter;
+
+      .text {
+        @include flexCenter;
+        width: 90%;
+        height: 80%;
+        margin-left: 2%;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        font-weight: 700;
+        font-size: 1.4rem;
+        background-color: beige;
+      }
+    }
+  }
+
+  .selectSeatInfo {
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr 1fr;
+
+    .text {
+      @include flexCenter;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .totalPrice {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    .goToPayment {
+      @include flexCenter;
+
+      .goToPaymentButton {
+        width: 80%;
+        height: 80%;
+        border: none;
+        border-radius: 30px;
+        font-weight: 400;
+        font-size: 1.5rem;
+        background-color: $Red;
+        color: white;
+        cursor: pointer;
+        &:hover {
+          background-color: rgba(229, 8, 21, 0.7);
+        }
+      }
+    }
+  }
+}

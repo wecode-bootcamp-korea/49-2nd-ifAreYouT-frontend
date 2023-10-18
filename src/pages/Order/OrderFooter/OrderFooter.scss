@@ -1,0 +1,17 @@
+@import '/src/styles/mixin.scss';
+
+.orderFooter {
+  display: grid;
+  grid-template-columns: 4fr 1fr 4fr;
+  grid-column: span 4;
+
+  .step {
+    @include flexCenter;
+    font-size: 2rem;
+    color: white;
+  }
+
+  .orderStep {
+    color: $Red;
+  }
+}

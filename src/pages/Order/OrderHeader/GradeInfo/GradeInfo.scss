@@ -1,0 +1,30 @@
+@import '/src/styles/variables.scss';
+
+.gradeInfo {
+  display: flex;
+  gap: 5px;
+  font-size: 1.4rem;
+  color: white;
+
+  .gradeBox {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+
+    &.gradeR {
+      background-color: $Orange;
+    }
+
+    &.gradeS {
+      background-color: $Violet;
+    }
+
+    &.gradeA {
+      background-color: $Blue;
+    }
+
+    &.gradeC {
+      background-color: $Gray;
+    }
+  }
+}
