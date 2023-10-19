@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp/SignUp';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Order from './pages/Order/Order';
+import Promotion from './pages/Promotion/Promotion';
 
 const Router = () => {
   return (
@@ -14,8 +15,9 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/product-list" element={<ProductList />} />
-        <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/order" element={<Order />} />
+        <Route path="/promotion/:id" element={<Promotion />} />
       </Routes>
     </BrowserRouter>
   );
