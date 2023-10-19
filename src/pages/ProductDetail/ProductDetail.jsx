@@ -4,7 +4,7 @@ import './ProductDetail.scss';
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const [productDetailData, setProductDetailData] = useState({}); //구조분해할당
+  const [productDetailData, setProductDetailData] = useState({}); // 빈 객체 넣음
 
   useEffect(() => {
     fetch('/data/detailData.json')
@@ -18,10 +18,13 @@ const ProductDetail = () => {
       });
   }, [id]);
 
+  const { name } = productDetailData; // 구조분해할당
+
   return (
     <div className="productDetail">
-      <div className="productDetailContainer" key={productDetailData.id}>
-        <div className="productDetailTitle">{productDetailData.name}</div>
+      <div className="productDetailContainer">
+        {/* key prop 삭제 */}
+        <div className="productDetailTitle">{name}</div>
       </div>
     </div>
   );

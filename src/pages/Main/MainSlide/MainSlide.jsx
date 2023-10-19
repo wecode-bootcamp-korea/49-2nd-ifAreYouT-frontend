@@ -46,7 +46,8 @@ const MainSlide = () => {
     <div className="mainSlide">
       <Slider {...settings}>
         {mainSlideData.map(image => (
-          <div key={image.id} className={`slide${image.id}`}>
+          //클래스네임 변경
+          <div key={image.id} className="mainSlideContainer">
             <img
               className="img"
               src={image.src}

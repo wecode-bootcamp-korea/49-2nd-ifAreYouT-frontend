@@ -13,8 +13,8 @@ const BestProduct = () => {
       .catch(error => console.error('데이터를 불러오는 중 오류 발생:', error));
   }, []);
 
+  //함수명 수정
   const goToBestProduct = id => {
-    //함수명 수정
     navigate(`/product-detail/${id}`);
   };
 
