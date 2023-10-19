@@ -1,5 +1,9 @@
 const ProductDetail = () => {
-  return <div>ProductDetail</div>;
+  return (
+    <div className="bestProduct">
+      <div className="bestProductContainer">안녕하세요</div>
+    </div>
+  );
 };
 
 export default ProductDetail;
