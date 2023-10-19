@@ -1,38 +1,47 @@
 {
-  "info": [
-    {
-      "category": "ballad",
-      "id": 1,
-      "thumbnailImage": "image.url",
-      "detailImage": "image.url",
-      "title": "박효신 - 눈내리는 그 겨울",
-      "location": "KSPO DOME(올림픽체조경기장)",
-      "date": "2023년 11월 27일",
-      "playTime": 120,
-      "viewerAge": "8세 이상",
-      "seats": [
-        {
-          "grade": "R",
-          "price": 132000,
-          "available": 68
-        },
-        {
-          "grade": "S",
-          "price": 121000,
-          "available": 50
-        },
-        {
-          "grade": "A",
-          "price": 110000,
-          "available": 30
-        }
-      ]
-    }
-  ],
-  "reactions": [
-    {
-      "up": 26,
-      "down": 10
-    }
-  ]
+  "data": {
+    "category": "ballad",
+    "id": 1,
+    "title": "박효신-야생화",
+    "performer": "박효신",
+    "stage": "올림픽공원",
+    "description": "박효신 연말콘서트",
+    "startDate": "2023.12.01",
+    "endDate": "2023.12.05",
+    "salesStartDate": "2023.11.01",
+    "salesEndDate": "2023.11.05",
+    "playTime": "130",
+    "eventTime": "07:00",
+    "thumbnailImage": "images/thumbnail.jpeg",
+    "detailImage": "images/thumbnail.jpeg",
+    "status": "merchantable",
+    "seats": [
+      {
+        "grade": "S",
+        "price": 130000,
+        "available": 4
+      },
+      {
+        "grade": "R",
+        "price": 120000,
+        "available": 3
+      },
+      {
+        "grade": "A",
+        "price": 110000,
+        "available": 1
+      }
+    ],
+    "reactions": [
+      {
+        "up": 1,
+        "down": 1
+      }
+    ],
+    "participate": [
+      {
+        "status": 1
+      }
+    ]
+  }
 }
