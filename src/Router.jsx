@@ -6,6 +6,7 @@ import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Order from './pages/Order/Order';
 import Payment from './pages/Payment/Payment';
+import NotFound from './pages/NotFound/NotFound';
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/product-detail" element={<ProductDetail />} />
         <Route path="/order" element={<Order />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
