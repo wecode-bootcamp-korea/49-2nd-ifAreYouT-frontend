@@ -5,7 +5,7 @@ const PaymentMain = ({ state }) => {
   const { mockLocation, selectedName, totalPrice } = state;
   const { productName, location, date } = mockLocation;
   const [years, month, dates, hours] = date.split('-');
-  const timeLimit = new Date(new Date().getTime() + 600000);
+  const timeLimit = new Date(new Date().getTime() + 6000);
 
   return (
     <main className="paymentMain">

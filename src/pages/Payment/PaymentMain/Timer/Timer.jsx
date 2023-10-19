@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useResultOfIntervalCalculator } from '../../../../utils/customHook';
 import './Timer.scss';
@@ -7,13 +8,16 @@ const Timer = ({ timeLimit }) => {
   const remain = useResultOfIntervalCalculator(() =>
     Math.floor((new Date(timeLimit) - new Date()) / 1000, 10),
   );
-  if (Number(remain) <= 0) {
-    alert('예매시간이 끝났습니다.');
-    navigate('/order');
-  }
 
   const minutes = Math.floor(remain / 60);
   const seconds = String(remain % 60).padStart(2, '0');
+
+  useEffect(() => {
+    if (Number(remain) <= 0) {
+      alert('예매시간이 끝났습니다.');
+      navigate('/order');
+    }
+  }, [remain]);
 
   return (
     <div className="timer">
