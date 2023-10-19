@@ -1,0 +1,65 @@
+@import '/src/styles/mixin.scss';
+
+.orderHeader {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 4fr;
+  grid-column: span 4;
+
+  .orderStep {
+    @include flexCenter;
+    grid-column: span 2;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    background-color: $Red;
+    color: white;
+  }
+
+  .productInfo {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    color: white;
+
+    .concertImgBox {
+      display: flex;
+      justify-content: center;
+
+      .concertImg {
+        width: 61%;
+      }
+    }
+
+    .venue {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+
+      .productName {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: 800;
+      }
+
+      .location {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+      }
+
+      .date {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .gradeInfoBox {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 7px;
+  }
+}
