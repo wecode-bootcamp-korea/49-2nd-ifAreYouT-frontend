@@ -9,6 +9,7 @@
   .paymentContainer {
     display: grid;
     grid-template-rows: 1.3fr 20fr 2.4fr;
+    max-width: 1000px;
     min-width: 1000px;
     height: 800px;
     border-top-left-radius: 30px;
