@@ -50,8 +50,7 @@ const MainSlide = () => {
           <div key={image.id} className="mainSlideContainer">
             <img
               className="img"
-              src={image.src}
-              alt={image.alt}
+              src={image.src} //alt값 백엔드에서 받지 않음, 삭제
               onClick={() => clickSlide(image.id)}
             />
           </div>
