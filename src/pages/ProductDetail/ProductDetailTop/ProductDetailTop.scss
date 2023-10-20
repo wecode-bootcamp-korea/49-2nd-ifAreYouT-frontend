@@ -1,0 +1,74 @@
+.productDetailTop {
+  width: 80%;
+  margin-left: 140px;
+  margin-top: 50px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #c0c0c0;
+
+  .productTitle {
+    font-weight: 500;
+    font-size: 24px;
+    margin-left: 30px;
+  }
+  .infoContainer {
+    display: flex;
+    margin-top: 40px;
+
+    .productInfoText {
+      display: flex;
+      color: black;
+      margin-top: 50px;
+      margin-left: 100px;
+    }
+
+    .thumbnailImage {
+      margin-left: 30px;
+    }
+
+    .label {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .infoData {
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+      gap: 30px;
+      margin-left: 30px;
+    }
+
+    .price {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .availableSeats {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .orderButton {
+    padding: 25px 100px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 1rem;
+    background-color: Red;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(229, 8, 21, 0.7);
+    }
+
+    /* 추가된 스타일 */
+    position: absolute;
+    top: 70%; /* 부모 요소 상단을 기준으로 수직 정렬 */
+    left: 61%; /* 부모 요소 왼쪽을 기준으로 수평 정렬 */
+    transform: translate(-80%, -50%); /* 가운데 정렬을 위해 이동 */
+  }
+}

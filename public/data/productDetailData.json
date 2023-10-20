@@ -1,47 +1,118 @@
-{
-  "data": {
-    "category": "ballad",
+[
+  {
     "id": 1,
-    "title": "박효신-야생화",
-    "performer": "박효신",
-    "stage": "올림픽공원",
-    "description": "박효신 연말콘서트",
-    "startDate": "2023.12.01",
-    "endDate": "2023.12.05",
-    "salesStartDate": "2023.11.01",
-    "salesEndDate": "2023.11.05",
-    "playTime": "130",
-    "eventTime": "07:00",
-    "thumbnailImage": "images/thumbnail.jpeg",
-    "detailImage": "images/thumbnail.jpeg",
-    "status": "merchantable",
+    "title": "찰리 푸스 내한공연 (Charlie Puth Live in Seoul)",
+    "thumbnailImage": "../images/poster.jpg",
+    "stage": "올림픽 핸드볼 경기장",
+    "startDate": "2023년 11월 24일 18:30",
+    "playTime": "120분",
+    "age": "8세 이상",
+    "seatS": "130,000원",
+    "seatR": "120,000원",
+    "seatA": "110,000원",
     "seats": [
       {
-        "grade": "S",
-        "price": 130000,
+        "grade": "S석",
+        "price": "130,000원",
         "available": 4
       },
       {
-        "grade": "R",
-        "price": 120000,
+        "grade": "R석",
+        "price": "120,000원",
         "available": 3
       },
       {
-        "grade": "A",
-        "price": 110000,
+        "grade": "A석",
+        "price": "110,000원",
+        "available": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "동방신기 서울콘서트",
+    "stage": "올림픽 체조 경기장",
+    "thumbnailImage": "../images/poster.jpg",
+    "startDate": "2023년 11월 01일",
+    "playTime": "90분",
+    "age": "12세 이상",
+    "seatS": "130,000원",
+    "seatR": "120,000원",
+    "seatA": "110,000원",
+    "seats": [
+      {
+        "grade": "S석",
+        "price": "130,000원",
+        "available": 4
+      },
+      {
+        "grade": "R석",
+        "price": "120,000원",
+        "available": 3
+      },
+      {
+        "grade": "A석",
+        "price": "110,000원",
         "available": 1
       }
-    ],
-    "reactions": [
+    ]
+  },
+  {
+    "id": 3,
+    "title": "아이브 전국투어 (IVE Tour in Korea)",
+    "stage": "고척스카이돔",
+    "thumbnailImage": "../images/poster.jpg",
+    "startDate": "2023년 11월 30일",
+    "playTime": "110분",
+    "age": "8세 이상",
+    "seatS": "130,000원",
+    "seatR": "120,000원",
+    "seatA": "110,000원",
+    "seats": [
       {
-        "up": 1,
-        "down": 1
+        "grade": "S석",
+        "price": "130,000원",
+        "available": 4
+      },
+      {
+        "grade": "R석",
+        "price": "120,000원",
+        "available": 3
+      },
+      {
+        "grade": "A석",
+        "price": "110,000원",
+        "available": 1
       }
-    ],
-    "participate": [
+    ]
+  },
+  {
+    "id": 4,
+    "title": "동방신기 인천콘서트",
+    "stage": "인천 삼산월드체육관",
+    "thumbnailImage": "../images/poster.jpg",
+    "startDate": "2023년 12월 01일",
+    "playTime": "130분",
+    "age": "12세 이상",
+    "seatS": "130,000원",
+    "seatR": "120,000원",
+    "seatA": "110,000원",
+    "seats": [
       {
-        "status": 1
+        "grade": "S석",
+        "price": "130,000원",
+        "available": 4
+      },
+      {
+        "grade": "R석",
+        "price": "120,000원",
+        "available": 3
+      },
+      {
+        "grade": "A석",
+        "price": "110,000원",
+        "available": 1
       }
     ]
   }
-}
+]

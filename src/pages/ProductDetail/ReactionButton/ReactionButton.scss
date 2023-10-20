@@ -1,0 +1,26 @@
+.reactionButton {
+  margin-top: 50px;
+  margin-left: 80px;
+}
+
+.reactionButtonContainer {
+  display: flex; /* 자식 요소를 가로로 정렬하기 위해 flex 사용 */
+  align-items: center; /* 수직 가운데 정렬 */
+}
+
+.likeBtn,
+.dislikeBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 0.9rem;
+  background-color: white;
+  color: black;
+  border: 1px solid red;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+  margin-right: 10px; /* 버튼 사이 간격을 지정합니다. */
+}
