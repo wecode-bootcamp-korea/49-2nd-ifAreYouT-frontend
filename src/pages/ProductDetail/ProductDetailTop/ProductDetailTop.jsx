@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ReactionButton from '../ReactionButton/ReactionButton';
+import axios from 'axios';
 import './ProductDetailTop.scss';
 
 const ProductDetailTop = () => {
@@ -9,10 +10,10 @@ const ProductDetailTop = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productDetailData.json')
-      .then(response => response.json())
-      .then(data => {
-        setData(data);
+    axios
+      .get('/data/productDetailData.json') // fetch를 axios로 변경
+      .then(response => {
+        setData(response.data);
       })
       .catch(error => {
         console.error('데이터를 불러오는 중 오류 발생:', error);
