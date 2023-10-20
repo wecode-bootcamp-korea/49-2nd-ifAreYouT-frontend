@@ -11,7 +11,7 @@ const ProductDetailTop = () => {
 
   useEffect(() => {
     axios
-      .get('/data/productDetailData.json') // fetch를 axios로 변경
+      .get('/data/productDetailData.json') //fetch에서 axios로 변경
       .then(response => {
         setData(response.data);
       })
