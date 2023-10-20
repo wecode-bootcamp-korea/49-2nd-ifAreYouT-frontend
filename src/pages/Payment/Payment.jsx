@@ -16,8 +16,6 @@ const Payment = () => {
     }
   }, []);
 
-  if (!state || !token) return null;
-
   return (
     <div className="payment">
       <div className="paymentContainer">

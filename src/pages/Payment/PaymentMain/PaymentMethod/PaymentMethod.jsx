@@ -26,7 +26,7 @@ const PaymentMethod = ({ selectedName, totalPrice, productName }) => {
         pay_method: paymentMethod,
         name: productName,
         amount: totalPrice,
-        merchant_uid: 'ORD20231030-000126',
+        merchant_uid: 'ORD20231030-000131',
       },
       function (res) {
         const { success } = res;
@@ -34,6 +34,7 @@ const PaymentMethod = ({ selectedName, totalPrice, productName }) => {
           alert('결제가 취소 되었습니다.');
         } else if (success) {
           alert('결제가 완료 되었습니다.');
+          navigate('/complete-payment');
         }
       },
     );
