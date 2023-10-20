@@ -3,14 +3,9 @@ import './PaymentMethod.scss';
 import { useState } from 'react';
 
 const PaymentMethod = ({ selectedName, totalPrice }) => {
-  const [openModal, setOpenModal] = useState(false);
-
-  const handleOpenModal = () => {
-    setOpenModal(true);
-  };
-
-  const handleCLoseModal = () => {
-    setOpenModal(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const handleIsOpen = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -28,11 +23,8 @@ const PaymentMethod = ({ selectedName, totalPrice }) => {
       <div className="selectPaymentMethod" />
       <div className="stepButton">
         <button className="backToOrder">주문/좌석 선택 다시하기</button>
-        <button onClick={handleOpenModal}>결제하기</button>
-        <PaymentModal
-          openModal={openModal}
-          handleCLoseModal={handleCLoseModal}
-        />
+        <button onClick={handleIsOpen}>결제하기</button>
+        <PaymentModal isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </div>
   );
