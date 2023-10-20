@@ -23,7 +23,11 @@ const PaymentMain = ({ state }) => {
         </div>
         <NoticeTable />
       </div>
-      <PaymentMethod selectedName={selectedName} totalPrice={totalPrice} />
+      <PaymentMethod
+        selectedName={selectedName}
+        totalPrice={totalPrice}
+        productName={productName}
+      />
     </main>
   );
 };

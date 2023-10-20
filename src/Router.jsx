@@ -7,6 +7,7 @@ import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Order from './pages/Order/Order';
 import Payment from './pages/Payment/Payment';
 import NotFound from './pages/NotFound/NotFound';
+import Promotion from './pages/Promotion/Promotion';
 
 const Router = () => {
   return (
@@ -16,10 +17,11 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/product-list" element={<ProductList />} />
-        <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/order" element={<Order />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/*" element={<NotFound />} />
+        <Route path="/promotion/:id" element={<Promotion />} />
       </Routes>
     </BrowserRouter>
   );

@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  height: 230px;
 
   .noticeHeader {
     grid-column: span 3;

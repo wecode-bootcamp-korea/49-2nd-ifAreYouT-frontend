@@ -10,13 +10,13 @@ const Payment = () => {
   const token = localStorage.getItem('token');
   const { state } = useLocation();
 
-  // useEffect(() => {
-  //   if (!state || !token) {
-  //     navigate('/');
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!state || !token) {
+      navigate('/');
+    }
+  }, []);
 
-  // if (!state || !token) return null;
+  if (!state || !token) return null;
 
   return (
     <div className="payment">

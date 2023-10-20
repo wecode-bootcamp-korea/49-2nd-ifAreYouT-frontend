@@ -6,7 +6,7 @@
 
   .paymentInfo {
     display: grid;
-    grid-template-rows: 1fr 2fr 3fr;
+    grid-template-rows: 0.2fr 3fr 2fr;
     gap: 1rem;
     padding: 1rem;
 
@@ -18,12 +18,14 @@
       color: white;
 
       img {
-        width: 7.7rem;
+        width: 13.6rem;
       }
 
       .productInfo {
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
 
         .location {
           font-size: 1.5rem;

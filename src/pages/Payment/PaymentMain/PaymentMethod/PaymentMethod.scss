@@ -2,7 +2,7 @@
 
 .paymentMethod {
   display: grid;
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 
   .seatPrice {
     display: grid;
@@ -34,12 +34,40 @@
   .stepButton {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
 
     .backToOrder {
-      width: 60%;
-      height: 20%;
+      @include bigBtn($Orange);
+    }
+
+    .payNow {
+      @include bigBtn($Red);
+    }
+  }
+
+  .selectPaymentMethod {
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    margin: 1rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+
+    .radioBUtton {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      height: 1.2rem;
+      padding: 1rem;
+    }
+
+    .paymentTitle {
+      @include flexCenter;
+      border-top: 2px solid white;
+      font-size: 1.3rem;
+      color: white;
     }
   }
 }
