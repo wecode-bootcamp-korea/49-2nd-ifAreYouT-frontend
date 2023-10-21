@@ -1,26 +1,33 @@
 .reactionButton {
-  margin-top: 50px;
-  margin-left: 80px;
-}
-
-.reactionButtonContainer {
-  display: flex; /* 자식 요소를 가로로 정렬하기 위해 flex 사용 */
-  align-items: center; /* 수직 가운데 정렬 */
+  display: flex;
+  margin-top: 20px;
+  margin-left: 40px;
+  width: 7%;
+  gap: 50px;
 }
 
 .likeBtn,
 .dislikeBtn {
-  padding: 10px 20px;
-  border: none;
+  padding: 8px 15px;
+  border: 1px solid grey;
   border-radius: 10px;
-  font-weight: 400;
-  font-size: 0.9rem;
   background-color: white;
-  color: black;
-  border: 1px solid red;
-  cursor: pointer;
-  &:hover {
-    font-weight: bold;
+}
+
+.likeBtn:hover,
+.dislikeBtn:hover {
+  box-shadow: 0 0 0 18px transparent;
+  animation: pulse 1s;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 grey;
   }
-  margin-right: 10px; /* 버튼 사이 간격을 지정합니다. */
+}
+
+.count {
+  padding-right: 10px;
+  margin-top: 20px;
+  margin-left: -20px;
 }

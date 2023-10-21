@@ -10,12 +10,12 @@ const ReactionButton = () => {
   const [hasLiked, setHasLiked] = useState(false);
   const [hasDisliked, setHasDisliked] = useState(false);
 
-  // 사용자의 토큰을 로컬 스토리지에서 꺼내옴
-  // const getUserToken = () => {
-  //   return localStorage.getItem('userToken');
-  // };
+  // 토큰 꺼내옴
+  const getUserToken = () => {
+    return localStorage.getItem('userToken');
+  };
 
-  // 사용자의 투표 여부를 확인
+  // 투표 여부를 확인
   const hasUserVoted = () => {
     return localStorage.getItem('hasUserVoted') === 'true';
   };
@@ -30,12 +30,12 @@ const ReactionButton = () => {
   }, []);
 
   const handleLikeClick = () => {
-    // const userToken = getUserToken();
+    const userToken = getUserToken();
 
-    // if (!userToken) {
-    //   alert('로그인이 필요합니다.');
-    //   return;
-    // }
+    if (!userToken) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
 
     if (!hasLiked && !hasDisliked) {
       setLikeCount(likeCount + 1);
@@ -47,12 +47,12 @@ const ReactionButton = () => {
   };
 
   const handleDislikeClick = () => {
-    // const userToken = getUserToken();
+    const userToken = getUserToken();
 
-    // if (!userToken) {
-    //   alert('로그인이 필요합니다.');
-    //   return;
-    // }
+    if (!userToken) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
 
     if (!hasLiked && !hasDisliked) {
       setDislikeCount(dislikeCount + 1);
@@ -69,11 +69,11 @@ const ReactionButton = () => {
       <div className="likeBtn" onClick={handleLikeClick}>
         <img src={likeIcon} alt="Like" />
       </div>
-      <span>{likeCount}</span>
+      <div className="count">{likeCount}</div>
       <div className="dislikeBtn" onClick={handleDislikeClick}>
         <img src={dislikeIcon} alt="dislike" />
       </div>
-      <span>{dislikeCount}</span>
+      <div className="count">{dislikeCount}</div>
     </div>
   );
 };

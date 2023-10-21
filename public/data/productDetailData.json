@@ -7,23 +7,20 @@
     "startDate": "2023년 11월 24일 18:30",
     "playTime": "120분",
     "age": "8세 이상",
-    "seatS": "130,000원",
-    "seatR": "120,000원",
-    "seatA": "110,000원",
+    "seatS": "130000",
+    "seatR": "120000",
+    "seatA": "110000",
     "seats": [
       {
         "grade": "S석",
-        "price": "130,000원",
         "available": 4
       },
       {
         "grade": "R석",
-        "price": "120,000원",
         "available": 3
       },
       {
         "grade": "A석",
-        "price": "110,000원",
         "available": 0
       }
     ]
@@ -31,29 +28,26 @@
   {
     "id": 2,
     "title": "동방신기 서울콘서트",
-    "stage": "올림픽 체조 경기장",
-    "thumbnailImage": "../images/poster.jpg",
+    "stage": "로스엔젤로스 체조 경기장",
+    "thumbnailImage": "../images/poster2.jpg",
     "startDate": "2023년 11월 01일",
     "playTime": "90분",
     "age": "12세 이상",
-    "seatS": "130,000원",
-    "seatR": "120,000원",
-    "seatA": "110,000원",
+    "seatS": "150000",
+    "seatR": "130000",
+    "seatA": "99000",
     "seats": [
       {
         "grade": "S석",
-        "price": "130,000원",
-        "available": 4
+        "available": 10
       },
       {
         "grade": "R석",
-        "price": "120,000원",
-        "available": 3
+        "available": 298
       },
       {
         "grade": "A석",
-        "price": "110,000원",
-        "available": 1
+        "available": 32
       }
     ]
   },
@@ -65,24 +59,21 @@
     "startDate": "2023년 11월 30일",
     "playTime": "110분",
     "age": "8세 이상",
-    "seatS": "130,000원",
-    "seatR": "120,000원",
-    "seatA": "110,000원",
+    "seatS": "130000",
+    "seatR": "120000",
+    "seatA": "99000",
     "seats": [
       {
         "grade": "S석",
-        "price": "130,000원",
-        "available": 4
+        "available": 7
       },
       {
         "grade": "R석",
-        "price": "120,000원",
-        "available": 3
+        "available": 19
       },
       {
         "grade": "A석",
-        "price": "110,000원",
-        "available": 1
+        "available": 207
       }
     ]
   },
@@ -94,24 +85,21 @@
     "startDate": "2023년 12월 01일",
     "playTime": "130분",
     "age": "12세 이상",
-    "seatS": "130,000원",
-    "seatR": "120,000원",
-    "seatA": "110,000원",
+    "seatS": "130000",
+    "seatR": "120000",
+    "seatA": "109000",
     "seats": [
       {
         "grade": "S석",
-        "price": "130,000원",
-        "available": 4
+        "available": 42
       },
       {
         "grade": "R석",
-        "price": "120,000원",
-        "available": 3
+        "available": 30
       },
       {
         "grade": "A석",
-        "price": "110,000원",
-        "available": 1
+        "available": 19
       }
     ]
   }

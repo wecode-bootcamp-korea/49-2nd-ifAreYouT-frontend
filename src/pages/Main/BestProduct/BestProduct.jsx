@@ -5,11 +5,11 @@ import './BestProduct.scss';
 
 const BestProduct = () => {
   const navigate = useNavigate();
-  const [mainData, setMainData] = useState([]);
+  const [mainData, setMainData] = useState({});
 
   useEffect(() => {
     axios
-      .get('/data/mainData.json') //fetch에서 axios로 변경
+      .get('/data/mainData.json') // fetch에서 axios로 변경
       .then(response => {
         setMainData(response.data);
       })
@@ -24,22 +24,26 @@ const BestProduct = () => {
 
   return (
     <div className="bestProduct">
-      {mainData.map(item => (
-        <div className="bestProductContainer" key={item.id}>
-          <div className="imgBox">
-            <img
-              src={item.thumbnail}
-              alt="공연 포스터"
-              className="productImg"
+      {mainData &&
+        Object.values(mainData).map(item => (
+          <div className="bestProductContainer" key={item.id}>
+            <div className="imgBox">
+              <img
+                src={item.thumbnail}
+                alt="공연 포스터"
+                className="productImg"
+                onClick={() => goToBestProduct(item.id)}
+              />
+            </div>
+            <div
+              className="productInfo"
               onClick={() => goToBestProduct(item.id)}
-            />
+            >
+              <div className="productTitle">{item.title}</div>
+              <div className="productDate">{item.date}</div>
+            </div>
           </div>
-          <div className="productInfo" onClick={() => goToBestProduct(item.id)}>
-            <div className="productTitle">{item.title}</div>
-            <div className="productDate">{item.date}</div>
-          </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

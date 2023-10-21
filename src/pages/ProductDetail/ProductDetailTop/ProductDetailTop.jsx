@@ -4,23 +4,55 @@ import ReactionButton from '../ReactionButton/ReactionButton';
 import axios from 'axios';
 import './ProductDetailTop.scss';
 
+const formatPrice = price => {
+  if (price) {
+    // price를 숫자로 변환
+    const priceNumeric = parseInt(price.replace(/[^0-9]/g, ''));
+
+    if (!isNaN(priceNumeric)) {
+      return priceNumeric.toLocaleString('ko-KR') + '원';
+    }
+  }
+  return ''; // 가격이 없을 경우 빈 문자열 반환
+};
+
 const ProductDetailTop = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isFan, setIsFan] = useState(false);
 
   useEffect(() => {
+    const userToken = localStorage.getItem('userToken');
+    if (userToken) {
+      setIsLoggedIn(true);
+    }
+
+    if (isLoggedIn) {
+      axios
+        .get('/api 주소')
+        .then(response => {
+          const fanStatus = response.data.fanStatus;
+          if (fanStatus === 'Y') {
+            setIsFan(true);
+          }
+        })
+        .catch(error => {
+          console.error('팬 여부 확인 중 오류 발생:', error);
+        });
+    }
+
     axios
-      .get('/data/productDetailData.json') //fetch에서 axios로 변경
+      .get('/data/productDetailData.json')
       .then(response => {
         setData(response.data);
       })
       .catch(error => {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       });
-  }, []);
+  }, [isLoggedIn]);
 
-  // id에 해당하는 데이터 찾기
   const selectedProduct = data.find(item => item.id === parseInt(id));
 
   const {
@@ -37,7 +69,20 @@ const ProductDetailTop = () => {
   } = selectedProduct || {};
 
   const handleOrderClick = () => {
-    navigate('/order'); // 'order' 페이지로 이동
+    if (isLoggedIn && isFan) {
+      axios
+        .get('/data/productDetailData.json')
+        .then(response => {
+          navigate('/order');
+        })
+        .catch(error => {
+          console.error('예매 요청 중 오류 발생:', error);
+        });
+    } else if (!isLoggedIn) {
+      alert('로그인이 필요합니다.');
+    } else {
+      alert('팬 코드가 발급되지 않았습니다.');
+    }
   };
 
   return (
@@ -48,6 +93,7 @@ const ProductDetailTop = () => {
           <div className="thumbnailImage">
             <img src={thumbnailImage} alt="Product Thumbnail" />
           </div>
+
           <div className="productInfoText">
             <div className="label">
               <div className="stageLabel">장소</div>
@@ -63,7 +109,9 @@ const ProductDetailTop = () => {
               <div className="playTime">{playTime}</div>
               <div className="age">{age}</div>
               <div className="price">
-                S석 {seatS} ㅣ R석 {seatR} ㅣ A석 {seatA}
+                <div className="priceSeatS"> S석 {formatPrice(seatS)} </div>
+                <div className="priceSeatR">R석 {formatPrice(seatR)} </div>
+                <div className="priceSeatA"> A석 {formatPrice(seatA)} </div>
               </div>
               <div className="availableSeats">
                 {seats &&
@@ -76,14 +124,16 @@ const ProductDetailTop = () => {
                     </div>
                   ))}
               </div>
+              <div className="orderBtn">
+                <button className="orderButton" onClick={handleOrderClick}>
+                  예매하기
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <ReactionButton />
-      <button className="orderButton" onClick={handleOrderClick}>
-        예매하기
-      </button>
     </div>
   );
 };

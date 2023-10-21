@@ -1,4 +1,5 @@
 import ProductDetailTop from './ProductDetailTop/ProductDetailTop';
+import ProductDetailBottom from './ProductDetailBottom/ProductDetailBottom';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
@@ -6,6 +7,7 @@ const ProductDetail = () => {
     <div className="productDetail">
       <div className="productDetailContainer"></div>
       <ProductDetailTop />
+      <ProductDetailBottom />
     </div>
   );
 };

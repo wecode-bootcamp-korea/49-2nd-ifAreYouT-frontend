@@ -1,20 +1,18 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import './Promotion.scss';
 
 const Promotion = () => {
   const { id } = useParams();
-  const [promotionItem, setPromotionItem] = useState(null);
+  const [promotionItem, setPromotionItem] = useState({});
 
   useEffect(() => {
-    axios
-      .get('/data/promotionData.json') // fetch를 axios로 변경
+    fetch('/data/promotionData.json')
       .then(response => {
-        if (response.status !== 200) {
+        if (!response.ok) {
           throw new Error('데이터를 가져오는 중 오류 발생');
         }
-        return response.data;
+        return response.json();
       })
       .then(data => {
         const item = data.find(item => item.id === parseInt(id));
