@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import axios from 'axios';
 import './MainSlide.scss';
 
 const MainSlide = () => {
@@ -10,15 +11,10 @@ const MainSlide = () => {
   const [mainSlideData, setMainSlideData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/mainSlideData.json')
+    axios
+      .get('/data/mainSlideData.json') //fetch에서 axios로 변경
       .then(response => {
-        if (!response.ok) {
-          throw new Error('데이터를 가져오는 중 오류 발생');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setMainSlideData(data);
+        setMainSlideData(response.data);
       })
       .catch(error => {
         console.error('데이터를 불러오는 중 오류 발생:', error);
@@ -46,11 +42,10 @@ const MainSlide = () => {
     <div className="mainSlide">
       <Slider {...settings}>
         {mainSlideData.map(image => (
-          //클래스네임 변경
           <div key={image.id} className="mainSlideContainer">
             <img
               className="img"
-              src={image.src} //alt값 백엔드에서 받지 않음, 삭제
+              src={image.src}
               onClick={() => clickSlide(image.id)}
             />
           </div>

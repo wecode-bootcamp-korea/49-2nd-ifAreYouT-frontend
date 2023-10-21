@@ -1,0 +1,33 @@
+.reactionButton {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 40px;
+  width: 7%;
+  gap: 50px;
+}
+
+.likeBtn,
+.dislikeBtn {
+  padding: 8px 15px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.likeBtn:hover,
+.dislikeBtn:hover {
+  box-shadow: 0 0 0 18px transparent;
+  animation: pulse 1s;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 grey;
+  }
+}
+
+.count {
+  padding-right: 10px;
+  margin-top: 20px;
+  margin-left: -20px;
+}

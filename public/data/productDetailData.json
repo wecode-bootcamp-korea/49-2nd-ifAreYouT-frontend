@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "title": "찰리 푸스 내한공연 (Charlie Puth Live in Seoul)",
+    "thumbnailImage": "../images/poster.jpg",
+    "stage": "올림픽 핸드볼 경기장",
+    "startDate": "2023년 11월 24일 18:30",
+    "playTime": "120분",
+    "age": "8세 이상",
+    "seatS": "130000",
+    "seatR": "120000",
+    "seatA": "110000",
+    "seats": [
+      {
+        "grade": "S석",
+        "available": 4
+      },
+      {
+        "grade": "R석",
+        "available": 3
+      },
+      {
+        "grade": "A석",
+        "available": 0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "동방신기 서울콘서트",
+    "stage": "로스엔젤로스 체조 경기장",
+    "thumbnailImage": "../images/poster2.jpg",
+    "startDate": "2023년 11월 01일",
+    "playTime": "90분",
+    "age": "12세 이상",
+    "seatS": "150000",
+    "seatR": "130000",
+    "seatA": "99000",
+    "seats": [
+      {
+        "grade": "S석",
+        "available": 10
+      },
+      {
+        "grade": "R석",
+        "available": 298
+      },
+      {
+        "grade": "A석",
+        "available": 32
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "아이브 전국투어 (IVE Tour in Korea)",
+    "stage": "고척스카이돔",
+    "thumbnailImage": "../images/poster.jpg",
+    "startDate": "2023년 11월 30일",
+    "playTime": "110분",
+    "age": "8세 이상",
+    "seatS": "130000",
+    "seatR": "120000",
+    "seatA": "99000",
+    "seats": [
+      {
+        "grade": "S석",
+        "available": 7
+      },
+      {
+        "grade": "R석",
+        "available": 19
+      },
+      {
+        "grade": "A석",
+        "available": 207
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "동방신기 인천콘서트",
+    "stage": "인천 삼산월드체육관",
+    "thumbnailImage": "../images/poster.jpg",
+    "startDate": "2023년 12월 01일",
+    "playTime": "130분",
+    "age": "12세 이상",
+    "seatS": "130000",
+    "seatR": "120000",
+    "seatA": "109000",
+    "seats": [
+      {
+        "grade": "S석",
+        "available": 42
+      },
+      {
+        "grade": "R석",
+        "available": 30
+      },
+      {
+        "grade": "A석",
+        "available": 19
+      }
+    ]
+  }
+]
