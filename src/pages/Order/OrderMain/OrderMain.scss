@@ -2,7 +2,7 @@
 
 .OrderMain {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2.8fr 1.2fr;
   grid-column: span 4;
 
   .concertHall {
@@ -14,8 +14,8 @@
 
       .text {
         @include flexCenter;
-        width: 90%;
-        height: 80%;
+        width: 70%;
+        height: 60%;
         margin-left: 2%;
         border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px;
@@ -29,6 +29,7 @@
   .selectSeatInfo {
     display: grid;
     grid-template-rows: 1fr 3fr 1fr 1fr;
+    padding-right: 50px;
 
     .text {
       @include flexCenter;

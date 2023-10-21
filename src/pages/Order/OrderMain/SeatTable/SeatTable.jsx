@@ -9,11 +9,19 @@ import './SeatTable.scss';
 const SeatTable = ({ seatData, setSeatData }) => {
   const handleClick = idx => {
     const buttonState = [...seatData];
-    if (buttonState[idx].status === AVAILABLE) {
+    const seatStatus = buttonState[idx].status;
+    const numberOfSelectedSeats = buttonState.filter(
+      el => el.status === SELECTED,
+    ).length;
+
+    if (seatStatus === AVAILABLE && numberOfSelectedSeats === 10) {
+      alert('예매 가능한 최대 매수는 10매입니다.');
+    } else if (seatStatus === AVAILABLE && numberOfSelectedSeats < 10) {
       buttonState[idx].status = SELECTED;
-    } else if (buttonState[idx].status === SELECTED) {
+    } else if (seatStatus === SELECTED) {
       buttonState[idx].status = AVAILABLE;
     }
+
     setSeatData(buttonState);
   };
   const column = new Set(seatData.map(val => val.name.split('-')[1])).size;
