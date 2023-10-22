@@ -1,0 +1,31 @@
+@import '/src/styles/mixin.scss';
+
+.noticeTable {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  height: 230px;
+
+  .noticeHeader {
+    grid-column: span 3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    font-size: 1.7rem;
+    color: white;
+  }
+
+  .remark {
+    display: flex;
+    flex-direction: column;
+    grid-row: span 4;
+    padding: 1rem;
+    color: white;
+  }
+
+  .noticeBox {
+    @include tableShape;
+  }
+}
