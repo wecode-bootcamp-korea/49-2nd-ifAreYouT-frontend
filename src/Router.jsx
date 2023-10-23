@@ -9,10 +9,12 @@ import Payment from './pages/Payment/Payment';
 import NotFound from './pages/NotFound/NotFound';
 import Promotion from './pages/Promotion/Promotion';
 import CompletePayment from './pages/CompletePayment/CompletePayment';
+import Header from './components/Header/Header';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/events/main" element={<Main />} />
         <Route path="/login" element={<Login />} />
