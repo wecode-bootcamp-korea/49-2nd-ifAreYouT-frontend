@@ -1,0 +1,34 @@
+@import '/src/styles/mixin.scss';
+
+.completePayment {
+  @include flexCenter;
+  width: 100vw;
+  height: 100vh;
+  background-color: $Gray33;
+
+  .completePaymentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 800px;
+    height: 600px;
+    padding-top: 5rem;
+    border: 2px solid white;
+    border-radius: 30px;
+    background-color: $Black;
+
+    img {
+      width: 10rem;
+    }
+
+    p {
+      font-size: 2rem;
+      color: white;
+    }
+
+    button {
+      @include bigBtn($Red);
+    }
+  }
+}

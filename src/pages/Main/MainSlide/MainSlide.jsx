@@ -3,23 +3,14 @@ import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import axios from 'axios';
 import './MainSlide.scss';
 
-const MainSlide = () => {
-  const navigate = useNavigate();
-  const [mainSlideData, setMainSlideData] = useState([]);
+const MainSlide = ({ promotions, navigate }) => {
+  const [mainSlideData, setMainSlideData] = useState(promotions);
 
   useEffect(() => {
-    axios
-      .get('/data/mainSlideData.json') //fetch에서 axios로 변경
-      .then(response => {
-        setMainSlideData(response.data);
-      })
-      .catch(error => {
-        console.error('데이터를 불러오는 중 오류 발생:', error);
-      });
-  }, []);
+    setMainSlideData(promotions);
+  }, [promotions]);
 
   const clickSlide = id => {
     navigate(`/promotion/${id}`);
@@ -40,17 +31,22 @@ const MainSlide = () => {
 
   return (
     <div className="mainSlide">
-      <Slider {...settings}>
-        {mainSlideData.map(image => (
-          <div key={image.id} className="mainSlideContainer">
-            <img
-              className="img"
-              src={image.src}
-              onClick={() => clickSlide(image.id)}
-            />
-          </div>
-        ))}
-      </Slider>
+      {mainSlideData.length === 0 ? (
+        <p>Loading...</p>
+      ) : (
+        <Slider {...settings}>
+          {mainSlideData.map(image => (
+            <div key={image.id} className="mainSlideContainer">
+              <img
+                className="img"
+                src={image.src}
+                alt="프로모션 배너"
+                onClick={() => clickSlide(image.id)}
+              />
+            </div>
+          ))}
+        </Slider>
+      )}
     </div>
   );
 };
