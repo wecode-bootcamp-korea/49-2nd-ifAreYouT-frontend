@@ -55,23 +55,6 @@ const ProductDetailTop = () => {
     participate,
   } = data;
 
-  const handleOrderClick = () => {
-    if (isLoggedIn && isFan) {
-      axios
-        .get('/data/productDetailData.json')
-        .then(response => {
-          navigate('/order');
-        })
-        .catch(error => {
-          console.error('예매 요청 중 오류 발생:', error);
-        });
-    } else if (!isLoggedIn) {
-      alert('로그인이 필요합니다.');
-    } else {
-      alert('팬 코드가 발급되지 않았습니다.');
-    }
-  };
-
   return (
     <div className="productDetailTop">
       <div className="productDetailTopContainer">
