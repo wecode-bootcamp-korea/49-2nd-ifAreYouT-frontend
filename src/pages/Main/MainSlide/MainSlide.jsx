@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,27 +8,44 @@ import './MainSlide.scss';
 
 const MainSlide = () => {
   const navigate = useNavigate();
+
   const [mainSlideData, setMainSlideData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/mainSlideData.json')
+    axios
+      .get('/data/mainSlideData.json')
+      // .get('http://10.58.52.169:8000/events/main')
       .then(response => {
-        if (!response.ok) {
-          throw new Error('데이터를 가져오는 중 오류 발생');
-        }
-        return response.json();
+        setMainSlideData(response.data.data.events);
       })
-      .then(data => {
-        setMainSlideData(data);
-      })
+
       .catch(error => {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       });
   }, []);
 
+  console.log(mainSlideData);
+
   const clickSlide = id => {
     navigate(`/promotion/${id}`);
   };
+
+  // useEffect(() => {
+  // axios
+  // .get('/data/mainSlideData.json')
+  // .then(response => {
+  // const events = response.data.data.events;
+  // setMainSlideData(events);
+  // })
+
+  // .catch(error => {
+  // console.error('데이터를 불러오는 중 오류 발생:', error);
+  // });
+  // }, []);
+
+  // const clickSlide = id => {
+  // navigate(`/promotion/${id}`);
+  // };
 
   const settings = {
     arrows: true,
@@ -44,18 +62,22 @@ const MainSlide = () => {
 
   return (
     <div className="mainSlide">
-      <Slider {...settings}>
-        {mainSlideData.map(image => (
-          //클래스네임 변경
-          <div key={image.id} className="mainSlideContainer">
-            <img
-              className="img"
-              src={image.src} //alt값 백엔드에서 받지 않음, 삭제
-              onClick={() => clickSlide(image.id)}
-            />
-          </div>
-        ))}
-      </Slider>
+      {mainSlideData.length === 0 ? (
+        <p>Loading...</p>
+      ) : (
+        <Slider {...settings}>
+          {mainSlideData.map(image => (
+            <div key={image.id} className="mainSlideContainer">
+              <img
+                className="img"
+                src={image.thumbnail_image_url}
+                alt="프로모션 배너"
+                onClick={() => clickSlide(image.id)}
+              />
+            </div>
+          ))}
+        </Slider>
+      )}
     </div>
   );
 };

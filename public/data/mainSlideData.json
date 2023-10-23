@@ -1,19 +1,81 @@
-[
-  {
-    "id": 1,
-    "src": "./images/slide1.jpg",
-    "alt": "1번 사진"
-  },
+{
+  "data": {
+    "events": [
+      {
+        "id": 1,
+        "title": "김범수-보고싶다",
+        "thumbnail_image_url": "/images/slide1.jpg"
+      },
 
-  {
-    "id": 2,
-    "src": "images/slide2.jpg",
-    "alt": "2번 사진"
-  },
+      {
+        "id": 2,
+        "title": "나얼-바람기억",
+        "thumbnail_image_url": "/images/slide2.jpg"
+      },
 
-  {
-    "id": 3,
-    "src": "images/slide3.jpg",
-    "alt": "3번 사진"
+      {
+        "id": 3,
+        "title": "나얼-귀로",
+        "thumbnail_image_url": "/images/slide3.jpg"
+      }
+    ],
+
+    "promotions": [
+      {
+        "id": 1,
+        "thumbnail": "/images/thumbnail.jpeg",
+        "title": "찰리 푸스 내한공연 (Charlie Puth Live in Seoul)",
+        "date": "2023년 11월 24일"
+      },
+
+      {
+        "id": 2,
+        "thumbnail": "/images/thumbnail.jpeg",
+        "title": "동방신기 서울콘서트",
+        "date": "2023년 11월 01일"
+      },
+
+      {
+        "id": 3,
+        "thumbnail": "/images/thumbnail.jpeg",
+        "title": "아이브 전국투어 (IVE Tour in Korea)",
+        "date": "2023년 11월 30일"
+      },
+
+      {
+        "id": 4,
+        "thumbnail": "/images/thumbnail.jpeg",
+        "title": "동방신기 인천콘서트",
+        "date": "2023년 10월 30일"
+      },
+
+      {
+        "id": 5,
+        "thumbnail": "/images/thumbnail.jpeg",
+        "title": "2023 카즈미 타테이시 트리오 내한공연",
+        "date": "2023년 12월 03일"
+      },
+
+      {
+        "id": 6,
+        "thumbnail": "/images/thumbnail.jpeg",
+        "title": "에픽하이 20주년 콘서트",
+        "date": "2023년 11월 03일"
+      },
+
+      {
+        "id": 7,
+        "thumbnail": "/images/thumbnail.jpeg",
+        "title": "itzy 부산콘서트 (itzy in Busan)",
+        "date": "2023년 11월 30일"
+      },
+
+      {
+        "id": 8,
+        "thumbnail": "/images/thumbnail.jpeg",
+        "title": "LOVE IN SEOUL 2023",
+        "date": "2023년 12월 30일"
+      }
+    ]
   }
-]
+}
