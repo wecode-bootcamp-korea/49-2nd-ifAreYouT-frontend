@@ -12,7 +12,7 @@ const ProductDetailTop = () => {
 
   useEffect(() => {
     axios
-      .get('/data/productDetailData2.json')
+      .get('/data/productDetailData.json')
       // .get(`http://10.58.52.169:8000/events/${id}`)
       .then(({ data }) => {
         setData(data.data);
@@ -50,7 +50,6 @@ const ProductDetailTop = () => {
     seatR,
     seatA,
     seats,
-    age,
     status,
     reactions,
     participate,
@@ -70,7 +69,7 @@ const ProductDetailTop = () => {
               <div className="stageLabel">장소</div>
               <div className="startDateLabel">일정</div>
               <div className="playTimeLabel">관람시간</div>
-              <div className="ageLabel">관람등급</div>
+
               <div className="priceLabel">가격</div>
               <div className="availableSeatsLabel">잔여좌석</div>
             </div>
@@ -78,7 +77,7 @@ const ProductDetailTop = () => {
               <div className="stage">{stage}</div>
               <div className="startDate">{startDate}</div>
               <div className="playTime">{playTime}</div>
-              <div className="age">{age}</div>
+
               <div className="price">
                 <div className="priceSeatS">S석 {formatPrice(seatS)} </div>
                 <div className="priceSeatR">R석 {formatPrice(seatR)} </div>
