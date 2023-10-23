@@ -95,7 +95,7 @@ const ProductDetailTop = () => {
               </div>
               <div className="orderBtn">
                 <button className="orderButton" onClick={handleOrderClick}>
-                  예매하기
+                  예매하기!
                 </button>
               </div>
             </div>
