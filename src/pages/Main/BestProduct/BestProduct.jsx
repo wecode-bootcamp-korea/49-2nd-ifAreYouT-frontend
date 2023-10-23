@@ -9,8 +9,10 @@ const BestProduct = () => {
 
   useEffect(() => {
     axios
-      .get('/data/mainData.json') // fetch에서 axios로 변경
+      .get('/data/mainData.json')
+      // .get('http://10.58.52.169:8000/events/main')
       .then(response => {
+        console.log(response);
         setMainData(response.data);
       })
       .catch(error => {

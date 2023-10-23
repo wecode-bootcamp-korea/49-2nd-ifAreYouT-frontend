@@ -12,7 +12,7 @@ const Main = () => {
   return (
     <div className="main">
       <MainSlide />
-      <div className="bestProductText">What's Hot</div>
+      <div className="bestProductText">What's Hot ?</div>
       <BestProduct />
     </div>
   );

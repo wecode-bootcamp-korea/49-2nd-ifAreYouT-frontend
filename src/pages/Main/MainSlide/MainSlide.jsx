@@ -12,18 +12,37 @@ const MainSlide = () => {
 
   useEffect(() => {
     axios
-      .get('/data/mainSlideData.json') //fetch에서 axios로 변경
+      .get('/data/mainSlideData.json')
+      // .get('http://10.58.52.169/events/main')
       .then(response => {
-        setMainSlideData(response.data);
+        setMainSlideData(response.data.data.events);
       })
       .catch(error => {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       });
   }, []);
 
+  console.log(mainSlideData);
+
   const clickSlide = id => {
     navigate(`/promotion/${id}`);
   };
+
+  // useEffect(() => {
+  //   axios
+  //     .get('/data/mainSlideData.json')
+  //     .then(response => {
+  //       const events = response.data.data.events;
+  //       setMainSlideData(events);
+  //     })
+  //     .catch(error => {
+  //       console.error('데이터를 불러오는 중 오류 발생:', error);
+  //     });
+  // }, []);
+
+  // const clickSlide = id => {
+  //   navigate(`/promotion/${id}`);
+  // };
 
   const settings = {
     arrows: true,
@@ -40,18 +59,22 @@ const MainSlide = () => {
 
   return (
     <div className="mainSlide">
-      <Slider {...settings}>
-        {mainSlideData.map(image => (
-          <div key={image.id} className="mainSlideContainer">
-            <img
-              className="img"
-              src={image.src}
-              alt="프로모션 배너"
-              onClick={() => clickSlide(image.id)}
-            />
-          </div>
-        ))}
-      </Slider>
+      {mainSlideData.length === 0 ? (
+        <p>Loading...</p>
+      ) : (
+        <Slider {...settings}>
+          {mainSlideData.map(image => (
+            <div key={image.id} className="mainSlideContainer">
+              <img
+                className="img"
+                src={image.thumbnail_image_url}
+                alt="프로모션 배너"
+                onClick={() => clickSlide(image.id)}
+              />
+            </div>
+          ))}
+        </Slider>
+      )}
     </div>
   );
 };

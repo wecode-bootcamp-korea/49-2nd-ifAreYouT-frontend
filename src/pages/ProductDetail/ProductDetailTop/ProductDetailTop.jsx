@@ -13,7 +13,7 @@ const ProductDetailTop = () => {
   useEffect(() => {
     axios
       .get('/data/productDetailData2.json')
-      // .get(`http://10.58.56.123:8000/events/${id}`)
+      // .get(`http://10.58.52.169:8000/events/${id}`)
       .then(({ data }) => {
         setData(data.data);
       })
@@ -35,18 +35,7 @@ const ProductDetailTop = () => {
       return;
     }
 
-    axios
-      .post('/data/productDetailData.json')
-      .then(response => {
-        // 어떤 상품인지 보내줘야 함
-        // 1. path parameter => `/order/${id}`
-        // 2. query parameter => `/order?id=${id}`
-        // 3. location state => navigate('/order', { state : id })
-        navigate('/order');
-      })
-      .catch(error => {
-        console.error('예매 요청 중 오류 발생:', error);
-      });
+    navigate(`/order/${id}`, { state: data });
   };
 
   if (Object.keys(data).length === 0) return null;
@@ -124,14 +113,14 @@ const ProductDetailTop = () => {
 
 export default ProductDetailTop;
 
+//호이스팅
 const formatPrice = price => {
   if (price) {
-    // price를 숫자로 변환
     const priceNumeric = parseInt(price.replace(/[^0-9]/g, ''));
 
     if (!isNaN(priceNumeric)) {
       return priceNumeric.toLocaleString('ko-KR') + '원';
     }
   }
-  return ''; // 가격이 없을 경우 빈 문자열 반환
+  return '';
 };

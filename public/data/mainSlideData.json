@@ -1,16 +1,21 @@
-[
-  {
-    "id": 1,
-    "src": "./images/slide1.jpg"
-  },
-
-  {
-    "id": 2,
-    "src": "images/slide2.jpg"
-  },
-
-  {
-    "id": 3,
-    "src": "images/slide3.jpg"
+{
+  "data": {
+    "events": [
+      {
+        "id": 1,
+        "title": "김범수-보고싶다",
+        "thumbnail_image_url": "./images/slide1.jpg"
+      },
+      {
+        "id": 2,
+        "title": "나얼-바람기억",
+        "thumbnail_image_url": "./images/slide2.jpg"
+      },
+      {
+        "id": 3,
+        "title": "나얼-귀로",
+        "thumbnail_image_url": "./images/slide3.jpg"
+      }
+    ]
   }
-]
+}

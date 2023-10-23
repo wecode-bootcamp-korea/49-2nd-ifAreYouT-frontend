@@ -1,25 +1,25 @@
 .productDetailTop {
   width: 80%;
   margin-left: 140px;
-  margin-top: 50px;
-  padding-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   border-bottom: 1px solid #c0c0c0;
   color: white;
 
   .productTitle {
     font-weight: 500;
-    font-size: 26px;
+    font-size: 30px;
     margin-left: 30px;
     padding-bottom: 28px;
     border-bottom: 2px solid white;
   }
+
   .infoContainer {
     display: flex;
     margin-top: 40px;
 
     .productInfoText {
       display: flex;
-
       margin-top: 50px;
       margin-left: 100px;
       gap: 50px;
@@ -33,11 +33,11 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
-      font-size: 18px;
+      font-size: 22px;
       font-weight: bold;
 
       .availableSeatsLabel {
-        margin-top: 93px;
+        margin-top: 96px;
       }
 
       .orderButton {
@@ -59,8 +59,8 @@
     .infoData {
       display: flex;
       flex-direction: column;
-      font-size: 18px;
-      gap: 30px;
+      font-size: 20px;
+      gap: 31.5px;
     }
 
     .price {
@@ -79,7 +79,7 @@
       border: none;
       border-radius: 10px;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 20px;
       background-color: Red;
       color: white;
       cursor: pointer;
