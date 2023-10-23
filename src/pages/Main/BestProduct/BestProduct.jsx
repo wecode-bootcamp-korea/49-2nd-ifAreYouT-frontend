@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './BestProduct.scss';
 
 const BestProduct = () => {
@@ -7,10 +8,15 @@ const BestProduct = () => {
   const [mainData, setMainData] = useState([]);
 
   useEffect(() => {
-    fetch('/data/mainData.json')
-      .then(response => response.json())
-      .then(data => setMainData(data))
-      .catch(error => console.error('데이터를 불러오는 중 오류 발생:', error));
+    axios
+      .get('/data/newData.json')
+      .then(response => {
+        setMainData(response.data.data.events);
+      })
+
+      .catch(error => {
+        console.error('데이터를 불러오는 중 오류 발생:', error);
+      });
   }, []);
 
   //함수명 수정
