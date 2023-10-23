@@ -13,6 +13,49 @@
     margin-top: 50px;
     width: 150px;
     height: 100px;
+    cursor: pointer;
+
+    .bestProduct {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 5px;
+      grid-row-gap: 250px;
+
+      .bestProductContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 105px;
+        margin-top: 50px;
+        width: 150px;
+        height: 100px;
+
+        .productImg {
+          width: 300px;
+          height: 300px;
+        }
+
+        .productInfo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 7px;
+          width: 300px;
+          &:hover {
+            color: grey;
+          }
+
+          .productTitle {
+            font-size: 15px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    &:hover .productInfo {
+      color: grey;
+    }
 
     cursor: pointer;
 
