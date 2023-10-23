@@ -2,14 +2,39 @@
 
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 80px;
   position: sticky;
-  font-size: 2rem;
   color: white;
   background-color: $Black;
 
   .logo {
     width: 10rem;
+    cursor: pointer;
+  }
+
+  .leftSide {
+    display: flex;
+    align-items: center;
+
+    .navButton {
+      font-size: 1.4rem;
+      margin: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .rightSide {
+    margin-right: 20px;
+
+    .rightSideDetail {
+      display: flex;
+      gap: 20px;
+
+      div {
+        cursor: pointer;
+      }
+    }
   }
 }
