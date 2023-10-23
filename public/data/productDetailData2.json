@@ -1,0 +1,48 @@
+{
+  "data": {
+    "category": "ballad",
+    "id": 1,
+    "title": "박효신-야생화",
+    "performer": "박효신",
+    "stage": "올림픽공원",
+    "age": "8세 이상",
+    "description": "박효신 연말콘서트",
+    "startDate": "2023.12.01",
+    "endDate": "2023.12.05",
+    "salesStartDate": "2023.11.01",
+    "salesEndDate": "2023.11.05",
+    "playTime": "130",
+    "eventTime": "07:00",
+    "thumbnailImage": "thumbnail.com",
+    "detailImage": "detail.com",
+    "status": "merchantable",
+    "seatS": "130000",
+    "seatR": "120000",
+    "seatA": "110000",
+    "seats": [
+      {
+        "grade": "S석",
+        "available": 4
+      },
+      {
+        "grade": "R석",
+        "available": 3
+      },
+      {
+        "grade": "A석",
+        "available": 1
+      }
+    ],
+    "reactions": [
+      {
+        "up": 1,
+        "down": 1
+      }
+    ],
+    "participate": [
+      {
+        "status": 1
+      }
+    ]
+  }
+}

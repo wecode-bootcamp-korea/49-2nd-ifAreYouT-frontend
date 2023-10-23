@@ -4,56 +4,52 @@ import ReactionButton from '../ReactionButton/ReactionButton';
 import axios from 'axios';
 import './ProductDetailTop.scss';
 
-const formatPrice = price => {
-  if (price) {
-    // price를 숫자로 변환
-    const priceNumeric = parseInt(price.replace(/[^0-9]/g, ''));
-
-    if (!isNaN(priceNumeric)) {
-      return priceNumeric.toLocaleString('ko-KR') + '원';
-    }
-  }
-  return ''; // 가격이 없을 경우 빈 문자열 반환
-};
-
 const ProductDetailTop = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isFan, setIsFan] = useState(false);
+  const [data, setData] = useState({});
+  const isLoggedIn = !!localStorage.getItem('userToken');
 
   useEffect(() => {
-    const userToken = localStorage.getItem('userToken');
-    if (userToken) {
-      setIsLoggedIn(true);
-    }
-
-    if (isLoggedIn) {
-      axios
-        .get('/api 주소')
-        .then(response => {
-          const fanStatus = response.data.fanStatus;
-          if (fanStatus === 'Y') {
-            setIsFan(true);
-          }
-        })
-        .catch(error => {
-          console.error('팬 여부 확인 중 오류 발생:', error);
-        });
-    }
-
     axios
-      .get('/data/productDetailData.json')
-      .then(response => {
-        setData(response.data);
+      .get('/data/productDetailData2.json')
+      // .get(`http://10.58.56.123:8000/events/${id}`)
+      .then(({ data }) => {
+        setData(data.data);
       })
       .catch(error => {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       });
-  }, [isLoggedIn]);
+  }, []);
 
-  const selectedProduct = data.find(item => item.id === parseInt(id));
+  const handleOrderClick = () => {
+    if (!isLoggedIn) {
+      alert('로그인이 필요합니다.');
+
+      return;
+    }
+
+    if (status !== 'merchantable') {
+      alert('팬 코드가 발급되지 않았습니다.');
+
+      return;
+    }
+
+    axios
+      .post('/data/productDetailData.json')
+      .then(response => {
+        // 어떤 상품인지 보내줘야 함
+        // 1. path parameter => `/order/${id}`
+        // 2. query parameter => `/order?id=${id}`
+        // 3. location state => navigate('/order', { state : id })
+        navigate('/order');
+      })
+      .catch(error => {
+        console.error('예매 요청 중 오류 발생:', error);
+      });
+  };
+
+  if (Object.keys(data).length === 0) return null;
 
   const {
     title,
@@ -66,24 +62,10 @@ const ProductDetailTop = () => {
     seatA,
     seats,
     age,
-  } = selectedProduct || {};
-
-  const handleOrderClick = () => {
-    if (isLoggedIn && isFan) {
-      axios
-        .get('/data/productDetailData.json')
-        .then(response => {
-          navigate('/order');
-        })
-        .catch(error => {
-          console.error('예매 요청 중 오류 발생:', error);
-        });
-    } else if (!isLoggedIn) {
-      alert('로그인이 필요합니다.');
-    } else {
-      alert('팬 코드가 발급되지 않았습니다.');
-    }
-  };
+    status,
+    reactions,
+    participate,
+  } = data;
 
   return (
     <div className="productDetailTop">
@@ -109,20 +91,19 @@ const ProductDetailTop = () => {
               <div className="playTime">{playTime}</div>
               <div className="age">{age}</div>
               <div className="price">
-                <div className="priceSeatS"> S석 {formatPrice(seatS)} </div>
+                <div className="priceSeatS">S석 {formatPrice(seatS)} </div>
                 <div className="priceSeatR">R석 {formatPrice(seatR)} </div>
-                <div className="priceSeatA"> A석 {formatPrice(seatA)} </div>
+                <div className="priceSeatA">A석 {formatPrice(seatA)} </div>
               </div>
               <div className="availableSeats">
-                {seats &&
-                  seats.map(seat => (
-                    <div key={seat.grade}>
-                      <div>
-                        {seat.grade} :{' '}
-                        {seat.available === 0 ? '매진' : seat.available}
-                      </div>
+                {seats.map(seat => (
+                  <div key={seat.grade}>
+                    <div>
+                      {seat.grade} :{' '}
+                      {seat.available === 0 ? '매진' : seat.available}
                     </div>
-                  ))}
+                  </div>
+                ))}
               </div>
               <div className="orderBtn">
                 <button className="orderButton" onClick={handleOrderClick}>
@@ -133,9 +114,24 @@ const ProductDetailTop = () => {
           </div>
         </div>
       </div>
-      <ReactionButton />
+      <ReactionButton
+        reaction={reactions[0]}
+        hasVoted={Boolean(participate[0].status)}
+      />
     </div>
   );
 };
 
 export default ProductDetailTop;
+
+const formatPrice = price => {
+  if (price) {
+    // price를 숫자로 변환
+    const priceNumeric = parseInt(price.replace(/[^0-9]/g, ''));
+
+    if (!isNaN(priceNumeric)) {
+      return priceNumeric.toLocaleString('ko-KR') + '원';
+    }
+  }
+  return ''; // 가격이 없을 경우 빈 문자열 반환
+};

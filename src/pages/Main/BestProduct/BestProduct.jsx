@@ -5,7 +5,7 @@ import './BestProduct.scss';
 
 const BestProduct = () => {
   const navigate = useNavigate();
-  const [mainData, setMainData] = useState({});
+  const [mainData, setMainData] = useState([]);
 
   useEffect(() => {
     axios
@@ -24,26 +24,25 @@ const BestProduct = () => {
 
   return (
     <div className="bestProduct">
-      {mainData &&
-        Object.values(mainData).map(item => (
-          <div className="bestProductContainer" key={item.id}>
-            <div className="imgBox">
-              <img
-                src={item.thumbnail}
-                alt="공연 포스터"
-                className="productImg"
-                onClick={() => goToBestProduct(item.id)}
-              />
-            </div>
-            <div
-              className="productInfo"
-              onClick={() => goToBestProduct(item.id)}
-            >
-              <div className="productTitle">{item.title}</div>
-              <div className="productDate">{item.date}</div>
-            </div>
+      {mainData.map(item => (
+        <div
+          className="bestProductContainer"
+          key={item.id}
+          onClick={() => goToBestProduct(item.id)}
+        >
+          <div className="imgBox">
+            <img
+              src={item.thumbnail}
+              alt="공연 포스터"
+              className="productImg"
+            />
           </div>
-        ))}
+          <div className="productInfo">
+            <div className="productTitle">{item.title}</div>
+            <div className="productDate">{item.date}</div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

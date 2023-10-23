@@ -13,6 +13,11 @@
     margin-top: 50px;
     width: 150px;
     height: 100px;
+    cursor: pointer;
+
+    &:hover .productInfo {
+      color: grey;
+    }
 
     .productImg {
       width: 300px;
@@ -25,9 +30,6 @@
       align-items: center;
       gap: 7px;
       width: 300px;
-      &:hover {
-        color: grey;
-      }
 
       .productTitle {
         font-size: 15px;
