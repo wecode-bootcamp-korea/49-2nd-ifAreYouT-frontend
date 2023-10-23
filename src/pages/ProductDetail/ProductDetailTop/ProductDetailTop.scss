@@ -4,13 +4,14 @@
   margin-top: 50px;
   padding-bottom: 20px;
   border-bottom: 1px solid #c0c0c0;
+  color: white;
 
   .productTitle {
     font-weight: 500;
     font-size: 26px;
     margin-left: 30px;
     padding-bottom: 28px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
   }
   .infoContainer {
     display: flex;
@@ -18,7 +19,7 @@
 
     .productInfoText {
       display: flex;
-      color: black;
+
       margin-top: 50px;
       margin-left: 100px;
       gap: 50px;

@@ -1,0 +1,40 @@
+@import '/src/styles/mixin.scss';
+
+.paymentMain {
+  display: grid;
+  grid-template-columns: 3fr 1.2fr;
+
+  .paymentInfo {
+    display: grid;
+    grid-template-rows: 0.2fr 3fr 2fr;
+    gap: 1rem;
+    padding: 1rem;
+
+    .venue {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      padding: 1rem;
+      font-size: 2rem;
+      color: white;
+
+      img {
+        width: 13.6rem;
+      }
+
+      .productInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+
+        .location {
+          font-size: 1.5rem;
+        }
+
+        .date {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

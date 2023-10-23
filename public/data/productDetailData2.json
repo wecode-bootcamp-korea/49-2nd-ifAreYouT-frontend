@@ -13,7 +13,7 @@
     "salesEndDate": "2023.11.05",
     "playTime": "130",
     "eventTime": "07:00",
-    "thumbnailImage": "thumbnail.com",
+    "thumbnailImage": "../images/poster.jpg",
     "detailImage": "detail.com",
     "status": "merchantable",
     "seatS": "130000",

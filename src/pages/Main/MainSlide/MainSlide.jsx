@@ -46,6 +46,7 @@ const MainSlide = () => {
             <img
               className="img"
               src={image.src}
+              alt="프로모션 배너"
               onClick={() => clickSlide(image.id)}
             />
           </div>
