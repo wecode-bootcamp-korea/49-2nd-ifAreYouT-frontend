@@ -5,11 +5,16 @@ import SignUp from './pages/SignUp/SignUp';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Order from './pages/Order/Order';
+import Payment from './pages/Payment/Payment';
+import NotFound from './pages/NotFound/NotFound';
 import Promotion from './pages/Promotion/Promotion';
+import CompletePayment from './pages/CompletePayment/CompletePayment';
+import Header from './components/Header/Header';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/events/main" element={<Main />} />
         <Route path="/login" element={<Login />} />
@@ -17,7 +22,10 @@ const Router = () => {
         <Route path="/product-list" element={<ProductList />} />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/order" element={<Order />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/*" element={<NotFound />} />
         <Route path="/promotion/:id" element={<Promotion />} />
+        <Route path="/complete-payment" element={<CompletePayment />} />
       </Routes>
     </BrowserRouter>
   );

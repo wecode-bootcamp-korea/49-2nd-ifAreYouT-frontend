@@ -13,3 +13,28 @@
     cursor: pointer;
   }
 }
+
+@mixin tableShape {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  font-size: 1rem;
+  color: white;
+}
+
+@mixin bigBtn($color) {
+  width: 15rem;
+  height: 4rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: 400;
+  font-size: 1.5rem;
+  background-color: $color;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba($color, 0.7);
+  }
+}

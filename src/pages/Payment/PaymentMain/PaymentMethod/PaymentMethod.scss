@@ -1,0 +1,73 @@
+@import '/src/styles/mixin.scss';
+
+.paymentMethod {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  .seatPrice {
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    margin: 1rem;
+    border: 2px solid white;
+    border-radius: 10px;
+
+    .selectedSeatsList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      height: 1.2rem;
+      padding: 1rem;
+      .selectedSeats {
+        font-size: 1.2rem;
+        color: white;
+      }
+    }
+
+    .totalPrice {
+      @include flexCenter;
+      border-top: 2px solid white;
+      font-size: 1.3rem;
+      color: white;
+    }
+  }
+
+  .stepButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .backToOrder {
+      @include bigBtn($Orange);
+    }
+
+    .payNow {
+      @include bigBtn($Red);
+    }
+  }
+
+  .selectPaymentMethod {
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    margin: 1rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+
+    .radioBUtton {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      height: 1.2rem;
+      padding: 1rem;
+    }
+
+    .paymentTitle {
+      @include flexCenter;
+      border-top: 2px solid white;
+      font-size: 1.3rem;
+      color: white;
+    }
+  }
+}
