@@ -57,6 +57,12 @@
       color: grey;
     }
 
+    cursor: pointer;
+
+    &:hover .productInfo {
+      color: grey;
+    }
+
     .productImg {
       width: 300px;
       height: 300px;
