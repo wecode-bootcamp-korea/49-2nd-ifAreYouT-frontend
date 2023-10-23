@@ -1,0 +1,15 @@
+@import '/src/styles/mixin.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  position: sticky;
+  font-size: 2rem;
+  color: white;
+  background-color: $Black;
+
+  .logo {
+    width: 10rem;
+  }
+}
