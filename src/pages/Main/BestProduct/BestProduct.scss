@@ -1,9 +1,9 @@
 .bestProduct {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4개의 열을 생성합니다. */
-  grid-template-rows: repeat(3, 1fr); /* 3개의 행을 생성합니다. */
-  grid-column-gap: 5px; /* 열 간격을 5px로 조절 */
-  grid-row-gap: 250px; /* 행 간격을 20px로 조절 */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 250px;
 
   .bestProductContainer {
     display: flex;
@@ -13,6 +13,49 @@
     margin-top: 50px;
     width: 150px;
     height: 100px;
+    cursor: pointer;
+
+    .bestProduct {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 5px;
+      grid-row-gap: 250px;
+
+      .bestProductContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 105px;
+        margin-top: 50px;
+        width: 150px;
+        height: 100px;
+
+        .productImg {
+          width: 300px;
+          height: 300px;
+        }
+
+        .productInfo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 7px;
+          width: 300px;
+          &:hover {
+            color: grey;
+          }
+
+          .productTitle {
+            font-size: 15px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    &:hover .productInfo {
+      color: grey;
+    }
 
     .productImg {
       width: 300px;
@@ -25,9 +68,7 @@
       align-items: center;
       gap: 7px;
       width: 300px;
-      &:hover {
-        color: grey; /* 호버 효과 스타일을 여기에 추가하세요. 원하는 색상이나 스타일로 변경하세요. */
-      }
+      color: white;
 
       .productTitle {
         font-size: 15px;

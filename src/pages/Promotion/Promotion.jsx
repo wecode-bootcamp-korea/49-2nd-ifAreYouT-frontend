@@ -4,7 +4,7 @@ import './Promotion.scss';
 
 const Promotion = () => {
   const { id } = useParams();
-  const [promotionItem, setPromotionItem] = useState(null);
+  const [promotionItem, setPromotionItem] = useState({});
 
   useEffect(() => {
     fetch('/data/promotionData.json')

@@ -15,7 +15,7 @@ const BestProduct = () => {
 
   //함수명 수정
   const goToBestProduct = id => {
-    navigate(`/product-detail/${id}`);
+    navigate(`/events/${id}`);
   };
 
   return (
