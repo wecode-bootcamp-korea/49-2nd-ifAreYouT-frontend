@@ -1,49 +1,31 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import './BestProduct.scss';
 
-const BestProduct = () => {
-  const navigate = useNavigate();
-
-  const [mainData, setMainData] = useState([]);
+const BestProduct = ({ events, navigate }) => {
+  const [mainData, setMainData] = useState(events);
 
   useEffect(() => {
-    axios
-
-      .get('/data/mainData.json')
-      // .get('http://10.58.52.169:8000/events/main')
-      .then(response => {
-        console.log(response);
-        setMainData(response.data);
-      })
-
-      .catch(error => {
-        console.error('데이터를 불러오는 중 오류 발생:', error);
-      });
-  }, []);
+    setMainData(events);
+  }, [events]);
 
   const goToBestProduct = id => {
-    navigate(`/product-detail/${id}`);
+    navigate(`/events/${id}`);
   };
 
   return (
     <div className="bestProduct">
       {mainData.map(item => (
-        <div
-          className="bestProductContainer"
-          key={item.id}
-          onClick={() => goToBestProduct(item.id)}
-        >
+        <div className="bestProductContainer" key={item.id}>
           <div className="imgBox">
             <img
               src={item.thumbnail}
               alt="공연 포스터"
               className="productImg"
+              onClick={() => goToBestProduct(item.id)}
             />
           </div>
-
-          <div className="productInfo">
+          <div className="productInfo" onClick={() => goToBestProduct(item.id)}>
             <div className="productTitle">{item.title}</div>
             <div className="productDate">{item.date}</div>
           </div>

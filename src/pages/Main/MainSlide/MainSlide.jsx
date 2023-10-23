@@ -1,51 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './MainSlide.scss';
 
-const MainSlide = () => {
-  const navigate = useNavigate();
-
-  const [mainSlideData, setMainSlideData] = useState([]);
+const MainSlide = ({ promotions, navigate }) => {
+  const [mainSlideData, setMainSlideData] = useState(promotions);
 
   useEffect(() => {
-    axios
-      .get('/data/newData.json')
-      // .get('http://10.58.52.169:8000/events/main')
-      .then(response => {
-        setMainSlideData(response.data.data.promotions);
-      })
-
-      .catch(error => {
-        console.error('데이터를 불러오는 중 오류 발생:', error);
-      });
-  }, []);
-
-  console.log(mainSlideData);
+    setMainSlideData(promotions);
+  }, [promotions]);
 
   const clickSlide = id => {
     navigate(`/promotion/${id}`);
   };
-
-  // useEffect(() => {
-  // axios
-  // .get('/data/mainSlideData.json')
-  // .then(response => {
-  // const events = response.data.data.events;
-  // setMainSlideData(events);
-  // })
-
-  // .catch(error => {
-  // console.error('데이터를 불러오는 중 오류 발생:', error);
-  // });
-  // }, []);
-
-  // const clickSlide = id => {
-  // navigate(`/promotion/${id}`);
-  // };
 
   const settings = {
     arrows: true,
