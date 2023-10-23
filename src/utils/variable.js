@@ -45,3 +45,5 @@ export const productInfo = {
   location: '서울시 강남구 테헤란로 427, 10층',
   date: '2023-10-28-19:00',
 };
+
+export const HOST = 'http://10.58.52.151:8000';

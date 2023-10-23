@@ -3,7 +3,7 @@ import {
   RESERVED,
   DISABLED,
   SELECTED,
-} from '../../../../components/variable';
+} from '../../../../utils/variable';
 import './SeatTable.scss';
 
 const SeatTable = ({ seatData, setSeatData }) => {
@@ -24,6 +24,7 @@ const SeatTable = ({ seatData, setSeatData }) => {
 
     setSeatData(buttonState);
   };
+
   const column = new Set(seatData.map(val => val.name.split('-')[1])).size;
   const row = new Set(seatData.map(val => val.name[0])).size;
   return (
@@ -53,8 +54,7 @@ const SeatTable = ({ seatData, setSeatData }) => {
       </div>
       <div className={`seatList column${column} row${row}`}>
         {seatData.map((seatInfo, idx) => {
-          const { seatId, status, seatGrade } = seatInfo;
-          const { grade } = seatGrade;
+          const { id, status, grade } = seatInfo;
           const selectColor = status === SELECTED ? SELECTED : `grade${grade}`;
           const evaluationStatus = status === RESERVED || status === DISABLED;
           const buttonColor = evaluationStatus ? RESERVED : selectColor;
@@ -62,7 +62,7 @@ const SeatTable = ({ seatData, setSeatData }) => {
           return (
             <input
               className={`seat ${buttonColor}`}
-              key={seatId}
+              key={id}
               type="Button"
               onClick={() => handleClick(idx)}
               disabled={evaluationStatus}

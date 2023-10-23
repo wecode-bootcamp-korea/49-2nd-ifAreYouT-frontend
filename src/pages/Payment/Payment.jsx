@@ -10,11 +10,11 @@ const Payment = () => {
   const token = localStorage.getItem('token');
   const { state } = useLocation();
 
-  useEffect(() => {
-    if (!state || !token) {
-      navigate('/');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!state || !token) {
+  //     navigate('/');
+  //   }
+  // }, []);
 
   return (
     <div className="payment">

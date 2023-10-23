@@ -1,6 +1,6 @@
 import './SelectedSeatList.scss';
 
-const SelectedSeatList = ({ seatData }) => {
+const SelectedSeatList = ({ seatData, detail }) => {
   const selectedSeat = (() => {
     const chooseSeat = [];
     seatData.forEach((val, idx) => {
@@ -14,10 +14,12 @@ const SelectedSeatList = ({ seatData }) => {
   return (
     <div className="selectedSeatList">
       {selectedSeat.map(val => {
+        const price = detail.filter(el => el.grade === seatData[val].grade)[0]
+          .price;
+
         return (
           <div className="selectSeat" key={val}>
-            {seatData[val].name} :{' '}
-            {seatData[val].seatGrade.price.toLocaleString()}원
+            {seatData[val].name} : {Number(price).toLocaleString()}원
           </div>
         );
       })}

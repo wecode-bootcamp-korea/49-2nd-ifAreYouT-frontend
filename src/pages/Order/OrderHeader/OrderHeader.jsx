@@ -1,10 +1,9 @@
 import GradeInfo from './GradeInfo/GradeInfo';
 import './OrderHeader.scss';
 
-const OrderHeader = ({ seatData, mockLocation }) => {
+const OrderHeader = ({ detail, mockLocation }) => {
   const { productImg, productName, location, date } = mockLocation;
   const [years, month, dates, hours] = date.split('-');
-  const grade = [...new Set(seatData.map(val => val.seatGrade))];
 
   return (
     <header className="orderHeader">
@@ -20,7 +19,7 @@ const OrderHeader = ({ seatData, mockLocation }) => {
         </div>
       </div>
       <div className="gradeInfoBox">
-        {grade.map((val, idx) => {
+        {detail.map((val, idx) => {
           return <GradeInfo key={idx} value={val} />;
         })}
       </div>
