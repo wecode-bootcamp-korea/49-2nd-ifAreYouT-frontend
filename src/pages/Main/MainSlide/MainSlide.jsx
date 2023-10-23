@@ -13,10 +13,10 @@ const MainSlide = () => {
 
   useEffect(() => {
     axios
-      .get('/data/mainSlideData.json')
+      .get('/data/newData.json')
       // .get('http://10.58.52.169:8000/events/main')
       .then(response => {
-        setMainSlideData(response.data.data.events);
+        setMainSlideData(response.data.data.promotions);
       })
 
       .catch(error => {
@@ -70,7 +70,7 @@ const MainSlide = () => {
             <div key={image.id} className="mainSlideContainer">
               <img
                 className="img"
-                src={image.thumbnail_image_url}
+                src={image.src}
                 alt="프로모션 배너"
                 onClick={() => clickSlide(image.id)}
               />
