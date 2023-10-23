@@ -3,7 +3,7 @@ import './Promotion.scss';
 
 const Promotion = () => {
   return (
-    <div>
+    <div className="promotion">
       <PromotionQuiz />
     </div>
   );

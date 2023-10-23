@@ -1,16 +1,50 @@
 [
   {
     "id": 1,
-    "quizImg": "./images/quizImg.jpg"
+    "quiz": [
+      {
+        "question1": "아이유는 30살이다",
+        "answer1": true
+      },
+      {
+        "question2": "아이유는 서울에서 태어났다",
+        "answer2": true
+      },
+      {
+        "question3": "아이유의 눈동자는 갈색이다",
+        "answer3": false
+      }
+    ]
   },
-
   {
     "id": 2,
-    "quizImg": "퀴즈 프로모션 페이지 - 에픽하이는 정규 10집까지 발매했다."
+    "quiz": [
+      {
+        "question1": "동방신기의 평균연령은 32세이다",
+        "answer1": true
+      },
+      {
+        "question2": "동방신기 멤버는 5명이다",
+        "answer2": true
+      },
+      {
+        "question3": "동방신기 데뷔년도는 2003년도다",
+        "answer3": false
+      }
+    ]
   },
-
   {
     "id": 3,
-    "quizImg": "퀴즈 프로모션 페이지 - 거미는 올해 상반기에 전국투어를 진행했다."
+    "quiz": [
+      {
+        "quiz1": "1번 퀴즈"
+      },
+      {
+        "quiz2": "2번 퀴즈"
+      },
+      {
+        "quiz3": "3번 퀴즈"
+      }
+    ]
   }
 ]

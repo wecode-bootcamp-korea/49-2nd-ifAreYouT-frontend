@@ -1,35 +1,55 @@
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import QuizButton from '../QuizButton/QuizButton';
+import QuizSubmitButton from '../QuizSubmitButton/QuizSubmitButton';
 import './PromotionQuiz.scss';
 
 const PromotionQuiz = () => {
   const { id } = useParams();
-  const [promotionItem, setPromotionItem] = useState({});
+  const [promotionData, setPromotionData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/data/promotionData.json')
+    axios
+      .get('/data/promotionData.json')
       .then(response => {
-        if (!response.ok) {
+        if (response.status !== 200) {
           throw new Error('데이터를 가져오는 중 오류 발생');
         }
-        return response.json();
+        return response.data;
       })
       .then(data => {
-        const item = data.find(item => item.id === parseInt(id));
-        setPromotionItem(item);
+        setPromotionData(data);
+        setLoading(false);
       })
       .catch(error => {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       });
-  }, [id]);
+  }, []);
+
   return (
-    <div className="promotion">
-      {promotionItem ? (
-        <div className="promotionContainer" key={promotionItem.id}>
-          <div className="productTitle">{promotionItem.quiz}</div>
-        </div>
-      ) : (
+    <div className="promotionQuiz">
+      {loading ? (
         <p>Loading...</p>
+      ) : (
+        promotionData
+          .filter(promotionItem => promotionItem.id === parseInt(id))
+          .map(selectedPromotion => (
+            <div className="promotionQuizContainer" key={selectedPromotion.id}>
+              {selectedPromotion.quiz.map((quizItem, index) => (
+                <div className="quiz" key={index}>
+                  {Object.values(quizItem)[0]}{' '}
+                  {/* quiz1, quiz2, quiz3 중 첫 번째 값을 렌더링 */}
+                  <QuizButton />
+                </div>
+              ))}
+              <QuizSubmitButton />
+            </div>
+          ))
       )}
     </div>
   );
 };
+
 export default PromotionQuiz;

@@ -69,15 +69,9 @@ const ProductDetailTop = () => {
   } = selectedProduct || {};
 
   const handleOrderClick = () => {
-    if (isLoggedIn && isFan) {
-      axios
-        .get('/data/productDetailData.json')
-        .then(response => {
-          navigate('/order');
-        })
-        .catch(error => {
-          console.error('예매 요청 중 오류 발생:', error);
-        });
+    if (isFan) {
+      // 팬 코드가 있는지 여부만 확인
+      navigate('/order'); // 상태(state) 변경 코드 추가, 오더페이지로 전송
     } else if (!isLoggedIn) {
       alert('로그인이 필요합니다.');
     } else {
