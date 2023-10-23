@@ -23,17 +23,19 @@ const ProductDetailTop = () => {
   }, []);
 
   const handleOrderClick = () => {
+    if (status === 'merchandise') {
+      alert('판매가 중단된 상품입니다.');
+
+      return;
+    }
+
     if (!isLoggedIn) {
       alert('로그인이 필요합니다.');
 
       return;
     }
 
-    if (status !== 'merchantable') {
-      alert('팬 코드가 발급되지 않았습니다.');
-
-      return;
-    }
+    //프리오더패스 관련 로직 추가해야함.
 
     navigate(`/order/${id}`, { state: data });
   };
@@ -46,9 +48,6 @@ const ProductDetailTop = () => {
     stage,
     startDate,
     playTime,
-    seatS,
-    seatR,
-    seatA,
     seats,
     status,
     reactions,
@@ -76,26 +75,30 @@ const ProductDetailTop = () => {
             <div className="infoData">
               <div className="stage">{stage}</div>
               <div className="startDate">{startDate}</div>
-              <div className="playTime">{playTime}</div>
+              <div className="playTime">{playTime}분</div>
 
               <div className="price">
-                <div className="priceSeatS">S석 {formatPrice(seatS)} </div>
-                <div className="priceSeatR">R석 {formatPrice(seatR)} </div>
-                <div className="priceSeatA">A석 {formatPrice(seatA)} </div>
+                {seats.map(seats => (
+                  <div key={seats.grade}>
+                    <div>
+                      {seats.grade}석 : {formatPrice(seats.price)}
+                    </div>
+                  </div>
+                ))}
               </div>
               <div className="availableSeats">
-                {seats.map(seat => (
-                  <div key={seat.grade}>
+                {seats.map(seats => (
+                  <div key={seats.grade}>
                     <div>
-                      {seat.grade} :{' '}
-                      {seat.available === 0 ? '매진' : seat.available}
+                      {seats.grade}석 :{' '}
+                      {seats.available === 0 ? '매진' : seats.available}
                     </div>
                   </div>
                 ))}
               </div>
               <div className="orderBtn">
                 <button className="orderButton" onClick={handleOrderClick}>
-                  예매하기!
+                  예매하기
                 </button>
               </div>
             </div>
@@ -115,7 +118,7 @@ export default ProductDetailTop;
 //호이스팅
 const formatPrice = price => {
   if (price) {
-    const priceNumeric = parseInt(price.replace(/[^0-9]/g, ''));
+    const priceNumeric = parseInt(price);
 
     if (!isNaN(priceNumeric)) {
       return priceNumeric.toLocaleString('ko-KR') + '원';
