@@ -24,8 +24,6 @@ const ProductDetailTop = () => {
 
   const handleOrderClick = () => {
     if (status === 'merchandise') {
-      alert('판매가 중단된 상품입니다.');
-
       return;
     }
 
@@ -97,9 +95,15 @@ const ProductDetailTop = () => {
                 ))}
               </div>
               <div className="orderBtn">
-                <button className="orderButton" onClick={handleOrderClick}>
-                  예매하기
-                </button>
+                {status === 'merchandise' ? (
+                  <button className="orderButton" disabled>
+                    판매 중단
+                  </button>
+                ) : (
+                  <button className="orderButton" onClick={handleOrderClick}>
+                    예매하기
+                  </button>
+                )}
               </div>
             </div>
           </div>
