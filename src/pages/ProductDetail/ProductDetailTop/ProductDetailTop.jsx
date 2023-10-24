@@ -9,6 +9,17 @@ const ProductDetailTop = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const isLoggedIn = !!localStorage.getItem('userToken');
+  const {
+    title,
+    thumbnailImage,
+    stage,
+    startDate,
+    playTime,
+    seats,
+    status,
+    reactions,
+    participate,
+  } = data;
 
   useEffect(() => {
     axios
@@ -23,34 +34,31 @@ const ProductDetailTop = () => {
   }, []);
 
   const handleOrderClick = () => {
-    if (status === 'merchandise') {
+    if (data.status === 'merchandise') {
       return;
     }
 
     if (!isLoggedIn) {
       alert('로그인이 필요합니다.');
-
       return;
     }
 
-    //프리오더패스 관련 로직 추가해야함.
-
-    navigate(`/order/${id}`, { state: data });
+    axios
+      // .get(`http://10.58.52.169:8000/events/${id}`)
+      .then(response => {
+        if (response.status === 209) {
+          navigate(`/order/${id}`, { state: data });
+        } else if (response.status === 409) {
+          alert('프리 오더 패스가 없어 예매가 불가능합니다.');
+        }
+      })
+      .catch(error => {
+        console.error('프리오더패스 상태를 확인하는 중 오류 발생:', error);
+        alert('프리 오더 패스 상태 확인 중 오류가 발생했습니다.');
+      });
   };
 
   if (Object.keys(data).length === 0) return null;
-
-  const {
-    title,
-    thumbnailImage,
-    stage,
-    startDate,
-    playTime,
-    seats,
-    status,
-    reactions,
-    participate,
-  } = data;
 
   return (
     <div className="productDetailTop">
