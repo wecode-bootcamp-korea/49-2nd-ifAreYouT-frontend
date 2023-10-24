@@ -12,8 +12,8 @@ const Main = () => {
 
   useEffect(() => {
     axios
-      .get('/data/newData.json')
-      // .get('http://10.58.52.169:8000/events/main')
+      // .get('/data/newData.json')
+      .get('http://10.58.52.221:8000/events/main')
       .then(response => {
         setPromotions(response.data.data.promotions);
         setEvents(response.data.data.events);
