@@ -55,22 +55,6 @@
         "title": "LOVE IN SEOUL 2023",
         "date": "2023년 12월 30일"
       }
-    ],
-    "promotions": [
-      {
-        "id": 1,
-        "src": "/images/slide1.jpg"
-      },
-
-      {
-        "id": 2,
-        "src": "/images/slide2.jpg"
-      },
-
-      {
-        "id": 3,
-        "src": "/images/slide3.jpg"
-      }
     ]
   }
 }

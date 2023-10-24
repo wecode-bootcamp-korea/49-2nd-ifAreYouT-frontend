@@ -58,4 +58,18 @@
     padding: 10px;
     color: white;
   }
+
+  .slideButton {
+    position: absolute;
+    top: 50%; // 화면 세로 중앙 위치
+    left: 50%; // 화면 가로 중앙 위치
+    transform: translate(-50%, -50%); // 중앙 정렬
+    background-color: white;
+    color: red;
+    padding: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10; // 다른 요소 위에 표시하도록 설정
+  }
 }
