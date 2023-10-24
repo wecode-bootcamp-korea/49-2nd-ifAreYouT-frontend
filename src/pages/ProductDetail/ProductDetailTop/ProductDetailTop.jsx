@@ -42,17 +42,14 @@ const ProductDetailTop = () => {
     }
 
     axios
-      // .get(`http://10.58.52.169:8000/events/${id}`)
+      .get(`http://10.58.52.221:8000/events/passcheck/${id}`)
       .then(response => {
         if (response.status === 209) {
           navigate(`/order/${id}`, { state: data });
-        } else if (response.status === 409) {
-          alert('프리 오더 패스가 없어 예매가 불가능합니다.');
         }
       })
       .catch(error => {
-        console.error('프리오더패스 상태를 확인하는 중 오류 발생:', error);
-        alert('프리 오더 패스 상태 확인 중 오류가 발생했습니다.');
+        alert('프리 오더 패스가 없어 예매가 불가능합니다.');
       });
   };
 
