@@ -8,7 +8,7 @@ import './PromotionQuiz.scss';
 const PromotionQuiz = () => {
   const { id } = useParams();
   const [promotionData, setPromotionData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); //필요없을거같음..
 
   useEffect(() => {
     axios
