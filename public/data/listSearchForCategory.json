@@ -1,0 +1,55 @@
+{
+    "data": {
+        "total": 4,
+        "list": [
+            {
+                "category": "ballad",
+                "id": 1,
+                "title": "박효신-야생화",
+                "stage": "올림픽공원",
+                "startDate": "2023.12.01",
+                "endDate": "2023.12.05",
+                "eventTime": "07:00",
+                "thumbnailImage": "thumbnail.com",
+                "likes": 2,
+                "reserved": 3
+            },
+            {
+                "category": "ballad",
+                "id": 2,
+                "title": "박효신-눈의꽃",
+                "stage": "올림픽공원",
+                "startDate": "2023.12.06",
+                "endDate": "2023.12.10",
+                "eventTime": "07:00",
+                "thumbnailImage": "thumbnail.com",
+                "likes": 3,
+                "reserved": 2
+            },
+            {
+                "category": "ballad",
+                "id": 2,
+                "title": "박효신-눈의꽃",
+                "stage": "올림픽공원",
+                "startDate": "2023.12.06",
+                "endDate": "2023.12.10",
+                "eventTime": "07:00",
+                "thumbnailImage": "thumbnail.com",
+                "likes": 3,
+                "reserved": 2
+            },
+            {
+                "category": "ballad",
+                "id": 2,
+                "title": "박효신-눈의꽃",
+                "stage": "올림픽공원",
+                "startDate": "2023.12.06",
+                "endDate": "2023.12.10",
+                "eventTime": "07:00",
+                "thumbnailImage": "thumbnail.com",
+                "likes": 3,
+                "reserved": 2
+            }
+        ]
+    }
+}

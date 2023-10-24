@@ -11,7 +11,7 @@ const KakaoLogin = () => {
   useEffect(() => {
     UrlName &&
       axios
-        .get(`http://10.58.52.78:4000/auth/kakao/callback?code=${UrlName}`)
+        .get(`http://10.58.52.70:8000/auth/kakao/callback?code=${UrlName}`)
         .then(response => {
           if ((response.message = 'LOGIN_SUCCESS'))
             console.log('데이터:', response.data);

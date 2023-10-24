@@ -39,7 +39,7 @@ const Mypage = () => {
           </div>
           <div className="userInfoNameDiv">
             <span className="userInfo">aegis0918@naver.com</span>
-            <span className="userInfo"></span>
+            <span className="userInfo">01092290918</span>
           </div>
           <div className="btnContainer">
             <button className="ManagementBtn">정보수정</button>
