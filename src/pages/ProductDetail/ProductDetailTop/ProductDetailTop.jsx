@@ -21,17 +21,22 @@ const ProductDetailTop = () => {
     participate,
   } = data;
 
-  useEffect(() => {
+  const fetchProductDetailData = () => {
     axios
-      // .get('/data/productDetailData.json')
-      .get(`http://10.58.52.221:8000/events/${id}`)
+      .get('/data/productDetailData.json')
       .then(({ data }) => {
         setData(data.data);
       })
       .catch(error => {
         console.error('데이터를 불러오는 중 오류 발생:', error);
       });
+  };
+
+  useEffect(() => {
+    fetchProductDetailData(); // 함수를 호출합니다
   }, []);
+
+  //함수로 만들어서 리액션버튼 컴포넌트에서 props로 받아서 쓰기->함수호출
 
   const handleOrderClick = () => {
     // 로그인을 안했을때
@@ -114,7 +119,8 @@ const ProductDetailTop = () => {
       </div>
       <ReactionButton
         reaction={reactions[0]}
-        hasVoted={Boolean(participate[0].status)}
+        hasVoted={participate[0].status === 1}
+        fetchProductDetailData={fetchProductDetailData}
       />
     </div>
   );
