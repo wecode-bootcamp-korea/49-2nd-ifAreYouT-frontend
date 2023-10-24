@@ -7,7 +7,7 @@ import './Main.scss';
 
 const Main = () => {
   const navigate = useNavigate();
-  const [promotions, setPromotions] = useState([]);
+
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,6 @@ const Main = () => {
       .get('/data/newData.json')
       // .get('http://10.58.52.169:8000/events/main')
       .then(response => {
-        setPromotions(response.data.data.promotions);
         setEvents(response.data.data.events);
       })
       .catch(error => {
@@ -25,7 +24,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      <MainSlide promotions={promotions} navigate={navigate} />
+      <MainSlide navigate={navigate} />
       <div className="bestProductText">What's Hot</div>
       <BestProduct events={events} navigate={navigate} />
     </div>
