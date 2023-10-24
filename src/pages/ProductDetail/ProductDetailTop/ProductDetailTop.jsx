@@ -34,12 +34,10 @@ const ProductDetailTop = () => {
   }, []);
 
   const handleOrderClick = () => {
-    if (data.status === 'merchandise') {
-      return;
-    }
-
+    // 로그인을 안했을때
     if (!isLoggedIn) {
       alert('로그인이 필요합니다.');
+
       return;
     }
 
@@ -105,7 +103,7 @@ const ProductDetailTop = () => {
               <div className="orderBtn">
                 {status === 'merchandise' ? (
                   <button className="orderButton" disabled>
-                    판매 중단
+                    매진
                   </button>
                 ) : (
                   <button className="orderButton" onClick={handleOrderClick}>
