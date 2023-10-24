@@ -8,10 +8,16 @@ import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Mypage from './pages/Mypage/mypage';
 import Order from './pages/Order/Order';
+import Payment from './pages/Payment/Payment';
+import NotFound from './pages/NotFound/NotFound';
+import Promotion from './pages/Promotion/Promotion';
+import CompletePayment from './pages/CompletePayment/CompletePayment';
+import Header from './components/Header/Header';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
@@ -22,6 +28,12 @@ const Router = () => {
         <Route path="/product-detail" element={<ProductDetail />} />
         <Route path="/order" element={<Order />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/events/:id" element={<ProductDetail />} />
+        <Route path="/order/:id" element={<Order />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/*" element={<NotFound />} />
+        <Route path="/promotion/:id" element={<Promotion />} />
+        <Route path="/complete-payment" element={<CompletePayment />} />
       </Routes>
     </BrowserRouter>
   );
