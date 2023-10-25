@@ -7,21 +7,18 @@ const PreBooking = () => {
   const [search, setSearch] = useSearchParams();
   const getParams = search.get('preorderPassesId');
   useEffect(() => {
-    if (getParams) {
-      axios
-        .get(`http://10.58.52.125:8000/preorder-pass?preorderPassesId`, {
-          headers: {
-            Authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTY5NzcxOTY0MiwiZXhwIjoxNzAwMzExNjQyfQ.zuVcbarIWTuPPBm7DvoaYRsKGFV8YJPK68fa2gztFeU',
-          },
-        })
-        .then(res => {
-          console.log(res);
-          setState(res.data.data);
-        });
-    }
-  }, [getParams]);
-
+    axios
+      .get('http://10.58.52.125:8000/preorder-pass', {
+        headers: {
+          Authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTY5NzcxOTY0MiwiZXhwIjoxNzAwMzExNjQyfQ.zuVcbarIWTuPPBm7DvoaYRsKGFV8YJPK68fa2gztFeU',
+        },
+      })
+      .then(res => {
+        console.log(res);
+        setState(res.data.data);
+      });
+  }, []);
   return (
     <div className="likeDiv">
       <ul className="likeComment">

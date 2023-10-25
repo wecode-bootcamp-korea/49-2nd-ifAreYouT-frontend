@@ -66,7 +66,7 @@ const Mypage = () => {
         <div className="userCheckedReservationContainer">
           <div className="userCheckedReservationTitle">예매확인</div>
           <div className="userCheckedReservationMain">
-            <GetTicketView />
+            {/* <GetTicketView /> */}
           </div>
         </div>
         <div className="otherThingsContainer">
@@ -74,9 +74,7 @@ const Mypage = () => {
             <div className="userThingsTitle">
               <span className="titleName">좋아요 한 공연</span>
             </div>
-            <div className="userThingsMain">
-              <Like />
-            </div>
+            <div className="userThingsMain">{/* <Like /> */}</div>
           </div>
           <div className="userThingsContainer">
             <div className="userThingsTitle">
