@@ -65,7 +65,7 @@ const ReactionButton = ({
     // 싫어요 버튼을 클릭했을 때
     const reactionData = {
       userId: 2, // 토큰을 사용자 ID로 대체
-      eventId: 2,
+      eventId: event,
       reaction: 'unexited',
     };
 
