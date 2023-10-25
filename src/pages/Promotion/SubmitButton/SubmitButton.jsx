@@ -8,7 +8,7 @@ const SubmitButton = ({ userResponses }) => {
   const handleSubmitButton = () => {
     if (isLoggedIn) {
       axios
-        // .post(`http://10.58.52.169:8000/promotion/${id}`, { userResponses })
+        .put(`http://10.58.52.169:8000/promotion/${id}`, { userResponses })
         .then(response => {
           if (response.data === 'success') {
             window.alert('정답입니다. 팬코드가 발급되었습니다.');
