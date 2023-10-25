@@ -12,8 +12,8 @@ const PromotionQuiz = () => {
   // 백엔드에서 퀴즈 데이터를 가져오는 useEffect
   useEffect(() => {
     axios
-      .get('/data/promotionData.json')
-      // .get(`http://10.58.52.169:8000/promotion/${id}`)
+      // .get('/data/promotionData.json')
+      .get(`http://10.58.52.157:8000/promotion/${id}`)
       .then(response => {
         setQuizData(response.data.data);
         // 사용자 응답을 초기화
