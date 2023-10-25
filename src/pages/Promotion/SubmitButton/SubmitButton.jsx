@@ -2,15 +2,25 @@ import { useState } from 'react';
 import axios from 'axios';
 import './SubmitButton.scss';
 
-const SubmitButton = ({ userResponses }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); //테스트 통신시 true로 변경
+const SubmitButton = ({ userResponse, num }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [event, setEvent] = useState(num); // id 값
+  const userToken = localStorage.getItem('token');
+
+  const submitData = {
+    eventId: event,
+    ans: userResponse,
+    userId: userToken,
+  };
 
   const handleSubmitButton = () => {
-    if (isLoggedIn) {
+    console.log(submitData);
+    if (!isLoggedIn) {
       axios
-        .put(`http://10.58.52.169:8000/promotion/${id}`, { userResponses })
+        .post(`http://10.58.52.157:8000/promotion/${event}`, submitData)
         .then(response => {
           if (response.data === 'success') {
+            // 백에서 보내주는 메세지
             window.alert('정답입니다. 팬코드가 발급되었습니다.');
           } else {
             window.alert('오답입니다.');
