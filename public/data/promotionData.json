@@ -1,50 +1,11 @@
-[
-  {
-    "id": 1,
-    "quiz": [
-      {
-        "question1": "아이유는 30살이다",
-        "answer1": true
-      },
-      {
-        "question2": "아이유는 서울에서 태어났다",
-        "answer2": true
-      },
-      {
-        "question3": "아이유의 눈동자는 갈색이다",
-        "answer3": false
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "quiz": [
-      {
-        "question1": "동방신기의 평균연령은 32세이다",
-        "answer1": true
-      },
-      {
-        "question2": "동방신기 멤버는 5명이다",
-        "answer2": true
-      },
-      {
-        "question3": "동방신기 데뷔년도는 2003년도다",
-        "answer3": false
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "quiz": [
-      {
-        "quiz1": "1번 퀴즈"
-      },
-      {
-        "quiz2": "2번 퀴즈"
-      },
-      {
-        "quiz3": "3번 퀴즈"
-      }
-    ]
-  }
-]
+{
+  "message": "QUESTIONS SELECTED",
+  "id": 2,
+  "data": [
+    { "performerQuestion": "아이유 동생 이름은 이재훈이다." },
+    { "performerQuestion": "아이유 키는 162.4이다" },
+    { "performerQuestion": "아이유의 정규앨범 수는 10개이다." },
+    { "performerQuestion": "아이유는 은파여고를 졸업했다." },
+    { "performerQuestion": "아이유는 최소 주3회 운동을 한다." }
+  ]
+}
