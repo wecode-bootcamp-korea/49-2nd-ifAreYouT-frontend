@@ -27,7 +27,9 @@ const ReactionButton = ({ reaction, hasVoted, fetchProductDetailData, id }) => {
     setLikeCount(prevLikeCount => prevLikeCount + 1);
 
     axios
-      .put(`http://10.58.52.181:8000/events/${id}`, { reactions: 'like' })
+      .put(`http://10.58.52.181:8000/events/reaction${id}`, {
+        reactions: 'like',
+      })
       .then(response => {
         // POST 요청이 성공하면, 데이터를 다시 불러옴
         fetchProductDetailData();
@@ -54,7 +56,9 @@ const ReactionButton = ({ reaction, hasVoted, fetchProductDetailData, id }) => {
     setUnlikeCount(prevUnlikeCount => prevUnlikeCount + 1);
 
     axios
-      .put(`http://10.58.52.181:8000/events/${id}`, { reactions: 'dislike' })
+      .put(`http://10.58.52.181:8000/events/reaction${id}`, {
+        reactions: 'dislike',
+      })
       .then(response => {
         // POST 요청이 성공하면, 데이터를 다시 불러옴
         fetchProductDetailData();
