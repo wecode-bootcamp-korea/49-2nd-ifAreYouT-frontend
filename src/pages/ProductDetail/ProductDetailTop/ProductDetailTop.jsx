@@ -11,7 +11,6 @@ const ProductDetailTop = () => {
   const isLoggedIn = !!localStorage.getItem('userToken');
 
   const {
-    event_id,
     title,
     thumbnailImage,
     stage,
@@ -124,7 +123,6 @@ const ProductDetailTop = () => {
         reaction={reactions[0]}
         hasVoted={participate[0].status === 1}
         fetchProductDetailData={fetchProductDetailData}
-        event_id={id}
       />
     </div>
   );

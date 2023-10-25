@@ -23,24 +23,27 @@ const ReactionButton = ({ reaction, hasVoted, fetchProductDetailData, id }) => {
       return;
     }
 
-    // 증가된 likeCount를 상태로 업데이트
+    // 좋아요 버튼을 클릭했을 때
+    const reactionData = {
+      userId: userToken, // 토큰을 사용자 ID로 대체
+      eventId: `${id}`,
+      reaction: 'exited',
+    };
+
+    console.log('좋아요 버튼 클릭:', reactionData);
+
     setLikeCount(prevLikeCount => prevLikeCount + 1);
 
     axios
-      .put(`http://10.58.52.181:8000/events/reaction${id}`, {
-        reactions: 'like',
-      })
+      .put(`http://10.58.52.181:8000/events/${id}}/reaction`, reactionData)
       .then(response => {
-        // POST 요청이 성공하면, 데이터를 다시 불러옴
         fetchProductDetailData();
-        setVoted(true); // 클릭 상태 업데이트
+        setVoted(true);
       })
       .catch(error => {
-        console.error('POST 요청 중 오류 발생:', error);
+        console.error('PUT 요청 중 오류 발생:', error);
       });
   };
-
-  console.log(id);
 
   const handleDislikeClick = () => {
     // if (!userToken) {
@@ -53,19 +56,25 @@ const ReactionButton = ({ reaction, hasVoted, fetchProductDetailData, id }) => {
       return;
     }
 
+    // 싫어요 버튼을 클릭했을 때
+    const reactionData = {
+      userId: userToken, // 토큰을 사용자 ID로 대체
+      eventId: `${id}`,
+      reaction: 'unexited',
+    };
+
+    console.log('싫어요 버튼 클릭:', reactionData);
+
     setUnlikeCount(prevUnlikeCount => prevUnlikeCount + 1);
 
     axios
-      .put(`http://10.58.52.181:8000/events/reaction${id}`, {
-        reactions: 'dislike',
-      })
+      .put(`http://10.58.52.181:8000/events/${id}/reaction`, reactionData)
       .then(response => {
-        // POST 요청이 성공하면, 데이터를 다시 불러옴
         fetchProductDetailData();
-        setVoted(true); // 클릭 상태 업데이트
+        setVoted(true);
       })
       .catch(error => {
-        console.error('POST 요청 중 오류 발생:', error);
+        console.error('PUT 요청 중 오류 발생:', error);
       });
   };
 
