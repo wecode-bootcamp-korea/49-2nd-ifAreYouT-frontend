@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import GetTicketView from './getTicketView';
+import Like from './like';
+import PreBooking from './preBookingView';
+import UserInfoUpdate from './userInfoUpdate';
+import ViewTicketHistory from './ViewTicketHistory';
 import './mypage.scss';
 
 const Mypage = () => {
   const [InfoResult, setInfoResult] = useState(false);
   const [reservationData, setReservationData] = useState('');
 
-  // const ReservationDataAxios = async () => {
-  //   try {
-  //     const response = await axios.get('받아올api');
-  //     const reservaitonData = response.data;
-  //     setReservationData(reservaitonData);
-  //     setInfoResult(true);
-  //   } catch (error) {
-  //     console.error('데이터 오류:', error);
-  //   }
-  // };
-
-  const userMockData = './mypageUser.json';
-
-  const userMockDataFunction = () => {};
-
   // useEffect(() => {
-  //   ReservationDataAxios();
+  //   axios
+  //     .get('http://10.58.52.125:8000/mypage', {
+  //       withCredentials: true,
+  //       headers: {
+  //         Authorization:
+  //           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTY5NzcxOTY0MiwiZXhwIjoxNzAwMzExNjQyfQ.zuVcbarIWTuPPBm7DvoaYRsKGFV8YJPK68fa2gztFeU',
+  //       },
+  //     })
+  //     .then(res => {
+  //       console.log(res);
+  //     });
   // }, []);
 
   return (
@@ -35,7 +35,7 @@ const Mypage = () => {
               className="userInfoPhoto"
               src="/images/user-profile-background .jpg"
               alt="유저사진"
-            ></img>
+            />
           </div>
           <div className="userInfoNameDiv">
             <span className="userInfo">aegis0918@naver.com</span>
@@ -46,7 +46,7 @@ const Mypage = () => {
             <button className="dropOutBtn">회원탈퇴</button>
           </div>
           <div className="CheckedReservationHistoryBtn1">
-            <Link to="/order" className="CheckedReservationHistoryAtag">
+            <Link to="/" className="CheckedReservationHistoryAtag">
               <span className="CheckedReservationHistoryText">
                 예매내역
                 <br /> 확인
@@ -66,19 +66,7 @@ const Mypage = () => {
         <div className="userCheckedReservationContainer">
           <div className="userCheckedReservationTitle">예매확인</div>
           <div className="userCheckedReservationMain">
-            {InfoResult ? (
-              <ul className="comment">
-                {reservationData.map((item, index) => (
-                  <li className="reservationList" key={index}>
-                    예매한 공연: {item.showName}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <span className="noReservationMessage">
-                예매하신 내역이 없습니다.
-              </span>
-            )}
+            <GetTicketView />
           </div>
         </div>
         <div className="otherThingsContainer">
@@ -87,19 +75,7 @@ const Mypage = () => {
               <span className="titleName">좋아요 한 공연</span>
             </div>
             <div className="userThingsMain">
-              {InfoResult ? (
-                <ul className="comment">
-                  {reservationData.map((item, index) => (
-                    <li className="reservationList" key={index}>
-                      내가 좋아요한 공연: {item.showName}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <span className="noReservationMessage">
-                  좋아요한 내역이 없습니다.
-                </span>
-              )}
+              <Like />
             </div>
           </div>
           <div className="userThingsContainer">
@@ -107,19 +83,7 @@ const Mypage = () => {
               <span className="titleName">나만의 우대권 조회</span>
             </div>
             <div className="userThingsMain">
-              {InfoResult ? (
-                <ul className="comment">
-                  {reservationData.map((item, index) => (
-                    <li className="reservationList" key={index}>
-                      우대권 목록: {item.showName}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <span className="noReservationMessage">
-                  사용 가능한 우대권 내역이 없습니다.
-                </span>
-              )}
+              <PreBooking />
             </div>
           </div>
         </div>
