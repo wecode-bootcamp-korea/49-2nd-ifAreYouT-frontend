@@ -15,7 +15,7 @@ const SubmitButton = ({ userResponse, num }) => {
 
   const handleSubmitButton = () => {
     console.log(submitData);
-    if (!isLoggedIn) {
+    if (isLoggedIn) {
       axios
         .post(`http://10.58.52.157:8000/promotion/${event}`, submitData)
         .then(response => {
@@ -37,7 +37,9 @@ const SubmitButton = ({ userResponse, num }) => {
 
   return (
     <div className="QuizSubmitButton">
-      <button onClick={handleSubmitButton}>제출하기</button>
+      <button className=" submitBtn" onClick={handleSubmitButton}>
+        제출하기
+      </button>
     </div>
   );
 };

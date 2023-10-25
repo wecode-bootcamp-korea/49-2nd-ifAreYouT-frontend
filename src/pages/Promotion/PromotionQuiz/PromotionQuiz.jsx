@@ -37,34 +37,37 @@ const PromotionQuiz = () => {
 
   return (
     <div className="promotionQuiz">
-      {quizData.map((quizItem, index) => (
-        <div className="quiz" key={index}>
-          <div className="question">{quizItem.performerQuestion}</div>
-          <div className="response">
-            <label>
-              <input
-                type="radio"
-                name={`response-${index}`}
-                value="true"
-                checked={ans[index] === 1}
-                onChange={() => handleResponseChange(index, 1)}
-              />
-              진실
-            </label>
-            <label>
-              <input
-                type="radio"
-                name={`response-${index}`}
-                value="false"
-                checked={ans[index] === 0}
-                onChange={() => handleResponseChange(index, 0)}
-              />
-              거짓
-            </label>
+      <div className="promotionQuizContainer">
+        <div className="promotionQuizTitle">Pre-Order Pass를 잡아라!</div>
+        {quizData.map((quizItem, index) => (
+          <div className="quiz" key={index}>
+            <div className="question">{quizItem.performerQuestion}</div>
+            <div className="response">
+              <label>
+                <input
+                  type="radio"
+                  name={`response-${index}`}
+                  value="true"
+                  checked={ans[index] === 1}
+                  onChange={() => handleResponseChange(index, 1)}
+                />
+                응
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name={`response-${index}`}
+                  value="false"
+                  checked={ans[index] === 0}
+                  onChange={() => handleResponseChange(index, 0)}
+                />
+                아니야
+              </label>
+            </div>
           </div>
-        </div>
-      ))}
-      <SubmitButton userResponse={ans} num={id} />
+        ))}
+        <SubmitButton userResponse={ans} num={id} />
+      </div>
     </div>
   );
 };
