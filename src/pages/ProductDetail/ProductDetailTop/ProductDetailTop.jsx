@@ -9,7 +9,9 @@ const ProductDetailTop = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const isLoggedIn = !!localStorage.getItem('userToken');
+
   const {
+    event_id,
     title,
     thumbnailImage,
     stage,
@@ -23,7 +25,8 @@ const ProductDetailTop = () => {
 
   const fetchProductDetailData = () => {
     axios
-      .get('/data/productDetailData.json')
+      // .get('/data/productDetailData.json')
+      .get(`http://10.58.52.181:8000/events/${id}`)
       .then(({ data }) => {
         setData(data.data);
       })
@@ -47,7 +50,7 @@ const ProductDetailTop = () => {
     }
 
     axios
-      .get(`http://10.58.52.221:8000/events/passcheck/${id}`)
+      .get(`http://10.58.52.181:8000/events/passcheck/${id}`)
       .then(response => {
         if (response.status === 209) {
           navigate(`/order/${id}`, { state: data });
@@ -121,6 +124,7 @@ const ProductDetailTop = () => {
         reaction={reactions[0]}
         hasVoted={participate[0].status === 1}
         fetchProductDetailData={fetchProductDetailData}
+        event_id={id}
       />
     </div>
   );
