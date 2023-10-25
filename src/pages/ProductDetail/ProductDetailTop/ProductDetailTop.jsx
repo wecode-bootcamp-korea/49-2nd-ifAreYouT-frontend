@@ -13,7 +13,7 @@ const ProductDetailTop = () => {
   useEffect(() => {
     axios
       // .get('/data/productDetailData.json')
-      .get(`http://10.58.52.169:8000/events/${id}`)
+      .get(`http://10.58.52.181:8000/events/${id}`)
       .then(({ data }) => {
         setData(data.data);
       })
@@ -103,6 +103,7 @@ const ProductDetailTop = () => {
         </div>
       </div>
       <ReactionButton
+        num={id}
         reaction={reactions[0]}
         hasVoted={Boolean(participate[0].status)}
       />
