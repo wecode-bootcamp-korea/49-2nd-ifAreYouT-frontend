@@ -120,6 +120,7 @@ const ProductDetailTop = () => {
         </div>
       </div>
       <ReactionButton
+        num={id}
         reaction={reactions[0]}
         hasVoted={participate[0].status === 1}
         fetchProductDetailData={fetchProductDetailData}

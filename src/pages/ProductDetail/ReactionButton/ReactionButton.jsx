@@ -5,12 +5,18 @@ import './ReactionButton.scss';
 const likeIcon = '../../images/like.png';
 const dislikeIcon = '../../images/dislike.png';
 
-const ReactionButton = ({ reaction, hasVoted, fetchProductDetailData, id }) => {
+const ReactionButton = ({
+  reaction,
+  hasVoted,
+  fetchProductDetailData,
+  num,
+}) => {
   const { up, down } = reaction;
   const userToken = localStorage.getItem('userToken');
   const [voted, setVoted] = useState(hasVoted);
   const [likeCount, setLikeCount] = useState(up);
   const [unlikeCount, setUnlikeCount] = useState(down);
+  const [event, setEvent] = useState(num);
 
   const handleLikeClick = () => {
     // if (!userToken) {
@@ -25,8 +31,8 @@ const ReactionButton = ({ reaction, hasVoted, fetchProductDetailData, id }) => {
 
     // 좋아요 버튼을 클릭했을 때
     const reactionData = {
-      userId: userToken, // 토큰을 사용자 ID로 대체
-      eventId: `${id}`,
+      userId: userToken, // 토큰을 사용자 ID로 대체 //로컬스토리지에 있는 토큰 헤더에 담아서 보냄
+      eventId: event,
       reaction: 'exited',
     };
 
@@ -35,7 +41,7 @@ const ReactionButton = ({ reaction, hasVoted, fetchProductDetailData, id }) => {
     setLikeCount(prevLikeCount => prevLikeCount + 1);
 
     axios
-      .put(`http://10.58.52.181:8000/events/${id}}/reaction`, reactionData)
+      .put(`http://10.58.52.181:8000/events/reaction`, reactionData)
       .then(response => {
         fetchProductDetailData();
         setVoted(true);
@@ -58,8 +64,8 @@ const ReactionButton = ({ reaction, hasVoted, fetchProductDetailData, id }) => {
 
     // 싫어요 버튼을 클릭했을 때
     const reactionData = {
-      userId: userToken, // 토큰을 사용자 ID로 대체
-      eventId: `${id}`,
+      userId: 2, // 토큰을 사용자 ID로 대체
+      eventId: 2,
       reaction: 'unexited',
     };
 
@@ -68,7 +74,7 @@ const ReactionButton = ({ reaction, hasVoted, fetchProductDetailData, id }) => {
     setUnlikeCount(prevUnlikeCount => prevUnlikeCount + 1);
 
     axios
-      .put(`http://10.58.52.181:8000/events/${id}/reaction`, reactionData)
+      .put(`http://10.58.52.181:8000/events/reaction`, reactionData)
       .then(response => {
         fetchProductDetailData();
         setVoted(true);
