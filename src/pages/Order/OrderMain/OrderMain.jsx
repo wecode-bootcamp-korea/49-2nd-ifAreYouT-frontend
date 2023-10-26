@@ -38,7 +38,7 @@ const OrderMain = ({ id, seatData, setSeatData, detail, state }) => {
         },
       )
       .then(res => {
-        navigate(`/payment/?orderNumber=${res.orderNumber}`, {
+        navigate(`/payment/?order-number=${res.orderNumber}`, {
           state: { state, selectedName, totalPrice },
         });
       });
