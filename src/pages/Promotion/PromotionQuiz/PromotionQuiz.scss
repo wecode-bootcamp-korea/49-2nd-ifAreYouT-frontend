@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gasoek+One&family=Song+Myung&display=swap');
+
 .promotionQuiz {
   height: 100vh;
   color: white;
@@ -9,8 +11,9 @@
     padding-bottom: 50px;
 
     .promotionQuizTitle {
+      font-family: 'Diphylleia', serif;
       font-size: 50px;
-      font-weight: 100px;
+      font-weight: 400;
       color: red;
       text-align: center;
       padding: 50px;

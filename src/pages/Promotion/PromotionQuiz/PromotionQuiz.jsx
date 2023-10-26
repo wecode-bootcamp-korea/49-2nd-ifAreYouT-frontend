@@ -34,7 +34,11 @@ const PromotionQuiz = () => {
   return (
     <div className="promotionQuiz">
       <div className="promotionQuizContainer">
-        <div className="promotionQuizTitle">Pre-Order Pass를 잡아라!</div>
+        <div className="promotionQuizTitle">
+          너가 좋아하는 아티스트! <br />
+          <br />
+          Quiz 풀고 선예매 기회를 잡아봐!
+        </div>
         {quizData.map((quizItem, index) => (
           <div className="quiz" key={index}>
             <div className="question">{quizItem.performerQuestion}</div>

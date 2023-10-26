@@ -6,6 +6,7 @@ const ProductDetailBottom = () => {
       <div className="noticeImg">
         <img src="/images/detailbottom.jpg" alt="공연 유의사항 이미지" />
         <img src="/images/detailbottomA.jpg" alt="가수 이미지" />
+        <img src="/images/detailbottomB.jpg" alt="공연장정보 이미지" />
       </div>
     </div>
   );

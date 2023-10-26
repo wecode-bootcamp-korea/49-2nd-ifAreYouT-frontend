@@ -15,6 +15,7 @@ const ProductDetailTop = () => {
     axios
       .get(`${HOST}/events/${id}`)
       .then(({ data }) => {
+        console.log('data', data);
         setData(data.data);
       })
       .catch(error => {
@@ -30,7 +31,7 @@ const ProductDetailTop = () => {
     }
 
     if (status !== 'merchantable') {
-      alert('팬 코드가 발급되지 않았습니다.');
+      alert('프리오더패스가 발급되지 않았습니다.');
 
       return;
     }
@@ -46,9 +47,6 @@ const ProductDetailTop = () => {
     stage,
     startDate,
     playTime,
-    seatS,
-    seatR,
-    seatA,
     seats,
     status,
     reactions,
@@ -76,18 +74,12 @@ const ProductDetailTop = () => {
             <div className="infoData">
               <div className="stage">{stage}</div>
               <div className="startDate">{startDate}</div>
-              <div className="playTime">{playTime}</div>
+              <div className="playTime">{playTime}분</div>
 
               <div className="price">
-                <div className="priceSeatS">
-                  S석 {`${seatS.toLocaleString()}원`}
-                </div>
-                <div className="priceSeatR">
-                  R석 {`${seatR.toLocaleString()}원`}
-                </div>
-                <div className="priceSeatA">
-                  A석 {`${seatA.toLocaleString()}원`}
-                </div>
+                <div className="priceSeatS">S석 {formatPrice(seats, 'S')} </div>
+                <div className="priceSeatR">R석 {formatPrice(seats, 'R')} </div>
+                <div className="priceSeatA">A석 {formatPrice(seats, 'A')} </div>
               </div>
               <div className="availableSeats">
                 {seats.map(seat => (
@@ -101,7 +93,7 @@ const ProductDetailTop = () => {
               </div>
               <div className="orderBtn">
                 <button className="orderButton" onClick={handleOrderClick}>
-                  예매하기!
+                  예매하기
                 </button>
               </div>
             </div>
@@ -118,3 +110,20 @@ const ProductDetailTop = () => {
 };
 
 export default ProductDetailTop;
+
+// 호이스팅;
+const formatPrice = (seats, grade) => {
+  const findSeat = seats.find(seat => seat.grade === grade);
+  if (findSeat) {
+    const priceNumeric = findSeat.price;
+    return priceNumeric.toLocaleString('ko-KR') + '원';
+  }
+  return '';
+};
+
+// const formatPrice = (seats, grade) => {
+//   const findSeat = seats.find(seat => seat.grade === grade); // null  or  {available   grade    price}
+//   if (findSeat) return findSeat.price;
+
+//   return '';
+// };
