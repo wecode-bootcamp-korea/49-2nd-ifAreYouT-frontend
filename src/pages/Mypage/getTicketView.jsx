@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useSearchParams } from 'react-router-dom';
+import { HOST } from '../../utils/variable';
 
 const GetTicketView = () => {
   const [state, setState] = useState([]);
-  const [seach, setSearch] = useSearchParams();
   useEffect(() => {
     axios
-      .get('http://10.58.52.125:8000/tickets', {
+      .get(`${HOST}/tickets`, {
         headers: {
-          Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTY5NzcxOTY0MiwiZXhwIjoxNzAwMzExNjQyfQ.zuVcbarIWTuPPBm7DvoaYRsKGFV8YJPK68fa2gztFeU',
+          Authorization: localStorage.getItem('token'),
         },
       })
       .then(res => {
-        console.log(res);
         setState(res.data.data);
       });
   }, []);

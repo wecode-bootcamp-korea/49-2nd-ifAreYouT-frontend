@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { HOST } from '../../utils/variable';
 import './NaverLogin.scss';
 
 const NaverLogin = () => {
@@ -11,10 +12,9 @@ const NaverLogin = () => {
   useEffect(() => {
     UrlName &&
       axios
-        .get(`http://10.58.52.96:4000/auth/naver/callback?code=${UrlName}`)
+        .get(`${HOST}/auth/naver/callback?code=${UrlName}`)
         .then(response => {
           if ((response.message = 'LOGIN_SUCCESS')) {
-            console.log('데이터:', response.data);
             localStorage.setItem('token', response.token);
             Navigate('/');
           }

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import SubmitButton from '../SubmitButton/SubmitButton';
+import { HOST } from '../../../utils/variable';
 import './PromotionQuiz.scss';
 
 const PromotionQuiz = () => {
@@ -12,8 +13,7 @@ const PromotionQuiz = () => {
   // 백엔드에서 퀴즈 데이터를 가져오는 useEffect
   useEffect(() => {
     axios
-      .get('/data/promotionData.json')
-      // .get(`http://10.58.52.157:8000/promotion/${id}`)
+      .get(`${HOST}/promotion/${id}`)
       .then(response => {
         setQuizData(response.data.data);
         // 사용자 응답을 초기화
@@ -26,12 +26,8 @@ const PromotionQuiz = () => {
 
   // 사용자 응답이 변경될 때 실행되는 함수
   const handleResponseChange = (index, response) => {
-    // 기존 응답 배열 복사
     const updatedResponses = [...ans];
-    // 해당 퀴즈의 응답을 업데이트
     updatedResponses[index] = response;
-    console.log(updatedResponses); //테스트 콘솔. 테스트 후 삭제
-    // 업데이트된 응답 배열을 저장
     setAns(updatedResponses);
   };
 

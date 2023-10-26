@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import GetTicketView from './getTicketView';
 import Like from './like';
 import PreBooking from './preBookingView';
@@ -9,23 +7,6 @@ import ViewTicketHistory from './ViewTicketHistory';
 import './mypage.scss';
 
 const Mypage = () => {
-  const [InfoResult, setInfoResult] = useState(false);
-  const [reservationData, setReservationData] = useState('');
-
-  // useEffect(() => {
-  //   axios
-  //     .get('http://10.58.52.125:8000/mypage', {
-  //       withCredentials: true,
-  //       headers: {
-  //         Authorization:
-  //           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTY5NzcxOTY0MiwiZXhwIjoxNzAwMzExNjQyfQ.zuVcbarIWTuPPBm7DvoaYRsKGFV8YJPK68fa2gztFeU',
-  //       },
-  //     })
-  //     .then(res => {
-  //       console.log(res);
-  //     });
-  // }, []);
-
   return (
     <div className="mypage">
       <div className="mypageContainer">
@@ -66,7 +47,7 @@ const Mypage = () => {
         <div className="userCheckedReservationContainer">
           <div className="userCheckedReservationTitle">예매확인</div>
           <div className="userCheckedReservationMain">
-            {/* <GetTicketView /> */}
+            <GetTicketView />
           </div>
         </div>
         <div className="otherThingsContainer">
@@ -74,7 +55,9 @@ const Mypage = () => {
             <div className="userThingsTitle">
               <span className="titleName">좋아요 한 공연</span>
             </div>
-            <div className="userThingsMain">{/* <Like /> */}</div>
+            <div className="userThingsMain">
+              <Like />
+            </div>
           </div>
           <div className="userThingsContainer">
             <div className="userThingsTitle">

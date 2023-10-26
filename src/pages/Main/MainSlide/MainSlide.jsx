@@ -8,17 +8,14 @@ const MainSlide = ({ navigate }) => {
     {
       id: 1,
       src: '/images/slide1.jpg',
-      // buttonText: '아이유 팬 퀴즈 풀기',
     },
     {
       id: 2,
       src: '/images/slide2.jpg',
-      // buttonText: '박효신 팬 퀴즈 풀기',
     },
     {
       id: 3,
       src: '/images/slide3.jpg',
-      // buttonText: '나얼 팬 퀴즈 풀기',
     },
   ];
 
@@ -50,12 +47,6 @@ const MainSlide = ({ navigate }) => {
               alt="프로모션 배너"
               onClick={() => clickSlide(image.id)}
             />
-            {/* <button
-              className="slideButton"
-              onClick={() => clickSlide(image.id)}
-            >
-              {image.buttonText}
-            </button> */}
           </div>
         ))}
       </Slider>

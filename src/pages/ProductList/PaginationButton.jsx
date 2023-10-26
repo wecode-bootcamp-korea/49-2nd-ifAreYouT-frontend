@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 const PaginationButton = ({ total, limit, page, setPage }) => {
   const numPages = Math.ceil(total / limit);
 

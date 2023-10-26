@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import { HOST } from '../../../utils/variable';
 import './ReactionButton.scss';
 
 const likeIcon = '../../images/like.png';
@@ -19,10 +20,10 @@ const ReactionButton = ({
   const [event, setEvent] = useState(num);
 
   const handleLikeClick = () => {
-    // if (!userToken) {
-    //   alert('로그인이 필요합니다.');
-    //   return;
-    // }
+    if (!userToken) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
 
     if (voted) {
       alert('이미 참여하셨습니다.');
@@ -35,13 +36,10 @@ const ReactionButton = ({
       eventId: event,
       reaction: 'exited',
     };
-
-    console.log('좋아요 버튼 클릭:', reactionData);
-
     setLikeCount(prevLikeCount => prevLikeCount + 1);
 
     axios
-      .put(`http://10.58.52.181:8000/events/reaction`, reactionData)
+      .put(`${HOST}/events/reaction`, reactionData)
       .then(response => {
         fetchProductDetailData();
         setVoted(true);
@@ -52,10 +50,10 @@ const ReactionButton = ({
   };
 
   const handleDislikeClick = () => {
-    // if (!userToken) {
-    //   alert('로그인이 필요합니다.');
-    //   return;
-    // }
+    if (!userToken) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
 
     if (voted) {
       alert('이미 참여하셨습니다.');
@@ -74,7 +72,7 @@ const ReactionButton = ({
     setUnlikeCount(prevUnlikeCount => prevUnlikeCount + 1);
 
     axios
-      .put(`http://10.58.52.181:8000/events/reaction`, reactionData)
+      .put(`${HOST}/events/reaction`, reactionData)
       .then(response => {
         fetchProductDetailData();
         setVoted(true);
@@ -86,7 +84,7 @@ const ReactionButton = ({
 
   return (
     <div className="reactionButton">
-      <div className="reactionButtonContainer"></div>
+      <div className="reactionButtonContainer" />
       <div className="btn" onClick={handleLikeClick}>
         <img src={likeIcon} alt="Like" />
       </div>
