@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './SignUp.scss';
 
@@ -28,7 +28,6 @@ const SignUp = () => {
       );
     }
   };
-  console.log(inputValue);
 
   return (
     <div className="signUp">

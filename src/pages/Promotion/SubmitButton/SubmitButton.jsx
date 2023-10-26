@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { HOST } from '../../../utils/variable';
 import './SubmitButton.scss';
 
 const SubmitButton = ({ userResponse, num }) => {
@@ -14,10 +15,9 @@ const SubmitButton = ({ userResponse, num }) => {
   };
 
   const handleSubmitButton = () => {
-    console.log(submitData);
     if (isLoggedIn) {
       axios
-        .post(`http://10.58.52.157:8000/promotion/${event}`, submitData)
+        .post(`${HOST}/promotion/${event}`, submitData)
         .then(response => {
           if (response.data === 'success') {
             // 백에서 보내주는 메세지

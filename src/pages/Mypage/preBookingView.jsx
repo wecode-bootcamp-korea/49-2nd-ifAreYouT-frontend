@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import axios from 'axios';
+import { HOST } from '../../utils/variable';
 
 const PreBooking = () => {
   const [state, setState] = useState([]);
@@ -8,14 +9,12 @@ const PreBooking = () => {
   const getParams = search.get('preorderPassesId');
   useEffect(() => {
     axios
-      .get('http://10.58.52.125:8000/preorder-pass', {
+      .get(`${HOST}/preorder-pass`, {
         headers: {
-          Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTY5NzcxOTY0MiwiZXhwIjoxNzAwMzExNjQyfQ.zuVcbarIWTuPPBm7DvoaYRsKGFV8YJPK68fa2gztFeU',
+          Authorization: localStorage.getItem('token'),
         },
       })
       .then(res => {
-        console.log(res);
         setState(res.data.data);
       });
   }, []);

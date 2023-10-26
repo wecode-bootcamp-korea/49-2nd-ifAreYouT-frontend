@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import axios from 'axios';
+import { HOST } from '../../utils/variable';
 
 const UserInfoUpdate = () => {
   const [state, setState] = useState([]);
@@ -9,7 +10,7 @@ const UserInfoUpdate = () => {
   useEffect(() => {
     axios
       .post(
-        `http://10.58.52.125:8000/users?userId=${getParams}`,
+        `${HOST}/users?userId=${getParams}`,
         {
           email: 'qwerty123@naver.com',
           nickname: '',
@@ -17,8 +18,7 @@ const UserInfoUpdate = () => {
         },
         {
           headers: {
-            Authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTY5NzcxOTY0MiwiZXhwIjoxNzAwMzExNjQyfQ.zuVcbarIWTuPPBm7DvoaYRsKGFV8YJPK68fa2gztFeU',
+            Authorization: localStorage.getItem('token'),
           },
         },
       )

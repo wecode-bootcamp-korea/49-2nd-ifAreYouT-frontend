@@ -41,7 +41,7 @@ const Header = () => {
       <div className="rightSide">
         {localStorage.getItem('token') ? (
           <div className="rightSideDetail">
-            <div>로그 아웃</div>
+            <div>로그아웃</div>
             <div>마이 페이지</div>
           </div>
         ) : (

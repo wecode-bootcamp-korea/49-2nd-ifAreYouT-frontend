@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import Select from 'react-select';
 
 function SelectBox({ limit, onLimitChange }) {
-  //   const [limit, setLimit] = useState(2);
   const options = [
     { value: 1, label: '1' },
     { value: 2, label: '2' },

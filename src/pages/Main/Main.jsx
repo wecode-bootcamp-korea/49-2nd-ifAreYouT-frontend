@@ -1,8 +1,9 @@
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import MainSlide from './MainSlide/MainSlide';
 import BestProduct from './BestProduct/BestProduct';
+import { HOST } from '../../utils/variable';
 import './Main.scss';
 
 const Main = () => {
@@ -12,8 +13,7 @@ const Main = () => {
 
   useEffect(() => {
     axios
-      // .get('/data/newData.json')
-      .get('http://10.58.52.181:8000/events/main')
+      .get(`${HOST}/events/main`)
       .then(response => {
         setEvents(response.data.data.events);
       })

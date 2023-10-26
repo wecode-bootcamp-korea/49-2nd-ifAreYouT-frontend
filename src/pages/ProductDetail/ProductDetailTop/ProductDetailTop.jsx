@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ReactionButton from '../ReactionButton/ReactionButton';
 import axios from 'axios';
+import { HOST } from '../../../utils/variable';
 import './ProductDetailTop.scss';
 
 const ProductDetailTop = () => {
@@ -12,8 +13,7 @@ const ProductDetailTop = () => {
 
   useEffect(() => {
     axios
-      .get('/data/productDetailData.json')
-      // .get(`http://10.58.52.181:8000/events/${id}`)
+      .get(`${HOST}/events/${id}`)
       .then(({ data }) => {
         setData(data.data);
       })
@@ -79,9 +79,15 @@ const ProductDetailTop = () => {
               <div className="playTime">{playTime}</div>
 
               <div className="price">
-                <div className="priceSeatS">S석 {formatPrice(seatS)} </div>
-                <div className="priceSeatR">R석 {formatPrice(seatR)} </div>
-                <div className="priceSeatA">A석 {formatPrice(seatA)} </div>
+                <div className="priceSeatS">
+                  S석 {`${seatS.toLocaleString()}원`}
+                </div>
+                <div className="priceSeatR">
+                  R석 {`${seatR.toLocaleString()}원`}
+                </div>
+                <div className="priceSeatA">
+                  A석 {`${seatA.toLocaleString()}원`}
+                </div>
               </div>
               <div className="availableSeats">
                 {seats.map(seat => (
@@ -112,15 +118,3 @@ const ProductDetailTop = () => {
 };
 
 export default ProductDetailTop;
-
-//호이스팅
-const formatPrice = price => {
-  if (price) {
-    const priceNumeric = parseInt(price.replace(/[^0-9]/g, ''));
-
-    if (!isNaN(priceNumeric)) {
-      return priceNumeric.toLocaleString('ko-KR') + '원';
-    }
-  }
-  return '';
-};

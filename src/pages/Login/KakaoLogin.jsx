@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { HOST } from '../../utils/variable';
 import './KakaoLogin.scss';
 
 const KakaoLogin = () => {
@@ -11,13 +12,12 @@ const KakaoLogin = () => {
   useEffect(() => {
     UrlName &&
       axios
-        .get(`http://10.58.52.179:8000/auth/kakao/callback?code=${UrlName}`)
+        .get(`${HOST}/auth/kakao/callback?code=${UrlName}`)
         .then(response => {
           if ((response.message = '로그인 성공!')) {
             localStorage.setItem('token', response.token);
             Navigate('/');
           }
-          console.log('데이터:', response.data);
         })
         .catch(error => {
           console.error('에러:', error);
