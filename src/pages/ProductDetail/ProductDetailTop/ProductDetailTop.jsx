@@ -12,8 +12,8 @@ const ProductDetailTop = () => {
 
   useEffect(() => {
     axios
-      // .get('/data/productDetailData.json')
-      .get(`http://10.58.52.181:8000/events/${id}`)
+      .get('/data/productDetailData.json')
+      // .get(`http://10.58.52.181:8000/events/${id}`)
       .then(({ data }) => {
         setData(data.data);
       })
