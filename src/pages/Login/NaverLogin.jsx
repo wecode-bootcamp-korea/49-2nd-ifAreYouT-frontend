@@ -13,8 +13,11 @@ const NaverLogin = () => {
       axios
         .get(`http://10.58.52.96:4000/auth/naver/callback?code=${UrlName}`)
         .then(response => {
-          if ((response.message = 'LOGIN_SUCCESS'))
+          if ((response.message = 'LOGIN_SUCCESS')) {
             console.log('데이터:', response.data);
+            localStorage.setItem('token', response.token);
+            Navigate('/');
+          }
         })
         .catch(error => {
           console.error('에러:', error);

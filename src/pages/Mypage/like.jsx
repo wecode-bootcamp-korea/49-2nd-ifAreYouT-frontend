@@ -26,8 +26,8 @@ const Like = () => {
   }
 
   return (
-    <div className="likeDiv">
-      <ul className="likeComment">
+    <div>
+      <ul className="comment">
         {state.length > 0 ? (
           state.map((item, index) => (
             <li className="reservationList" key={index}>

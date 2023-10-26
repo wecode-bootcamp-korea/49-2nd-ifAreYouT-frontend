@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PaginationButton from './PaginationButton';
 import Sort from './Sort';
@@ -7,6 +7,7 @@ import SelectBox from './SelectBox';
 import './ProductList.scss';
 
 const ProductList = () => {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [posts, setPosts] = useState([]);
   const [limit, setLimit] = useState(2);
@@ -37,6 +38,7 @@ const ProductList = () => {
         console.error('Error fetching data:', error);
       });
   }, []);
+  console.log('스테이트', posts);
 
   const sortPosts = sortByOption => {
     const sortedPosts = [...posts];
@@ -60,6 +62,10 @@ const ProductList = () => {
 
   const handleLimitChange = newLimit => {
     setLimit(newLimit);
+  };
+
+  const handleGotoDetail = () => {
+    navigate(`/product-detail/${posts.id}`);
   };
 
   const handleSearch = () => {
@@ -107,7 +113,7 @@ const ProductList = () => {
           <button onClick={handleSearch}>검색</button>
         </div>
 
-        <div className="productListMain">
+        <div className="productListMain" onClick={handleGotoDetail}>
           {posts.slice(offset, offset + limit).map(product => (
             <div className="productCard" key={product.id}>
               <div className="productImageDiv">

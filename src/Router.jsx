@@ -25,7 +25,7 @@ const Router = () => {
         <Route path="/login/naver" element={<NaverLogin />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/product-list" element={<ProductList />} />
-        <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/order" element={<Order />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/events/:id" element={<ProductDetail />} />

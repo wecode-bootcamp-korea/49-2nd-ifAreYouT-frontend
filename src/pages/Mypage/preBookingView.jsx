@@ -21,7 +21,7 @@ const PreBooking = () => {
   }, []);
   return (
     <div className="likeDiv">
-      <ul className="likeComment">
+      <ul className="comment">
         {state ? (
           state.map((item, index) => (
             <li className="reservationList" key={index}>
