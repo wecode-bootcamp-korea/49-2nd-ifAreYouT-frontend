@@ -51,7 +51,7 @@ const PromotionQuiz = () => {
                   checked={ans[index] === 1}
                   onChange={() => handleResponseChange(index, 1)}
                 />
-                응
+                TRUE
               </label>
               <label>
                 <input
@@ -61,7 +61,7 @@ const PromotionQuiz = () => {
                   checked={ans[index] === 0}
                   onChange={() => handleResponseChange(index, 0)}
                 />
-                아니야
+                FALSE
               </label>
             </div>
           </div>
