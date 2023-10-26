@@ -16,6 +16,7 @@
 
   .slick-slider {
     display: flex;
+    position: relative; /* 상대 위치 설정 */
   }
 
   .slick-track {
@@ -42,7 +43,8 @@
   }
 
   .slick-next {
-    left: 1360px;
+    position: absolute; /* 절대 위치 설정 */
+    left: 1370px;
     cursor: pointer;
   }
 
@@ -52,7 +54,6 @@
 
   .slick-slide img {
     width: 100%;
-    
   }
 
   .moreBtn {
