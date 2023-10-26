@@ -1,0 +1,33 @@
+        .kakaoLogin{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: 65px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: #F7E600;
+            margin-bottom: 10px;
+
+            .kakaoAtag{
+                display: flex;
+                flex-direction: row;
+                text-decoration: none;
+                outline: none;
+                .kakaoSpan{
+                    .kakaoImg{
+                        width: 62px;
+                        height: 50px;
+                        padding-right: 5px;
+                    }
+                }
+                .kakaoText{
+                    padding: 13px;
+                    color: black;
+                    font-size: 20px;
+                    font-family: sans-serif;
+                    font-weight: 700;
+                }
+            }
+        }

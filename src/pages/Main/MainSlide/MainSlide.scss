@@ -1,5 +1,6 @@
 .mainSlide {
-  position: relative;
+  position: flex;
+  justify-content: center;
   overflow: hidden;
   width: 100%;
   height: 300px;
@@ -51,6 +52,7 @@
 
   .slick-slide img {
     width: 100%;
+    
   }
 
   .moreBtn {

@@ -1,0 +1,70 @@
+.signUp{
+    background-color: black;
+    border: 1px solid red;
+    .signUpContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .phoneNumberContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+           
+            .introText{
+                color: #c08457;
+                margin-bottom: 25px;
+            }
+            .phoneNumberInput{
+                width: 350px;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                padding-left: 5px;
+            }
+            .inputValueBox{
+                color: white;
+                padding: 10px;
+            }
+            .valid {
+                color: white;
+                font-size: 16px;
+                font-weight: 500;
+                text-shadow: 0px -1px blue, 0px 1px   blue, 1px 0px   blue, 0px -1px   blue;
+              }
+              
+              .invalid {
+                color: white;
+                font-size: 16px;
+                font-weight: 500;
+                text-shadow: 0px -1px  red, 0px 1px   red, 1px 0px   red, 0px -1px   red;
+              }
+              .buttonInputDiv{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                .enterLogin{
+                    width: 85px;
+                    height: 30px;
+                    text-decoration: none;
+                    background-color: black;
+                    border: 1px solid white;
+                    border-radius: 10px;
+                    .confirmBtn{
+                        font-size: 18px;
+                        font-weight: 800;
+                        color: whitesmoke;
+                        text-shadow: 0px -1px  red, 0px 1px   red, 1px 0px   red, 0px -1px   red;
+                        &.disabled {
+                            color: white;
+                            cursor: not-allowed;
+                          }
+                }
+            }
+        }
+    }
+}
+}
