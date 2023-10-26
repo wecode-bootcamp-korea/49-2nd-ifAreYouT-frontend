@@ -1,0 +1,22 @@
+.QuizSubmitButton {
+  padding-top: 50px;
+  text-align: center;
+
+  .submitBtn {
+    padding: 25px 100px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    background-color: Red;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(229, 8, 21, 0.7);
+    }
+    &:disabled {
+      background-color: #f0f0f0;
+      color: grey;
+    }
+  }
+}
