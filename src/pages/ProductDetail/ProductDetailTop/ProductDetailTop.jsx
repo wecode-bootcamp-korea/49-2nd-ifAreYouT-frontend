@@ -8,7 +8,7 @@ const ProductDetailTop = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState({});
-  const isLoggedIn = !!localStorage.getItem('userToken');
+  const isLoggedIn = !!localStorage.getItem('token');
 
   useEffect(() => {
     axios

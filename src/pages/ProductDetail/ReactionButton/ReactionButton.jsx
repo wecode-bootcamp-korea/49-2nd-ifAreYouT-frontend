@@ -12,7 +12,7 @@ const ReactionButton = ({
   num,
 }) => {
   const { up, down } = reaction;
-  const userToken = localStorage.getItem('userToken');
+  const userToken = localStorage.getItem('token');
   const [voted, setVoted] = useState(hasVoted);
   const [likeCount, setLikeCount] = useState(up);
   const [unlikeCount, setUnlikeCount] = useState(down);
