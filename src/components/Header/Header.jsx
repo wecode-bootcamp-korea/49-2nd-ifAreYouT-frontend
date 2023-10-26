@@ -8,16 +8,12 @@ const Header = () => {
   };
   const goToList = e => {
     const { className } = e.target;
-    navigate(`/list`, {
+    navigate(`/product-list`, {
       state: className.split(' ')[0],
     });
   };
   const goToLogin = () => {
     navigate('/login');
-  };
-
-  const goToSignUp = () => {
-    navigate('/sign-up');
   };
 
   return (
@@ -51,7 +47,6 @@ const Header = () => {
         ) : (
           <div className="rightSideDetail">
             <div onClick={goToLogin}>로그인</div>
-            <div onClick={goToSignUp}>회원 가입</div>
           </div>
         )}
       </div>

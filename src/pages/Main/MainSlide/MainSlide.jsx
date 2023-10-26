@@ -5,12 +5,24 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './MainSlide.scss';
 
-const MainSlide = ({ promotions, navigate }) => {
-  const [mainSlideData, setMainSlideData] = useState(promotions);
-
-  useEffect(() => {
-    setMainSlideData(promotions);
-  }, [promotions]);
+const MainSlide = ({ navigate }) => {
+  const slideData = [
+    {
+      id: 1,
+      src: '/images/slide1.jpg',
+      // buttonText: '아이유 팬 퀴즈 풀기',
+    },
+    {
+      id: 2,
+      src: '/images/slide2.jpg',
+      // buttonText: '박효신 팬 퀴즈 풀기',
+    },
+    {
+      id: 3,
+      src: '/images/slide3.jpg',
+      // buttonText: '나얼 팬 퀴즈 풀기',
+    },
+  ];
 
   const clickSlide = id => {
     navigate(`/promotion/${id}`);
@@ -31,22 +43,24 @@ const MainSlide = ({ promotions, navigate }) => {
 
   return (
     <div className="mainSlide">
-      {mainSlideData.length === 0 ? (
-        <p>Loading...</p>
-      ) : (
-        <Slider {...settings}>
-          {mainSlideData.map(image => (
-            <div key={image.id} className="mainSlideContainer">
-              <img
-                className="img"
-                src={image.src}
-                alt="프로모션 배너"
-                onClick={() => clickSlide(image.id)}
-              />
-            </div>
-          ))}
-        </Slider>
-      )}
+      <Slider {...settings}>
+        {slideData.map(image => (
+          <div key={image.id} className="mainSlideContainer">
+            <img
+              className="img"
+              src={image.src}
+              alt="프로모션 배너"
+              onClick={() => clickSlide(image.id)}
+            />
+            {/* <button
+              className="slideButton"
+              onClick={() => clickSlide(image.id)}
+            >
+              {image.buttonText}
+            </button> */}
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };
