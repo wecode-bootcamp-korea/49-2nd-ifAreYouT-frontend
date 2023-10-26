@@ -1,24 +1,24 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 import OrderHeader from './OrderHeader/OrderHeader';
 import OrderMain from './OrderMain/OrderMain';
 import OrderFooter from './OrderFooter/OrderFooter';
-import { HOST, productInfo } from '../../utils/variable';
+import { HOST } from '../../utils/variable';
 import './Order.scss';
 
 const Order = () => {
   const [seatData, setSeatData] = useState([]);
   const grade = useRef();
-  const { current } = grade;
-  const mockLocation = productInfo;
+  const { state } = useLocation();
+  const { id } = useParams();
 
   useEffect(() => {
     axios
-      .get(`${HOST}/orders/seats?eventId=1`, {
+      .get(`${HOST}/orders/seats?eventId=${id}`, {
         headers: {
           'Content-Type': 'application/json',
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTY5NzcxOTUyNSwiZXhwIjoxNzAwMzExNTI1fQ.pPTp9onzdmC6UUlnGxGjFfIXINJeZU5eg57mzyxBhs8',
+          authorization: localStorage.getItem('token'),
         },
       })
       .then(res => {
@@ -27,7 +27,7 @@ const Order = () => {
         setSeatData(seats);
       })
       .catch(err => {});
-  }, []);
+  }, [id]);
 
   if (seatData.length === 0) {
     return null;
@@ -35,12 +35,13 @@ const Order = () => {
   return (
     <div className="order">
       <div className="orderContainer">
-        <OrderHeader detail={current} mockLocation={mockLocation} />
+        <OrderHeader detail={grade.current} state={state} />
         <OrderMain
+          id={id}
           seatData={seatData}
           setSeatData={setSeatData}
-          detail={current}
-          mockLocation={mockLocation}
+          detail={grade.current}
+          state={state}
         />
         <OrderFooter />
       </div>

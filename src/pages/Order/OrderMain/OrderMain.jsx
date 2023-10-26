@@ -2,10 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import SeatTable from './SeatTable/SeatTable';
 import SelectedSeatList from './SelectedSeatList/SelectedSeatList';
-import './OrderMain.scss';
 import { HOST } from '../../../utils/variable';
+import './OrderMain.scss';
 
-const OrderMain = ({ seatData, setSeatData, detail, mockLocation }) => {
+const OrderMain = ({ id, seatData, setSeatData, detail, state }) => {
   const navigate = useNavigate();
   const selectedSeats = seatData
     .map((el, idx) => (el.status === 'selected' ? idx : null))
@@ -23,21 +23,25 @@ const OrderMain = ({ seatData, setSeatData, detail, mockLocation }) => {
   );
 
   const goToPaymentSelection = () => {
-    axios.patch(
-      `${HOST}/orders/seats?eventId=1`,
-      {
-        timeId: 1,
-        seats,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MX0sImlhdCI6MTY5NzcxOTUyNSwiZXhwIjoxNzAwMzExNTI1fQ.pPTp9onzdmC6UUlnGxGjFfIXINJeZU5eg57mzyxBhs8',
+    axios
+      .patch(
+        `${HOST}/orders/seats?eventId=${id}`,
+        {
+          timeId: 1,
+          seats,
         },
-      },
-    );
-    navigate('/payment', { state: { mockLocation, selectedName, totalPrice } });
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: localStorage.getItem('token'),
+          },
+        },
+      )
+      .then(res => {
+        navigate(`/payment/?orderNumber=${res.orderNumber}`, {
+          state: { state, selectedName, totalPrice },
+        });
+      });
   };
 
   return (
