@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 30fr;
   grid-template-rows: 1fr 20fr;
-  padding: 2%;
+  padding: 30px 50px;
 
   .seatColumn30 {
     display: grid;
@@ -38,7 +38,7 @@
     }
 
     .seat {
-      width: 100%;
+      width: 90%;
       height: 100%x;
       border: 1px solid $Gray33;
 

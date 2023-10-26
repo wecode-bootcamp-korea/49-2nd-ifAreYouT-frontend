@@ -2,7 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PaymentMethod.scss';
 
-const PaymentMethod = ({ selectedName, totalPrice, productName }) => {
+const PaymentMethod = ({
+  selectedName,
+  totalPrice,
+  productName,
+  orderNumber,
+}) => {
   const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState('');
   const selectPaymentMethod = e => {
@@ -26,7 +31,7 @@ const PaymentMethod = ({ selectedName, totalPrice, productName }) => {
         pay_method: paymentMethod,
         name: productName,
         amount: totalPrice,
-        merchant_uid: 'ORD20231030-000131',
+        merchant_uid: orderNumber,
       },
       function (res) {
         const { success } = res;
@@ -34,7 +39,7 @@ const PaymentMethod = ({ selectedName, totalPrice, productName }) => {
           alert('결제가 취소 되었습니다.');
         } else if (success) {
           alert('결제가 완료 되었습니다.');
-          navigate('/complete-payment');
+          navigate(`/complete-payment?order-number=${orderNumber}`);
         }
       },
     );

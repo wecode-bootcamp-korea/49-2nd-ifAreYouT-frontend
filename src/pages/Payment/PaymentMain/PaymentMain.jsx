@@ -3,7 +3,7 @@ import NoticeTable from './NoticeTable/NoticeTable';
 import PaymentMethod from './PaymentMethod/PaymentMethod';
 import './PaymentMain.scss';
 
-const PaymentMain = ({ state }) => {
+const PaymentMain = ({ state, orderNumber }) => {
   const { mockLocation, selectedName, totalPrice } = state;
   const { productName, productImg, location, date } = mockLocation;
   const [years, month, dates, hours] = date.split('-');
@@ -27,6 +27,7 @@ const PaymentMain = ({ state }) => {
         selectedName={selectedName}
         totalPrice={totalPrice}
         productName={productName}
+        orderNumber={orderNumber}
       />
     </main>
   );

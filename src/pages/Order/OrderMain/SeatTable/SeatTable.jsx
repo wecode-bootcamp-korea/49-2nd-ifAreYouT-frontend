@@ -3,19 +3,28 @@ import {
   RESERVED,
   DISABLED,
   SELECTED,
-} from '../../../../components/variable';
+} from '../../../../utils/variable';
 import './SeatTable.scss';
 
 const SeatTable = ({ seatData, setSeatData }) => {
   const handleClick = idx => {
     const buttonState = [...seatData];
-    if (buttonState[idx].status === AVAILABLE) {
+    const seatStatus = buttonState[idx].status;
+    const numberOfSelectedSeats = buttonState.filter(
+      el => el.status === SELECTED,
+    ).length;
+
+    if (seatStatus === AVAILABLE && numberOfSelectedSeats === 10) {
+      alert('예매 가능한 최대 매수는 10매입니다.');
+    } else if (seatStatus === AVAILABLE && numberOfSelectedSeats < 10) {
       buttonState[idx].status = SELECTED;
-    } else if (buttonState[idx].status === SELECTED) {
+    } else if (seatStatus === SELECTED) {
       buttonState[idx].status = AVAILABLE;
     }
+
     setSeatData(buttonState);
   };
+
   const column = new Set(seatData.map(val => val.name.split('-')[1])).size;
   const row = new Set(seatData.map(val => val.name[0])).size;
   return (
@@ -45,8 +54,7 @@ const SeatTable = ({ seatData, setSeatData }) => {
       </div>
       <div className={`seatList column${column} row${row}`}>
         {seatData.map((seatInfo, idx) => {
-          const { seatId, status, seatGrade } = seatInfo;
-          const { grade } = seatGrade;
+          const { id, status, grade } = seatInfo;
           const selectColor = status === SELECTED ? SELECTED : `grade${grade}`;
           const evaluationStatus = status === RESERVED || status === DISABLED;
           const buttonColor = evaluationStatus ? RESERVED : selectColor;
@@ -54,7 +62,7 @@ const SeatTable = ({ seatData, setSeatData }) => {
           return (
             <input
               className={`seat ${buttonColor}`}
-              key={seatId}
+              key={id}
               type="Button"
               onClick={() => handleClick(idx)}
               disabled={evaluationStatus}
