@@ -2,7 +2,6 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 80px;
   position: sticky;
@@ -17,17 +16,20 @@
   .leftSide {
     display: flex;
     align-items: center;
-
-    .navButton {
+    padding-left: 20px;
+}
+.channelDiv{
+  display: flex;
+  flex-direction: row;
+  .navButton {
       font-size: 1.4rem;
-      margin: 10px;
+      margin-left: 75px;
       cursor: pointer;
     }
-  }
-
+}
   .rightSide {
     margin-right: 20px;
-
+    margin-left: 890px;
     .rightSideDetail {
       display: flex;
       gap: 20px;

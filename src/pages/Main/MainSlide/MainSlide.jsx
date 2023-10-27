@@ -7,15 +7,19 @@ const MainSlide = ({ navigate }) => {
   const slideData = [
     {
       id: 1,
-      src: '/images/slide1.jpg',
+      src: '/images/slide-6.jpeg',
     },
     {
       id: 2,
-      src: '/images/slide2.jpg',
+      src: '/images/slide-2.jpg',
     },
     {
       id: 3,
-      src: '/images/slide3.jpg',
+      src: '/images/slide-3.png',
+    },
+    {
+      id: 4,
+      src: '/images/slide-4.webp',
     },
   ];
 
@@ -24,16 +28,13 @@ const MainSlide = ({ navigate }) => {
   };
 
   const settings = {
-    arrows: true,
+    dots: true,
     infinite: true,
-    speed: 500,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
-    centerMode: true,
-    centerPadding: '0px',
-    useTransform: false,
+    autoplay: 10,
   };
 
   return (

@@ -46,4 +46,4 @@ export const productInfo = {
   date: '2023-10-28-19:00',
 };
 
-export const HOST = 'http://10.58.52.181:8000';
+export const HOST = 'http://10.58.52.243:8000';
