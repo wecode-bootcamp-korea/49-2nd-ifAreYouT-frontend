@@ -3,75 +3,39 @@
   justify-content: center;
   overflow: hidden;
   width: 100%;
-  height: 300px;
-
-  .slick-list {
-    position: absolute;
+  height: 520px;
+  .mainSlideContainer{
+    width:100%;
+    height:620px;
+    overflow:hidden;
+    margin:0 auto;
+  .img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+  }
+ .slick-list {
+    position:absolute;
+    justify-content: center;
+    text-align: center;
     width: 100%;
-    height: 370px;
+    height: 520px;
     margin: 0 auto;
     overflow: hidden;
-    top: -30px;
+    .img {
+    width: 1380px;
+    height: 100%;
+    margin: auto;
+    display: block;
   }
-
-  .slick-slider {
-    display: flex;
   }
-
   .slick-track {
     display: flex;
     height: 100%;
   }
 
   .slick-dots {
-    display: none !important;
-  }
-
-  .slick-arrow {
-    padding: 4px 6px;
-    transform: translate(30px, 150px);
-    background-color: transparent;
-    color: white;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-  .slick-prev {
-    cursor: pointer;
-    z-index: 100;
-  }
-
-  .slick-next {
-    left: 1360px;
-    cursor: pointer;
-  }
-
-  .slick-slide {
-    width: 100%;
-  }
-
-  .slick-slide img {
-    width: 100%;
-    
-  }
-
-  .moreBtn {
-    border: 1px solid black;
-    padding: 10px;
-    color: white;
-  }
-
-  .slideButton {
-    position: absolute;
-    top: 50%; // 화면 세로 중앙 위치
-    left: 50%; // 화면 가로 중앙 위치
-    transform: translate(-50%, -50%); // 중앙 정렬
-    background-color: white;
-    color: red;
-    padding: 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 10; // 다른 요소 위에 표시하도록 설정
+    display:flex;
   }
 }

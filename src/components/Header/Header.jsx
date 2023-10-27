@@ -25,17 +25,19 @@ const Header = () => {
           className="logo"
           onClick={goToHome}
         />
+      </div>
+      <div className="channelDiv">
         <div className="ballad navButton" onClick={goToList}>
-          발라드
+          <span>Ballad</span>
         </div>
         <div className="hiphop navButton" onClick={goToList}>
-          힙합
+          <span>HipHop</span>
         </div>
         <div className="jazz navButton" onClick={goToList}>
-          재즈
+          <span>Jazz</span>
         </div>
         <div className="idol navButton" onClick={goToList}>
-          아이돌
+          <span>Idol</span>
         </div>
       </div>
       <div className="rightSide">

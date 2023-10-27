@@ -9,7 +9,7 @@ const Like = () => {
   const getParams = search.get('reactionType');
   useEffect(() => {
     axios
-      .get(`${HOST}/events/likes?reactionType=exited`, {
+      .get(`${HOST}/likes?reactionType=exited`, {
         headers: {
           Authorization: localStorage.getItem('token'),
         },

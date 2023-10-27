@@ -13,6 +13,12 @@ import NotFound from './pages/NotFound/NotFound';
 import Promotion from './pages/Promotion/Promotion';
 import CompletePayment from './pages/CompletePayment/CompletePayment';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import { useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import axios from 'axios';
+import Test from './pages/Test/Test';
+import OAuth from './pages/Login/oath';
 
 const Router = () => {
   return (
@@ -21,7 +27,8 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/login/kakao" element={<KakaoLogin />} />
+        <Route path="/login/kakao1" element={<KakaoLogin />} />
+        <Route path="/login/kakao" element={<OAuth />} />
         <Route path="/login/naver" element={<NaverLogin />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/product-list" element={<ProductList />} />
@@ -35,6 +42,7 @@ const Router = () => {
         <Route path="/promotion/:id" element={<Promotion />} />
         <Route path="/complete-payment" element={<CompletePayment />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
